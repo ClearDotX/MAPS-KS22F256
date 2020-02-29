@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['taskeventhandle',['taskEventHandle',['../group__usb__host__controller__ehci.html#ac030f284623723527772f38c0b8c486e',1,'usb_host_ehci_instance_t']]],
+  ['testufibuffer',['testUfiBuffer',['../structusb__host__msd__command__instance__t.html#a4e7232e2de98e520cb63ee3c9a80229c',1,'usb_host_msd_command_instance_t']]],
+  ['timeoutlabel',['timeOutLabel',['../group__usb__host__controller__ehci.html#a9d89b0d4c5bbedd3c974a4f749cf98d5',1,'usb_host_ehci_qh_t']]],
+  ['timeoutvalue',['timeOutValue',['../group__usb__host__controller__ehci.html#a104d56a20f5cd97f1fabe04a4cf6a4b4',1,'usb_host_ehci_qh_t']]],
+  ['transactions',['transactions',['../group__usb__host__controller__ehci.html#aaa6e8a363d14f44809642e8ef45f6626',1,'usb_host_ehci_itd_t']]],
+  ['transfer',['transfer',['../group__usb__host__msc__drv.html#a85964686ee14711dbd624a5c7df2fc67',1,'usb_host_msd_command_t::transfer()'],['../group__usb__host__drv.html#af0ef069861c8a4558328594b5a928e85',1,'usb_host_cancel_param_t::transfer()']]],
+  ['transfer_5fcallback_5ft',['transfer_callback_t',['../group__usb__host__drv.html#gabafbefb64e0cdd5aa93946a4b6e5ce17',1,'usb_host.h']]],
+  ['transferbuffer',['transferBuffer',['../group__usb__host__drv.html#ac58b2798ef66e8c4114381e43987a045',1,'usb_host_transfer_t']]],
+  ['transferhead',['transferHead',['../group__usb__host__drv.html#a22957cbb31375a9fb6c0c960de28e978',1,'usb_host_instance_t']]],
+  ['transferlength',['transferLength',['../group__usb__host__drv.html#a7364f33f2672de83504d177677d62e85',1,'usb_host_transfer_t']]],
+  ['transferlist',['transferList',['../group__usb__host__drv.html#a58e4d1985f1e7c829abaced1654538aa',1,'usb_host_instance_t']]],
+  ['transferoverlayresults',['transferOverlayResults',['../group__usb__host__controller__ehci.html#adb174eeab38831f31e8208cce8826033',1,'usb_host_ehci_qh_t']]],
+  ['transferpipe',['transferPipe',['../group__usb__host__drv.html#a10ad210b4dec2e0247f84642dcd1bb82',1,'usb_host_transfer_t']]],
+  ['transferresults',['transferResults',['../group__usb__host__controller__ehci.html#a034574d0471375d08d25dbe127e78e9a',1,'usb_host_ehci_qtd_t::transferResults()'],['../group__usb__host__controller__ehci.html#a1cf50136abb1a17edb5024d653144d1d',1,'usb_host_ehci_sitd_t::transferResults()']]],
+  ['transfersofar',['transferSofar',['../group__usb__host__drv.html#a3d7367b25cabfdf70d43956e617f5311',1,'usb_host_transfer_t']]],
+  ['trstate',['trState',['../group__usb__host__controller__khci.html#a43909c7033149b6dcd432bc3551747a9',1,'usb_khci_host_state_struct_t']]],
+  ['tsamfreq',['tsamfreq',['../group__usb__host__audio__drv.html#a38db5187b011b5ee3a52b623462d71b2',1,'usb_audio_stream_format_type_desc_t']]],
+  ['txbd',['txBd',['../group__usb__host__controller__khci.html#a54d6eb1a6160399b3ab02f026f6b4eb7',1,'usb_khci_host_state_struct_t']]]
+];

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['base',['base',['../group__dspi__driver.html#gad3d8484f8b90a7e72a368647a725dd19',1,'dspi_rtos_handle_t::base()'],['../group__edma__driver.html#aac2e55c398c06eb64a7cd00b0d5dc6e3',1,'edma_handle_t::base()'],['../group__lpi2c__master__edma__driver.html#ac6dd926bb7b4cda0c335aa63af1af25e',1,'_lpi2c_master_edma_handle::base()'],['../group__lpi2c__driver.html#gab74abadab0d54b6eb1db08403721c728',1,'lpi2c_rtos_handle_t::base()'],['../group__smartcard__driver.html#a02bf88378f7d493a3fdda186438f4f9b',1,'smartcard_context_t::base()'],['../group__uart.html#ac5bbb81df9c93c195d060b5d7d418c60',1,'_uart_dma_handle::base()']]],
+  ['baudrate',['baudRate',['../group__dspi__driver.html#abc9dde7dd3b924290ecd6180f7a7e0cb',1,'dspi_master_ctar_config_t::baudRate()'],['../group__flexcan__driver.html#a19acff49da11171e316b5c02d08fe898',1,'flexcan_config_t::baudRate()']]],
+  ['baudrate_5fbps',['baudRate_Bps',['../group__flexio__i2c__master.html#a446dee2e270776aa6d462710e85b7454',1,'flexio_i2c_master_config_t::baudRate_Bps()'],['../group__flexio__spi.html#a6f95fac4a0afc21630b3837787bbb353',1,'flexio_spi_master_config_t::baudRate_Bps()'],['../group__flexio__uart.html#a082e38cf0edf524602d1d7a578949fd6',1,'flexio_uart_config_t::baudRate_Bps()'],['../group__lpuart.html#a09d359de28dc114424b2d702df014d1c',1,'lpuart_config_t::baudRate_Bps()'],['../group__uart.html#acc123668836f3432c54ee6a2f6f318f1',1,'uart_config_t::baudRate_Bps()']]],
+  ['baudrate_5fhz',['baudRate_Hz',['../group__lpi2c__master__driver.html#a2f8d353d1e637b082ad8ebe978a4d6b9',1,'lpi2c_master_config_t']]],
+  ['bclkpinindex',['bclkPinIndex',['../group__flexio__i2s.html#a44493afb565e4e8bf95e02c9cf6525be',1,'FLEXIO_I2S_Type']]],
+  ['bclksource',['bclkSource',['../group__sai.html#a156dc7868da25bfc262bfac4bd4499a1',1,'sai_config_t']]],
+  ['bclktimerindex',['bclkTimerIndex',['../group__flexio__i2s.html#af86182c86d08dea7625f3e2ecdec44c0',1,'FLEXIO_I2S_Type']]],
+  ['betweentransferdelayinnanosec',['betweenTransferDelayInNanoSec',['../group__dspi__driver.html#a8d900155157617487c5089a91c41c638',1,'dspi_master_ctar_config_t']]],
+  ['bgi',['BGI',['../group__smartcard__driver.html#a153bdad9489ec1c267193828c66c4bcb',1,'smartcard_card_params_t']]],
+  ['bitcountperchar',['bitCountPerChar',['../group__flexio__uart.html#a31835537405f9f15cd37a10b17211990',1,'flexio_uart_config_t']]],
+  ['biter',['BITER',['../group__edma__driver.html#a4c5331d08a6b43c9ebc15d41c5734140',1,'edma_tcd_t']]],
+  ['bitsperframe',['bitsPerFrame',['../group__dspi__driver.html#a935cc12276a643aac250e07b6fd26841',1,'dspi_master_ctar_config_t::bitsPerFrame()'],['../group__dspi__driver.html#a3ddbe384d7b4c256ced99ea6671ed73d',1,'dspi_slave_ctar_config_t::bitsPerFrame()'],['../group__dspi__driver.html#ae40ea7aebf40ae6a0ef39a2bc0c11979',1,'_dspi_master_handle::bitsPerFrame()'],['../group__dspi__driver.html#af17a0af7a2f6dfa4483302425ee26284',1,'_dspi_slave_handle::bitsPerFrame()'],['../group__dspi__edma__driver.html#aa34a1dcddc99d31bb4c4accfadd47783',1,'_dspi_master_edma_handle::bitsPerFrame()'],['../group__dspi__edma__driver.html#a384a28e5d1ab2e29bac6b3f707a5d603',1,'_dspi_slave_edma_handle::bitsPerFrame()']]],
+  ['bitwidth',['bitWidth',['../group__sai.html#ad4f8f19e4e01850841127ca7d0920302',1,'sai_transfer_format_t::bitWidth()'],['../group__sai.html#a6031e7b8e826009f5f2964b6a53bb66b',1,'_sai_handle::bitWidth()']]],
+  ['buf',['buf',['../group__lpi2c__master__driver.html#a54a8e0398a4a439336f677034a221e29',1,'_lpi2c_master_handle']]],
+  ['buff',['buff',['../group__smartcard__driver.html#a5247d9a46e7caade1b3c7d1b1495be58',1,'smartcard_xfer_t']]],
+  ['busclockfiltercount',['busClockFilterCount',['../group__rcm.html#ae6a09fe41cad54ed83f90b70287ad061',1,'rcm_reset_pin_filter_config_t']]],
+  ['busidletimeout_5fns',['busIdleTimeout_ns',['../group__lpi2c__master__driver.html#a936409ced864d404b3fdf0f66144ccd9',1,'lpi2c_master_config_t']]],
+  ['bwi',['BWI',['../group__smartcard__driver.html#ac636ca1c64904a9ac72e06af64bc8b5f',1,'smartcard_card_params_t']]],
+  ['bwtexpired',['bwtExpired',['../group__smartcard__driver.html#a847fd54ca26052f91c0e1f4051f77b1e',1,'smartcard_timers_state_t']]],
+  ['bypassprescaler',['bypassPrescaler',['../group__lptmr__driver.html#a3cbadd6a666cbd746c5add25fdf8e0ea',1,'lptmr_config_t']]],
+  ['byteperframe',['bytePerFrame',['../group__flexio__spi.html#ab0c81d09878eaff0b35189d7b7d4441a',1,'_flexio_spi_master_handle']]],
+  ['bytesperframe',['bytesPerFrame',['../group__flexio__i2s.html#abce133ef20f8dcb6e08d6d6b4583320b',1,'_flexio_i2s_dma_handle::bytesPerFrame()'],['../group__flexio__i2s.html#abd5c06ded3088c6359591a31379ad075',1,'_flexio_i2s_edma_handle::bytesPerFrame()'],['../group__sai.html#a49888eef7d2f2d4af5bbd45f04dc737c',1,'_sai_dma_handle::bytesPerFrame()'],['../group__sai.html#a999a7493ad74199568fa0ae9a1daba82',1,'_sai_edma_handle::bytesPerFrame()']]]
+];

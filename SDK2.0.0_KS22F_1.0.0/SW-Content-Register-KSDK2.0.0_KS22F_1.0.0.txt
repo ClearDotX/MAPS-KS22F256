@@ -1,0 +1,90 @@
+Release Name: Kinetis     2.0.0-KS22F_1.0.0
+Software Development
+Kit (SDK)
+Package - Kinetis SDK     
+
+CMSIS DSP Library         Description: A digital signal processing
+                          library for Cortex-M cores from ARM
+                          Version: 1.4.5 (CMSIS download 4.2)
+                          Author:  ARM
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          URL: http://silver.arm.com
+                          Location:
+                          KSDK2.0.0_KS22F_1.0.0/CMSIS/DSP_lib
+
+CMSIS Core header files   Description: Industry-standard header files
+                          distributed by ARM for Cortex-M cores
+                          Version: 4.30
+                          Author:  ARM
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          URL: http://silver.arm.com
+                          Location:
+                          KSDK2.0.0_KS22F_1.0.0/CMSIS/Include
+
+USB                       Description: Freescale USB stack.  This is
+                          a version of the USB stack that has been
+                          integrated with the Kinetis SDK.
+                          Author: Freescale
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          Location: KSDK2.0.0_KS22F_1.0.0/middleware/usb
+
+KSDK Peripheral Drivers   Description: Peripheral drivers are designed
+                          for the most common use cases identified for
+                          the underlying hardware block.
+                          Version: 2.0.0
+                          Author: Freescale
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          Location: KSDK2.0.0_KS22F_1.0.0/devices/MKS22F12/drivers
+
+FatFs                     Description: FatFs is a generic FAT file system
+                          module for small embedded systems.
+                          Version: R0.11a
+                          Author:  Electronic Lives Mfg. by ChaN of Ageo city,
+                          Japan (hobbyist)
+                          License: Open Source - FatFs License
+                          Approved Open Source License: Yes
+                          Format: source code
+                          URL: http://elm-chan.org/fsw/ff/00index_e.html
+                          Location: KSDK2.0.0_KS22F_1.0.0/middleware/fatfs
+
+uC/OS-II(R)               Description: A real-time operating system
+                          (RTOS) from Micrium
+                          Author: Micrium
+                          License: Proprietary. See
+                          LA_OPT_Base_License.htm,
+                          Appendix A, Micrium.
+                          Format: source code
+                          URL: http://micrium.com
+                          Location: 
+                          KSDK2.0.0_KS22F_1.0.0/rtos/ucosii
+                          KSDK2.0.0_KS22F_1.0.0/boards/mapsks22/rtos_examples/ucosii_hello
+                          KSDK2.0.0_KS22F_1.0.0/boards/mapsks22/usb/usb_device_hid_mouse/ucosii
+                          KSDK2.0.0_KS22F_1.0.0/boards/mapsks22/usb/usb_host_hid_mouse/ucosii
+
+uC/OS-III(R)              Description: A real-time operating system
+                          (RTOS) from Micrium
+                          Author: Micrium
+                          License: Proprietary. See
+                          LA_OPT_Base_License.htm,
+                          Appendix A, Micrium.
+                          Format: source code
+                          URL: http://micrium.com
+                          Location: 
+                          KSDK2.0.0_KS22F_1.0.0/rtos/ucosiii
+                          KSDK2.0.0_KS22F_1.0.0/boards/mapsks22/rtos_examples/ucosiii_hello
+                          KSDK2.0.0_KS22F_1.0.0/boards/mapsks22/usb/usb_device_hid_mouse/ucosiii
+                          KSDK2.0.0_KS22F_1.0.0/boards/mapsks22/usb/usb_host_hid_mouse/ucosiii
+
+FreeRTOS(tm)              Description: A real-time operating system
+                          (RTOS) from Real Time Engineers, Ltd.
+                          Author: Real Time Engineers, Ltd.
+                          License: Modified GPLv2.  See
+                          KSDK2.0.0_KS22F_1.0.0/rtos/freertos/License/license.txt
+                          Format: source code
+                          URL: http://www.freertos.org
+                          Location:
+                          KSDK2.0.0_KS22F_1.0.0/rtos/freertos

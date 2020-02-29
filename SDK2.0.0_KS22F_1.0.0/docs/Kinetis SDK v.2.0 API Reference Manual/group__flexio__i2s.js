@@ -1,0 +1,126 @@
+var group__flexio__i2s =
+[
+    [ "FLEXIO_I2S_Type", "group__flexio__i2s.html#structFLEXIO__I2S__Type", [
+      [ "flexioBase", "group__flexio__i2s.html#a17b7bf09a1a3f54afaf63e0e190927d2", null ],
+      [ "txPinIndex", "group__flexio__i2s.html#a84af0363647425d17fffb8d5555fbdd7", null ],
+      [ "rxPinIndex", "group__flexio__i2s.html#adbb4dced07edd10ea2a343e8309c93a7", null ],
+      [ "bclkPinIndex", "group__flexio__i2s.html#a44493afb565e4e8bf95e02c9cf6525be", null ],
+      [ "fsPinIndex", "group__flexio__i2s.html#a66345d47d6efdbe717ef86f072e900d2", null ],
+      [ "txShifterIndex", "group__flexio__i2s.html#ac239084e3f4e9accc07396ffe8d16834", null ],
+      [ "rxShifterIndex", "group__flexio__i2s.html#a3abf8ad23689e536ca16ef63ec461d21", null ],
+      [ "bclkTimerIndex", "group__flexio__i2s.html#af86182c86d08dea7625f3e2ecdec44c0", null ],
+      [ "fsTimerIndex", "group__flexio__i2s.html#af4ceb6fc780a851051a131dfc7174d25", null ]
+    ] ],
+    [ "flexio_i2s_config_t", "group__flexio__i2s.html#structflexio__i2s__config__t", [
+      [ "enableI2S", "group__flexio__i2s.html#a65f52d2761d26fc3b38ae8dfd2d85f1b", null ],
+      [ "masterSlave", "group__flexio__i2s.html#af23ab88febf5c71ed99eebe478152330", null ]
+    ] ],
+    [ "flexio_i2s_format_t", "group__flexio__i2s.html#structflexio__i2s__format__t", null ],
+    [ "flexio_i2s_dma_handle_t", "group__flexio__i2s.html#struct__flexio__i2s__dma__handle", [
+      [ "dmaHandle", "group__flexio__i2s.html#ac23119953215d1697aea96e233cb0c13", null ],
+      [ "bytesPerFrame", "group__flexio__i2s.html#abce133ef20f8dcb6e08d6d6b4583320b", null ],
+      [ "state", "group__flexio__i2s.html#af2a66e1bfb2f40e805ae47fa77ee15b6", null ],
+      [ "callback", "group__flexio__i2s.html#aa89b3cc07f2aa2ea982042cc9a128aba", null ],
+      [ "userData", "group__flexio__i2s.html#a30da1d3d77ea1fae291baf03b33036ab", null ],
+      [ "queue", "group__flexio__i2s.html#a69b0d0219463b19a52ad666a74270e39", null ],
+      [ "queueUser", "group__flexio__i2s.html#a56cb4926e36897c31e9d20b8810b5223", null ],
+      [ "queueDriver", "group__flexio__i2s.html#a20e1e9fe858a5b0a79a1cfe3db2585c2", null ]
+    ] ],
+    [ "flexio_i2s_edma_handle_t", "group__flexio__i2s.html#struct__flexio__i2s__edma__handle", [
+      [ "dmaHandle", "group__flexio__i2s.html#a12a2f2c760cbe15e7fb1f0951a0c7d9b", null ],
+      [ "bytesPerFrame", "group__flexio__i2s.html#abd5c06ded3088c6359591a31379ad075", null ],
+      [ "state", "group__flexio__i2s.html#a1914d6f6e3efa0da7924366c731ad11b", null ],
+      [ "callback", "group__flexio__i2s.html#a90f9cdd7736391eeb16a983b2644c0f8", null ],
+      [ "userData", "group__flexio__i2s.html#a34ceb56e6f77b98a7318c84166fe03df", null ],
+      [ "tcd", "group__flexio__i2s.html#aa8bbd32f95ed33f3c19038edffb4d347", null ],
+      [ "queue", "group__flexio__i2s.html#a8d7523f896a595c8e08b569fe48827eb", null ],
+      [ "queueUser", "group__flexio__i2s.html#a04c1f185a11c9e9004163b14eb510525", null ],
+      [ "queueDriver", "group__flexio__i2s.html#a8652d38a3a09641beee105cfb6d744c3", null ]
+    ] ],
+    [ "FLEXIO_I2S_XFER_QUEUE_SIZE", "group__flexio__i2s.html#ga16823ec3547c940091b4eccc87fb5847", null ],
+    [ "flexio_i2s_callback_t", "group__flexio__i2s.html#ga5ab500341d34539faaea54f985950046", null ],
+    [ "flexio_i2s_dma_callback_t", "group__flexio__i2s.html#gac1a3e40c177361e2b1f0ac7d82fa21fc", null ],
+    [ "flexio_i2s_edma_callback_t", "group__flexio__i2s.html#gac8ad14418234f5c3f326cad96b2c72d2", null ],
+    [ "_flexio_i2s_status", "group__flexio__i2s.html#ga651a92f02b82e40d7e8c468f9b4b5cc8", [
+      [ "kStatus_FLEXIO_I2S_Idle", "group__flexio__i2s.html#gga651a92f02b82e40d7e8c468f9b4b5cc8a78e5217077552655a4fbd4990ec5c311", null ],
+      [ "kStatus_FLEXIO_I2S_TxBusy", "group__flexio__i2s.html#gga651a92f02b82e40d7e8c468f9b4b5cc8a48d8c97ea4e46f6631429992f1814a7a", null ],
+      [ "kStatus_FLEXIO_I2S_RxBusy", "group__flexio__i2s.html#gga651a92f02b82e40d7e8c468f9b4b5cc8afc24c81bf7a6c092dc2ac0131739fb33", null ],
+      [ "kStatus_FLEXIO_I2S_Error", "group__flexio__i2s.html#gga651a92f02b82e40d7e8c468f9b4b5cc8a73c78f01390e990b4cc75cca203780a5", null ],
+      [ "kStatus_FLEXIO_I2S_QueueFull", "group__flexio__i2s.html#gga651a92f02b82e40d7e8c468f9b4b5cc8ae38ee4495779398804472d81dac37c3e", null ]
+    ] ],
+    [ "flexio_i2s_master_slave_t", "group__flexio__i2s.html#ga4251f1ee8699baaef1c7fd11b7f76782", [
+      [ "kFLEXIO_I2S_Master", "group__flexio__i2s.html#gga4251f1ee8699baaef1c7fd11b7f76782a07afd29192b090e4721733409c076924", null ],
+      [ "kFLEXIO_I2S_Slave", "group__flexio__i2s.html#gga4251f1ee8699baaef1c7fd11b7f76782a97fd81b843abe473a98104592b07573c", null ]
+    ] ],
+    [ "_flexio_i2s_interrupt_enable", "group__flexio__i2s.html#gaf0e63e900a6453d2dd803502dd84cb65", [
+      [ "kFLEXIO_I2S_TxDataRegEmptyInterruptEnable", "group__flexio__i2s.html#ggaf0e63e900a6453d2dd803502dd84cb65a1ef2aba36fa79d0d6c3137cbc396703f", null ],
+      [ "kFLEXIO_I2S_RxDataRegFullInterruptEnable", "group__flexio__i2s.html#ggaf0e63e900a6453d2dd803502dd84cb65ac5723570f50576ab3f106a8391e0836e", null ]
+    ] ],
+    [ "_flexio_i2s_status_flags", "group__flexio__i2s.html#ga84c013a838d7d135df49b1463e1a7d38", [
+      [ "kFLEXIO_I2S_TxDataRegEmptyFlag", "group__flexio__i2s.html#gga84c013a838d7d135df49b1463e1a7d38a19e09f8fa7b55c47396e2b1766675f35", null ],
+      [ "kFLEXIO_I2S_RxDataRegFullFlag", "group__flexio__i2s.html#gga84c013a838d7d135df49b1463e1a7d38a33dfc99c1e90d0e6b0e09964625405e2", null ]
+    ] ],
+    [ "flexio_i2s_sample_rate_t", "group__flexio__i2s.html#ga068da57c1c28f1630de3c6f98217af43", [
+      [ "kFLEXIO_I2S_SampleRate8KHz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43abdbb06784965d0befa972cf261bfe4e7", null ],
+      [ "kFLEXIO_I2S_SampleRate11025Hz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a971f9b7f81784ff181beeac3f185db27", null ],
+      [ "kFLEXIO_I2S_SampleRate12KHz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a10e640c145f0971cdb4af9831ed23d37", null ],
+      [ "kFLEXIO_I2S_SampleRate16KHz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a546954b43a4e8dd9d0ca58f327a2d814", null ],
+      [ "kFLEXIO_I2S_SampleRate22050Hz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a02a2091579d4685d9e7b8578a3f0bf63", null ],
+      [ "kFLEXIO_I2S_SampleRate24KHz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a1991d896745d99bcc1e03a0753ced4be", null ],
+      [ "kFLEXIO_I2S_SampleRate32KHz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a01854dae59bfbd8c27f0f5797fb2da28", null ],
+      [ "kFLEXIO_I2S_SampleRate44100Hz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a9c5fe1c399dedb54a3d142cda2fa9322", null ],
+      [ "kFLEXIO_I2S_SampleRate48KHz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a973959baadd2e2f5b42caeeb09831e9b", null ],
+      [ "kFLEXIO_I2S_SampleRate96KHz", "group__flexio__i2s.html#gga068da57c1c28f1630de3c6f98217af43a5d26aebf6a38300f5b365cbe84bac915", null ]
+    ] ],
+    [ "flexio_i2s_word_width_t", "group__flexio__i2s.html#gaa2f5f84d50951eb01a3eaa9ca30a61d3", [
+      [ "kFLEXIO_I2S_WordWidth8bits", "group__flexio__i2s.html#ggaa2f5f84d50951eb01a3eaa9ca30a61d3a7c48374533cf9da13e97c4140142df54", null ],
+      [ "kFLEXIO_I2S_WordWidth16bits", "group__flexio__i2s.html#ggaa2f5f84d50951eb01a3eaa9ca30a61d3a7b9f51780b4da157105774eb145b900e", null ],
+      [ "kFLEXIO_I2S_WordWidth24bits", "group__flexio__i2s.html#ggaa2f5f84d50951eb01a3eaa9ca30a61d3ad5f6e6d1944dc2eedb868d397eb47418", null ],
+      [ "kFLEXIO_I2S_WordWidth32bits", "group__flexio__i2s.html#ggaa2f5f84d50951eb01a3eaa9ca30a61d3aa605b9bea21a94a75d862dcc416d694b", null ]
+    ] ],
+    [ "FLEXIO_I2S_Init", "group__flexio__i2s.html#ga2e15edfb41b26c8b6c1172e59b4e5ca2", null ],
+    [ "FLEXIO_I2S_GetDefaultConfig", "group__flexio__i2s.html#ga63430c0096dd4f0efa0576b9f8d8e715", null ],
+    [ "FLEXIO_I2S_Deinit", "group__flexio__i2s.html#ga39a22e12f1f18ac14a018a3a26f2d6d5", null ],
+    [ "FLEXIO_I2S_Enable", "group__flexio__i2s.html#gac5e2d12ff598e8063622799bed7a7c07", null ],
+    [ "FLEXIO_I2S_GetStatusFlags", "group__flexio__i2s.html#ga6392f280ddddea41518ab6f17bc10cff", null ],
+    [ "FLEXIO_I2S_EnableInterrupts", "group__flexio__i2s.html#ga0cab52ff3cd5ee103cbc785d0982ee7a", null ],
+    [ "FLEXIO_I2S_DisableInterrupts", "group__flexio__i2s.html#gac82fba515a043339d8c131ebda348510", null ],
+    [ "FLEXIO_I2S_TxEnableDMA", "group__flexio__i2s.html#ga7163a1f52584f134fc328574ccc208d0", null ],
+    [ "FLEXIO_I2S_RxEnableDMA", "group__flexio__i2s.html#ga3542137bbd509b5657097f3e0aa2e4bf", null ],
+    [ "FLEXIO_I2S_TxGetDataRegisterAddress", "group__flexio__i2s.html#gaa407468114d14b18d58745464df5151f", null ],
+    [ "FLEXIO_I2S_RxGetDataRegisterAddress", "group__flexio__i2s.html#gabc9503a27418cb0e1110803853171fb1", null ],
+    [ "FLEXIO_I2S_SetFormat", "group__flexio__i2s.html#gaa2fa332cdafef1e8d3ce5a9171553062", null ],
+    [ "FLEXIO_I2S_WriteBlocking", "group__flexio__i2s.html#ga4e95f6b171cb9284219631f7e594bf8a", null ],
+    [ "FLEXIO_I2S_WriteData", "group__flexio__i2s.html#ga19b30ed9f8b1fc37675bc92cac35b871", null ],
+    [ "FLEXIO_I2S_ReadBlocking", "group__flexio__i2s.html#gae2a13e37d50d20292ef320e9d94011b5", null ],
+    [ "FLEXIO_I2S_ReadData", "group__flexio__i2s.html#ga87630cef372b980eb1c39cb339c432d0", null ],
+    [ "FLEXIO_I2S_TxCreateHandle", "group__flexio__i2s.html#ga174ae1529a6dc475e67d64351508eb6b", null ],
+    [ "FLEXIO_I2S_SetTransferFormat", "group__flexio__i2s.html#ga53b784fb3b89389c486c5a6764bf1642", null ],
+    [ "FLEXIO_I2S_RxCreateHandle", "group__flexio__i2s.html#ga60a691814c24c225574397436cd7528d", null ],
+    [ "FLEXIO_I2S_SendNonBlocking", "group__flexio__i2s.html#ga7b8f71fb20fda65c34c7613a132a5b72", null ],
+    [ "FLEXIO_I2S_ReceiveNonBlocking", "group__flexio__i2s.html#ga54cc18a0e876285e7c38f3295c51ea07", null ],
+    [ "FLEXIO_I2S_AbortSend", "group__flexio__i2s.html#ga26d5925e7baa22d45886e648e1a40f1c", null ],
+    [ "FLEXIO_I2S_AbortReceive", "group__flexio__i2s.html#gacab3eb5e77ec1b7698dc25fef13f9ba6", null ],
+    [ "FLEXIO_I2S_GetSendRemainingBytes", "group__flexio__i2s.html#ga6b746e6a37ba703e7135a232fed84815", null ],
+    [ "FLEXIO_I2S_GetReceiveRemainingBytes", "group__flexio__i2s.html#gaab0012cfc735edc3bf184028849fd34f", null ],
+    [ "FLEXIO_I2S_TxHandleIRQ", "group__flexio__i2s.html#ga91b5e123bec3deb002177e32751cb7e7", null ],
+    [ "FLEXIO_I2S_RxHandleIRQ", "group__flexio__i2s.html#ga9956c0a7e32e2f0d4382e8d806634c19", null ],
+    [ "FLEXIO_I2S_TxCreateHandleDMA", "group__flexio__i2s.html#gae33da87f5e406f1c1b7cc6e93853be50", null ],
+    [ "FLEXIO_I2S_RxCreateHandleDMA", "group__flexio__i2s.html#ga49031b328ef191be3e2e3b4f2d8ef067", null ],
+    [ "FLEXIO_I2S_SetTransferFormatDMA", "group__flexio__i2s.html#ga0297160aff5372a0b224e8187f3e8c65", null ],
+    [ "FLEXIO_I2S_SendDMA", "group__flexio__i2s.html#gac06d233b54dc6abb508613afa845d033", null ],
+    [ "FLEXIO_I2S_ReceiveDMA", "group__flexio__i2s.html#ga7c946ee4e94c907ed4d3592e6090dc2a", null ],
+    [ "FLEXIO_I2S_AbortSendDMA", "group__flexio__i2s.html#gacb87bd9397cd97197f2de8e01846c44b", null ],
+    [ "FLEXIO_I2S_AbortReceiveDMA", "group__flexio__i2s.html#ga05f9e589e22bf1c191cc9576e28924f9", null ],
+    [ "FLEXIO_I2S_GetSendRemainingBytesDMA", "group__flexio__i2s.html#ga5c2e77fe0620cefc183d34e9f27f2314", null ],
+    [ "FLEXIO_I2S_GetReceiveRemainingBytesDMA", "group__flexio__i2s.html#ga09bac7155a8ff4df051deb2b1feaa176", null ],
+    [ "FLEXIO_I2S_TxCreateHandleEDMA", "group__flexio__i2s.html#ga666ea84c56787dfee14c5cd653b02951", null ],
+    [ "FLEXIO_I2S_RxCreateHandleEDMA", "group__flexio__i2s.html#gadf5e5574c3855c4fcba35818fb6e84e3", null ],
+    [ "FLEXIO_I2S_SetTransferFormatEDMA", "group__flexio__i2s.html#ga314449a318a72ba4b6e0d91c09127095", null ],
+    [ "FLEXIO_I2S_SendEDMA", "group__flexio__i2s.html#ga2a7075182ef11aa4684bcff3c4ae2c9e", null ],
+    [ "FLEXIO_I2S_ReceiveEDMA", "group__flexio__i2s.html#ga5bb98cb39b2bf6524bbf24ee81b426c2", null ],
+    [ "FLEXIO_I2S_AbortSendEDMA", "group__flexio__i2s.html#gaf3407f86faaa598241e46984b5528dcd", null ],
+    [ "FLEXIO_I2S_AbortReceiveEDMA", "group__flexio__i2s.html#ga9487a6190eb3ec7ff2001b3668f395f6", null ],
+    [ "FLEXIO_I2S_GetSendRemainingBytesEDMA", "group__flexio__i2s.html#ga8c176ca553544f8ba316e716a6880648", null ],
+    [ "FLEXIO_I2S_GetReceiveRemainingBytesEDMA", "group__flexio__i2s.html#gad60ae265f6593a943e5b421aa81e45c6", null ]
+];

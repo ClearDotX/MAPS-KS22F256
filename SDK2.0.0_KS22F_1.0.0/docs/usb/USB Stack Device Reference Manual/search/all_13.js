@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['t0',['t0',['../group__usb__device__ccid__drv.html#ad61510b85fbb627f7ccbeebfffd9822f',1,'usb_device_ccid_set_parameters_command_common_t::t0()'],['../group__usb__device__ccid__drv.html#aaba023ebb6d3ec4cae8091ef9227b3bf',1,'usb_device_ccid_parameters_response_common_t::t0()']]],
+  ['t1',['t1',['../group__usb__device__ccid__drv.html#a082c3f1f75131de038e37fb27b6b640f',1,'usb_device_ccid_set_parameters_command_common_t::t1()'],['../group__usb__device__ccid__drv.html#a4f4f5e8729a99730018ef289462393e6',1,'usb_device_ccid_parameters_response_common_t::t1()']]],
+  ['tag',['tag',['../group__usb__msc.html#a95346e11a81b221f8b669e4b414b32b1',1,'usb_device_msc_cbw_t::tag()'],['../group__usb__msc.html#a2d2bb31fb617e93f43f9e073a9771d01',1,'usb_device_msc_csw_t::tag()']]],
+  ['testufibuffer',['testUfiBuffer',['../structusb__host__msd__command__instance__t.html#a4e7232e2de98e520cb63ee3c9a80229c',1,'usb_host_msd_command_instance_t']]],
+  ['thirteencase',['thirteenCase',['../group__usb__msc.html#a535460d0ee0e5fb549b3b321c92a31e0',1,'usb_device_msc_ufi_struct_t']]],
+  ['totallbanumbersupports',['totalLbaNumberSupports',['../group__usb__msc.html#a229145289967fc94393f90d8bc3d095b',1,'usb_device_lba_information_struct_t']]],
+  ['totallogicalblocknumber',['totalLogicalBlockNumber',['../group__usb__msc.html#a21ad0f38f9276b2b547bd7b36b4addab',1,'usb_device_msc_struct_t']]],
+  ['transferbuffer',['transferBuffer',['../group__usb__device__controller__khci__driver.html#a4a57a3d4c61a06fe484f231746e9814e',1,'usb_device_khci_endpoint_state_struct_t']]],
+  ['transfercount',['transferCount',['../structusb__shim__rx__data__struct__t.html#acabb5428c3c29d2a7d05615a7b80576c',1,'usb_shim_rx_data_struct_t']]],
+  ['transferdone',['transferDone',['../group__usb__device__controller__khci__driver.html#a1c49477e71055eb27a3ed3dc2de8f867',1,'usb_device_khci_endpoint_state_struct_t']]],
+  ['transferfree',['transferFree',['../group__usb__device__ccid__drv.html#a72fa953ca8f0609b79a9bb60974f200c',1,'usb_device_ccid_struct_t']]],
+  ['transferhead',['transferHead',['../group__usb__device__ccid__drv.html#aebc503af63a68a12b787e473aa7ba660',1,'usb_device_ccid_struct_t']]],
+  ['transferlength',['transferLength',['../group__usb__device__controller__khci__driver.html#ae32a3bbae5e8345c67c7ad91bfd16d49',1,'usb_device_khci_endpoint_state_struct_t']]],
+  ['transferlengthlsb',['transferLengthLsb',['../group__msc__ufi.html#a081c7ae3db7be0e37012b429f07c1f67',1,'usb_device_read_write_10_command_struct_t']]],
+  ['transferlengthmsb',['transferLengthMsb',['../group__msc__ufi.html#afabb8aaf7e54c042ff3b9a13aa705082',1,'usb_device_read_write_10_command_struct_t']]],
+  ['transfernumber',['transferNumber',['../group__usb__msc.html#a771220b2d746daa2c5fc420f3f249e99',1,'usb_lba_transfer_information_struct_t']]],
+  ['transferremaining',['transferRemaining',['../group__usb__msc.html#a94379a52f5a4532624d62d9afb62ae59',1,'usb_device_msc_struct_t']]],
+  ['transferring',['transferring',['../group__usb__device__controller__khci__driver.html#a37fa7b4412b6070300ffc44af0ea80f8',1,'usb_device_khci_endpoint_state_struct_t']]],
+  ['transfers',['transfers',['../group__usb__device__ccid__drv.html#a14027e17fc127b20ead258aa2e052441',1,'usb_device_ccid_struct_t']]],
+  ['transfersize',['transferSize',['../structusb__shim__application__data__struct__t.html#ae71931ded8d6e54265492bcc85d036ef',1,'usb_shim_application_data_struct_t']]],
+  ['transfertype',['transferType',['../group__usb__device__class__driver.html#a96f1fad7ccbdc00aaa61f780b4fcd84d',1,'usb_device_endpoint_struct_t::transferType()'],['../group__usb__device__driver.html#a42f8c112524b1b7aa13aea924ff7937e',1,'usb_device_endpoint_init_struct_t::transferType()']]],
+  ['type',['type',['../group__usb__device__class__driver.html#a96d29728ea953a9157d3f81fa7a82a59',1,'usb_device_class_struct_t::type()'],['../group__usb__device__class__driver.html#a1e99276994d55dbb2485053c3e8c063d',1,'usb_device_class_map_t::type()']]]
+];
