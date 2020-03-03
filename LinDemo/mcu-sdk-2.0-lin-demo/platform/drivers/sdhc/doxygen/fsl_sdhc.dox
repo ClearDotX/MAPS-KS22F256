@@ -1,0 +1,176 @@
+/*!
+@defgroup SDHC Secured digital host controller (SDHC)
+@details The SDK provides driver for the Inter-Integrated Circuit (SDHC)
+         module of Kinetis devices.
+@{
+*/
+/*!
+
+# Function groups
+
+## Initialization and deinitialization {#SDHCInitDeInit}
+
+This function group implement SDHC initialization and deinitialization API.
+
+## Bus Operations {#SDHCBusOperation}
+
+This function group implement SDHC bus operation API.
+
+## DMA Control {#SDHCDmaControl}
+
+This function group implement SDHC DMA control API.
+
+## Interrupts {#SDHCInterrupt}
+
+This function group implement SDHC interrupt control API.
+
+## Status {#SDHCStatus}
+
+This function group implement SDHC Status get/clear API.
+
+## Transactional {#SDHCTransactional}
+
+This function group implement SDHC transactional API.
+
+# Typical use case
+
+## SDHC Operation {#SDHCOperation}
+
+~~~~~{.c}
+    /* Data block accessed in card. */
+    #define DATA_BLOCK_COUNT 5U
+    #define DATA_BLOCK_START 2U
+
+    /* ADMA table length united as word.
+    One ADMA1 table item occupy one word which can transfer maximum 0xFFFFU bytes one time.
+    One ADMA2 table item occupy two words which can transfer maximum 0xFFFFU bytes one time.
+    The more data to be transferred in one time, the bigger value of SDHC_ADMA_TABLE_WORDS need to be set.
+    */
+    #define SDHC_ADMA_TABLE_WORDS 8U
+    
+    /* Card detect flag. */
+    static volatile uint32_t g_sdInsertedFlag = 0U;
+
+    /* State in SDHC driver. */
+    uint32_t g_sdhcAdmaTable[SDHC_ADMA_TABLE_WORDS] = {0U};
+    sdhc_handle_t g_sdhcHandle = {0U};
+
+    /* State in Card driver. */
+    sd_card_t g_sd = {0U};
+    sdhc_config_t g_sdhcConfig = {0U};
+
+    uint8_t g_dataWrite[FSL_SDMMC_DEFAULT_BLOCK_SIZE * DATA_BLOCK_COUNT]; /* Data written to the card */
+    uint8_t g_dataRead[FSL_SDMMC_DEFAULT_BLOCK_SIZE * DATA_BLOCK_COUNT];  /* Data read from the card */
+    
+    /* Initializes SDHC. */
+    g_sdhcConfig.cardDetectDat3 = false;
+    g_sdhcConfig.endianMode = kSDHC_EndianModeLittle;
+    g_sdhcConfig.dmaMode = kSDHC_DmaModeAdma2;
+    g_sdhcConfig.readWatermarkLevel = 0x80U;
+    g_sdhcConfig.writeWatermarkLevel = 0x80U;
+    SDHC_Init(base, &g_sdhcConfig);
+
+    /* Creates handle for SDHC driver */
+    SDHC_CreateHandle(&g_sdhcHandle, base, g_sdhcAdmaTable, SDHC_ADMA_TABLE_WORDS);
+
+    /* Fills state in card driver. */
+    card->sdhcBase = base;
+    card->sdhcSourceClock = CLOCK_GetFreq(BOARD_SDHC_CLKSRC);
+    card->sdhcConfig = &g_sdhcConfig;
+    card->sdhcTransfer = sdhc_transfer;
+    
+    /* Init card. */
+    if (SD_Init(card))
+    {
+        PRINTF("\n SD card init failed \n");
+        return -1;
+    }
+
+    PRINTF("\r\n Reads/Writes the card continuously untile encounters error.... \r\n");
+
+    /* Checks if card is readonly. */
+    isReadOnly = SD_CheckReadOnly(card);
+
+    if (isReadOnly)
+    {
+        while (true)
+        {
+            /* Single block read. */
+
+            if (kStatus_Success != SD_ReadBlocks(card, g_dataRead, DATA_BLOCK_START, 1U))
+            {
+                PRINTF("\n Reads blocks failed \n");
+                break;
+            }
+
+            /* Multiple blocks read. */
+            if (kStatus_Success != SD_ReadBlocks(card, g_dataRead, DATA_BLOCK_START, DATA_BLOCK_COUNT))
+            {
+                PRINTF("\n Reads blocks failed \n");
+                break;
+            }
+        }
+    }
+    else
+    {
+        memset(g_dataWrite, 0x67U, sizeof(g_dataWrite));
+
+        while (true)
+        {
+            /* Single block read/write */
+            if (kStatus_Success != SD_WriteBlocks(card, g_dataWrite, DATA_BLOCK_START, 1U))
+            {
+                PRINTF("\n Writes blocks failed \n");
+                break;
+            }
+
+            memset(g_dataRead, 0U, sizeof(g_dataRead));
+
+            if (kStatus_Success != SD_ReadBlocks(card, g_dataRead, DATA_BLOCK_START, 1U))
+            {
+                PRINTF("\n Reads blocks failed \n");
+                break;
+            }
+
+            if (memcmp(g_dataRead, g_dataWrite, FSL_SDMMC_DEFAULT_BLOCK_SIZE))
+            {
+                PRINTF("\n Compares blocks failed \n");
+                break;
+            }
+
+            /* Multiple blocks read/write. */
+            if (kStatus_Success != SD_WriteBlocks(card, g_dataWrite, DATA_BLOCK_START, DATA_BLOCK_COUNT))
+            {
+                PRINTF("\n Writes blocks failed \n");
+                break;
+            }
+
+            memset(g_dataRead, 0U, sizeof(g_dataRead));
+
+            if (kStatus_Success != SD_ReadBlocks(card, g_dataRead, DATA_BLOCK_START, DATA_BLOCK_COUNT))
+            {
+                PRINTF("\n Reads blocks failed \n");
+                break;
+            }
+
+            if (memcmp(g_dataRead, g_dataWrite, (FSL_SDMMC_DEFAULT_BLOCK_SIZE * DATA_BLOCK_COUNT)))
+            {
+                PRINTF("\n Compares blocks failed \n");
+                break;
+            }
+
+            /* Erases multiple blocks. */
+            if (kStatus_Success != SD_EraseBlocks(card, DATA_BLOCK_START, DATA_BLOCK_COUNT))
+            {
+                PRINTF("\n Erases blocks failed \n");
+                break;
+            }
+        }
+    }
+
+    SD_DeInit(card);
+~~~~~
+
+*/
+/*! @} */
+

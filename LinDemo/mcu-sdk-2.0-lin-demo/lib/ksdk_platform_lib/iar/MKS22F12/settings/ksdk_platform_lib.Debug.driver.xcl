@@ -1,0 +1,19 @@
+"--endian=little" 
+
+"--cpu=Cortex-M4" 
+
+"--fpu=VFPv4_SP" 
+
+"-p" 
+
+"D:\Program Files\IAR Systems\Embedded Workbench 7.3\arm\CONFIG\debugger\Freescale\MKS22FN256xxx12.ddf" 
+
+"--semihosting" 
+
+"--device=MKS22FN256xxx12" 
+
+"--multicore_nr_of_cores=1" 
+
+
+
+

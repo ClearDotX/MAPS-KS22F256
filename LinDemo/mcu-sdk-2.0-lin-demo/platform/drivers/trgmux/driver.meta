@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.trgmux.support" requires="devices.modules.D_IP_TRGMUX_SYN_5"/>    <component name="platform.drivers.trgmux"              description="TRGMUX Driver"             requires="platform.drivers.trgmux.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_trgmux.c"/>
+        <files mask="fsl_trgmux.h"/>      </source>    </component>  </components></metadata>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<metadata>
+  <components>
+    <component name="platform.utilities.debug_console" provides="platform.utilities">
+      <source path="./">
+        <files mask="*.c"/>
+        <files mask="*.h"/>
+      </source>
+    </component>
+  </components>
+</metadata>

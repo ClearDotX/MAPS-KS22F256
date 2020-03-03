@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.ewm.support" requires="devices.modules.D_IP_EWM_SYN_017"/>    <component name="platform.drivers.ewm"              description="EWM Driver"             requires="platform.drivers.ewm.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_ewm.c"/>
+        <files mask="fsl_ewm.h"/>      </source>    </component>  </components></metadata>

@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.dma.support" requires="devices.modules.D_IP_DMA_CH_MUX_SYN_030"/>    <component name="platform.drivers.dma.support" requires="devices.modules.D_IP_DMA_CH_MUX_SYN_031"/>    <component name="platform.drivers.dma.support" requires="devices.modules.D_IP_DMA_CH_MUX_SYN_033"/>    <component name="platform.drivers.dma"              description="DMA Driver"             requires="platform.drivers.dma.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_dma.c"/>
+        <files mask="fsl_dma.h"/>      </source>    </component>  </components></metadata>

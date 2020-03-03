@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.mmdvsq.support" requires="devices.modules.D_IP_AHB_MMDVSQ_SYN_1"/>    <component name="platform.drivers.mmdvsq"              description="MMDVSQ Driver"             requires="platform.drivers.mmdvsq.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_mmdvsq.c"/>
+        <files mask="fsl_mmdvsq.h"/>      </source>    </component>  </components></metadata>

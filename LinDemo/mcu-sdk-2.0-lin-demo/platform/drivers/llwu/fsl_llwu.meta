@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.llwu.support" requires="devices.modules.D_IP_LLWU_SYN_012"/>    <component name="platform.drivers.llwu.support" requires="devices.modules.D_IP_LLWU_SYN_014"/>    <component name="platform.drivers.llwu.support" requires="devices.modules.D_IP_LLWU_SYN_018"/>    <component name="platform.drivers.llwu"              description="LLWU Driver"             requires="platform.drivers.llwu.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_llwu.c"/>
+        <files mask="fsl_llwu.h"/>      </source>    </component>  </components></metadata>

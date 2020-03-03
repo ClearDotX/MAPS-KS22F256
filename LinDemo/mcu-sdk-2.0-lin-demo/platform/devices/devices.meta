@@ -1,0 +1,10 @@
+<!-- This file is maintained by board support author -->
+<metadata>
+  <components>
+    <component name="platform.devices" requires="platform.devices.device">
+      <source path="./">
+        <files mask="fsl_device_registers.h"/>
+      </source>
+    </component>
+  </components>
+</metadata>

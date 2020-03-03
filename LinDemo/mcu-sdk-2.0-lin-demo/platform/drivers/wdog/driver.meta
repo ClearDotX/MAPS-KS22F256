@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.wdog.support" requires="devices.modules.D_IP_Gen2008_WDOG_SYN_11"/>    <component name="platform.drivers.wdog.support" requires="devices.modules.D_IP_WDG_SYN_16"/>    <component name="platform.drivers.wdog"              description="WDOG Driver"             requires="platform.drivers.wdog.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_wdog.c"/>
+        <files mask="fsl_wdog.h"/>      </source>    </component>  </components></metadata>

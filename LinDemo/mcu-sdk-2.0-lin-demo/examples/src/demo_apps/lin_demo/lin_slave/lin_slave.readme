@@ -1,0 +1,5 @@
+Overview
+========
+The Hello World project is a simple demonstration program that uses the SDK software.  It prints
+the "Hello World" message to the terminal using the SDK UART drivers. The purpose of this demo is
+to show how to use the UART and to provide a simple project for debugging and further development.

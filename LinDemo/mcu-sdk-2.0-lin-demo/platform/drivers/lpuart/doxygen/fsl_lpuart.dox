@@ -1,0 +1,44 @@
+/*!
+@defgroup lpuart Universal Asynchronous Receiver/Transmitter (LPUART)
+@details The SDK provides driver for the Inter-Integrated Circuit (LPUART)
+         module of Kinetis devices.
+@{
+*/
+/*!
+
+# Function groups
+
+## LPUART functional Operation {#LPUARTFunctional}
+
+This function group implement LPUART functional API.
+
+## LPUART transactional Operation {#LPUARTtransactional}
+
+This function group implement LPUART transactional API.
+
+## LPUART DMA transactional Operation {#LPUARTtransactional}
+
+This function group implement LPUART DMA transactional API.
+
+# Typical use case
+
+## LPUART Operation {#LPUARTOperation}
+
+~~~~~{.c}
+    uint8_t ch;
+    LPUART_GetDefaultConfig(&user_config);
+    user_config.baudRate = 115200U;
+    
+    LPUART_Init(LPUART1,&user_config,120000000U);
+    
+    LPUART_SendDataPolling(LPUART1, txbuff, sizeof(txbuff));
+
+    while(1)
+    {
+        LPUART_ReceiveDataPolling(LPUART1,&ch, 1);
+        LPUART_SendDataPolling(LPUART1, &ch, 1);
+    }
+~~~~~
+
+*/
+/*! @} */

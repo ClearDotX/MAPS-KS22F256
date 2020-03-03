@@ -1,0 +1,131 @@
+/*!
+@defgroup lmem Local Memory Controller (LMEM) Cache Control Driver
+@details The SDK provides Peripheral driver for the Local Memory Controller Cache Controller.
+         The Kinetis devices contain a Processor Code (PC) bus and a Processor
+         System (PS) bus. Depending on the specific Kinetis MCU device, there may be a cache controller
+         for both the PC bus and PS bus or there may only be one cache controller for the PC bus.
+         Refer to the Kinetis reference manual to ascertain the availability of the cache.
+         The LMEM Cache driver allows the user to enable/disable the cache and to perform cache
+         maintenance operations such as invalidate, push, and clear. These maintenance operations
+         may be performed on the entire cache or on a line-basis.
+@{
+*/
+/*!
+@defgroup lmem_cache_driver Local Memory Cache Peripheral driver
+@ingroup lmem
+@details This section describes the programming interface of the LMEM Cache peripheral driver.
+The LMEM Cache peripheral driver allows the user to enable/disable the cache and to perform cache
+maintenance operations such as invalidate, push, and clear. These maintenance operations may be
+performed on the entire cache or on a line-basis.  In addition, the the driver also allows the
+user to "demote" the cache mode of a region within the device's memory map.
+
+# Function groups {#LMEMCacheFunGrps}
+
+## Local Memory Processor Code Bus Cache Control {#LMEMCodeBusCacheControl}
+
+This function group enable, disable the processor code bus cache, push/invalidate/clear
+the special physical address, demote the region cache mode. 
+
+## Local Memory Processor System Bus Cache Control {#LMEMSysBusCacheControl}
+
+This function group enable, disable the processor system bus cache, push/invalidate/clear
+the special physical address, demote the region cache mode. 
+
+# LMEM Cache Driver Definitions and Usage {#LMEMDefUse}
+The following provides definitions to the terms commonly used in the LMEM Cache peripheral driver
+and how to use the various functions.
+
+The Cortex-M4 processor has a modified 32-bit Harvard bus architecture.
+Processor Code (PC) bus - a 32-bit address space bus with low-order addresses (0x0000_0000 through
+0x1FFF_FFFF) used normally for code access.
+
+Processor System (PS) bus - a 32-bit address space bus with high-order addresses (0x2000_0000
+through 0xFFFF_FFFF) used normally for data accesses.
+
+Some Kinetic MCU devices have caches available for the PC bus and PS bus, some may only have
+a PC bus cache, while some do not have PC or PS caches at all.  Refer to the desired Kinetis
+reference manual for cache availability.
+
+Cache maintenance operations:
+Invalidate - Unconditionally clear valid and modify bits of a cache entry.
+
+Push - Push a cache entry if it is valid and modified, then clear the modify bit. If
+entry not valid or not modified, leave as is. This action does not clear the valid
+bit. A cache push is synonymous with a cache flush.
+
+Clear - Push a cache entry if it is valid and modified, then clear the valid and
+modify bits. If entry not valid or not modified, clear the valid bit.
+
+The above cache maintenance operations may be performed on the entire cache or on a line-basis.
+The peripheral driver API names distinguish between the two using the terms "All" or Line".
+For example, to perform an invalidate all on the PC bus, the API is called:
+~~~~~{.c}
+LMEM_CodeCacheInvalidateAll(LMEM_Type *base);
+~~~~~
+To invalidate a particular line, simple call:
+~~~~~{.c}
+LMEM_CodeCacheInvalidateLine(LMEM_Type *base, uint32_t address);
+~~~~~
+Note that the parameter "address" must be supplied which indicates the physical address of the line
+you wish to perform the cache maintenance operation.
+
+In addition, if the user wishes to perform cache maintenance operations on multiple lines,
+there are APIs available which use the naming convention "MultiLines".
+For example, to perform a multi-line push on the PC bus, the API is called:
+~~~~~{.c}
+LMEM_CodeCachePushMultiLines(LMEM_Type *base, uint32_t address, uint32_t length);
+~~~~~
+Note that the parameter "address" must be supplied which indicates the starting physical address of
+the lines you wish to perform the cache maintenance operation.  In addition, the length is the
+number of bytes you wish to perform the cache maintenance operation.  The function will determine
+if the length meets or exceeds 1/2 the cache size (as the cache contains 2 WAYs, half of the cache
+is in WAY0 and the other half in WAY1) and if so, will perform a cache maintenance "all" operation
+which is faster than performing the cache maintenance on a line-basis.
+
+Cache Demotion:
+Cache region demotion - Demoting the cache mode reduces the cache function applied to a memory
+region from write-back to write-through to non-cacheable.  The cache region demote function checks
+to see if the requested cache mode is higher than or equal to the current cache mode, and if
+so, will return an error. After a region is demoted, its cache mode can only be raised
+by a reset, which returns it to its default state.
+NOTE: The address/module assignment of the 16 subregions is device-specific and are detailed in
+the Chip Configuration section of the Kinetis reference manual. Some of the regions may not be used
+(non-cacheable), and some regions may not be capable of write-back.
+
+To demote a cache region, simple call this function:
+~~~~~{.c}
+LMEM_CodeCacheDemoteRegion(LMEM_Type *base, lmem_cache_region_t region,
+                               lmem_cache_mode_t cacheMode);
+~~~~~
+The parameter region is of type lmem_cache_region_t.  This provides typedef enums for each of the
+16 regions, starting with "kLMEM_CacheRegion0" and ending with "kLMEM_CacheRegion15".
+The parameter cacheMode is of type lmem_cache_mode_t. This provides typedef enums for each of the
+cache modes: "kLMEM_CacheNonCacheable", "kLMEM_CacheWriteThrough", and "kLMEM_CacheWriteBack".
+
+Cache Enable/Disable:
+The cache enable function enables the PC or PS bus cache as well as the write buffer. However,
+before enabling these, the function first performs an invalidate all.  The user should call this
+function if they wish to enable a particular bus cache.
+For example, to enable the Processor Code bus cache, call the function:
+~~~~~{.c}
+LMEM_EnableCodeCache(LMEM_Type *base, true);
+~~~~~
+To enable the Processor System bus cache, call the function:
+~~~~~{.c}
+LMEM_EnableSystemCache(LMEM_Type *base, true);
+~~~~~
+
+The cache disable function disables the PC or PS bus cache as well as the write buffer. Before
+disabling these, the function first performs a push all. The user should call this
+function if they wish to disable a particular bus cache.
+For example, to disable the Processor Code bus cache, call the function:
+~~~~~{.c}
+LMEM_EnableCodeCache(LMEM_Type *base, false);
+~~~~~
+To Disable the Processor System bus cache, call the function:
+~~~~~{.c}
+LMEM_EnableSystemCache(LMEM_Type *base, false);
+~~~~~
+
+*/
+/*! @} */

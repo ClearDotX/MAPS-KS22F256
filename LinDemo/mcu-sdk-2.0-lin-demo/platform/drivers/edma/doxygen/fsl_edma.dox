@@ -1,0 +1,61 @@
+/*!
+@defgroup edma EDMA enhanced direct memory access controller (EDMA)
+@details The SDK provides driver for the enhanced direct memory access (EDMA)
+         periphral of Kinetis devices.
+@{
+*/
+/*!
+@defgroup edma_driver EDMA Peripheral driver
+@ingroup edma
+@details This section describes the programming interface of the EDMA Peripheral driver.
+The EDMA driver configures EDMA periphral, provide functional interface and transactional 
+interface for user to build EDMA application.
+
+# Function groups{#EDMAFunGrps}
+
+## EDMA Initialization and Deinitialization{#EDMAInit}
+
+This function group initialize EDMA periphral and deinitialize EDMA periphral.
+
+## EDMA Channel Operation{#EDMAChnOper}
+
+This function group enable/disable EDMA interrupts and configure EDMA channel attribute.
+
+## EDMA TCD Operation{#EDMATcdOper}
+
+This function group configure EDMA TCD attribute.
+
+## EDMA Channel Transfer Operation{#EDMATransOper}
+
+This function group controls EDMA start and stop transfer. 
+
+## EDMA Channel Status Operation{#EDMAStatusOper}
+
+This function group get/clear the EDMA status.
+
+## EDMA Channel Transactional Operation{#EDMATransacOper}
+
+This function group provide interface for install callback and initialize EDMA handler.
+
+# Typical use case{#EDMATypicalUseCase}
+
+## EDMA Operation{#EDMAOper}
+
+~~~~~{.c}
+    edma_transfer_config_t transferConfig;
+    edma_config_t userConfig;
+    uint32_t transferDone = false;
+
+    EDMA_GetDefaultConfig(&userConfig);
+    EDMA_Init(DMA0, &userConfig);
+    EDMA_CreateHandle(&g_EDMA_Handle, DMA0, channel);
+    EDMA_SetCallback(&g_EDMA_Handle, EDMA_Callback, &transferDone);
+    EDMA_PrepareTransfer(&transferConfig, srcAddr, srcWidth, destAddr, destWidth,
+                         bytesEachRequest, transferBytes, kEDMA_MemoryToMemory);
+    EDMA_SubmitTransfer(&g_EDMA_Handle, &transferConfig, true);
+    EDMA_StartTransfer(&g_EDMA_Handle);
+    /* Wait for EDMA transfer finish */
+    while (transferDone != true);
+~~~~~
+*/
+/* @} */

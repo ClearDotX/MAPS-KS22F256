@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.flexio.support" requires="devices.modules.D_IP_FLEXIO_SYN_018"/>    <component name="platform.drivers.flexio"              description="FLEXIO Driver"             requires="platform.drivers.flexio.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_flexio*.c"/>
+        <files mask="fsl_flexio*.h"/>      </source>    </component>  </components></metadata>

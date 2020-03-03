@@ -1,0 +1,70 @@
+/*!
+@defgroup port Port Control and Interrupts (PORT)
+@details The SDK provides Peripheral driver for the Port Control and Interrupts (PORT)
+module of Kinetis devices.
+@{
+*/
+
+/*!
+@defgroup port_driver PORT Peripheral driver
+@ingroup port
+@details This section describes the programming interface of the PORT Peripheral driver.
+The PORT driver configures PORT module to support other IPs.
+
+# Function groups {#PORTFunGrps}
+
+## PORT Configuration {#PORTConfig}
+
+This function group configure the PORT PCR of a pin.
+
+## PORT Interrupt {#PORTInterrupt}
+
+This function set the PORT pin interrupt configuration,  get and clear the interrupt status 
+of a PORT
+
+# Typical configuration case {#PORTpyConfig}
+
+## Input PORT Configuration {#PORTInConfig}
+
+~~~~~{.c}
+  /* Input pin PORT configuration */
+  port_pin_config_t config = {
+      kPORT_PullUp,
+      kPORT_PullEnable,
+      kPORT_FastSlewRate,
+      0,
+      kPORT_PassiveFilterDisable,
+      kPORT_OpenDrainDisable,
+      kPORT_LowDriveStrength,
+      0,
+      kPORT_MuxAsGpio,
+      0,
+      kPORT_UnLockRegister,
+  };
+  /*  Set the configuration */
+  PORT_SetPinConfig(PORTA, 4, &config);
+~~~~~
+
+## I2C PORT Configuration {#I2CPORTConfig}
+
+~~~~~{.c}
+  /*  I2C pin PORTconfiguration */
+  port_pin_config_t config = {
+      kPORT_PullUp,
+      kPORT_PullEnable,
+      kPORT_FastSlewRate,
+      0,
+      kPORT_PassiveFilterDisable,
+      kPORT_OpenDrainEnable,
+      kPORT_LowDriveStrength,
+      0,
+      kPORT_MuxAlt5,
+      0,
+      kPORT_UnLockRegister,
+  };
+  PORT_SetPinConfig(PORTE,24u,&config);
+  PORT_SetPinConfig(PORTE,25u,&config);
+~~~~~
+
+*/
+/*! @} */

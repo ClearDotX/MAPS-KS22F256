@@ -1,0 +1,19 @@
+/*!
+@defgroup sim System Integration Module (SIM)
+@details The SDK provides driver for the System Integration Module (SIM) of Kinetis devices.
+
+# Function discription {#SIMFunc}
+
+SIM driver provides such functions:
+
+1. The function `SIM_GetUniqueId`.
+  This function gets the device unique identification value.
+
+2. The function `SIM_SetFlashMode`.
+  This function sets the flash enable mode.
+
+3. The function `SIM_SetUsbVoltRegulatorEnableMode`.
+  This function sets the USB voltage regulator enable mode.
+
+*/
+

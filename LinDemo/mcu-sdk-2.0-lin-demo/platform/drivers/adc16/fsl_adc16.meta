@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.adc16.support" requires="devices.modules.D_IP_ADC_16bSAR_SYN_043"/>    <component name="platform.drivers.adc16.support" requires="devices.modules.D_IP_ADC_16bSAR_SYN_047"/>    <component name="platform.drivers.adc16"              description="ADC16 Driver"             requires="platform.drivers.adc16.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_adc16.c"/>
+        <files mask="fsl_adc16.h"/>      </source>    </component>  </components></metadata>

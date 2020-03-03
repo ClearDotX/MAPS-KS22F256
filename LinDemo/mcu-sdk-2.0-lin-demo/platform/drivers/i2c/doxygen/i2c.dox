@@ -1,0 +1,89 @@
+/*!
+@defgroup i2c Inter-Integrated Circuit (IIC/I2C)
+@details The SDK provides Peripheral driver for the Inter-Integrated Circuit (I2C)
+         module of Kinetis devices.
+@{
+*/
+/*!
+@defgroup i2c_driver I2C Peripheral driver
+@ingroup i2c
+@details This section describes the programming interface of the I2C Peripheral driver.
+The I2C driver configures I2C module, provide functional interface and transactional
+interface for user to build i2c application
+
+# Function groups{#I2CFunGrps}
+
+## I2C Initialization and De-initialization {#I2CInitReset}
+
+This function group initialize default configuration structure for master and slave, initialize I2C
+master with master configuration, initialize I2C slave with slave configuration, reset I2C module
+and de-initialize I2C module.
+
+## I2C Basic Operation {#I2CBasicOps}
+
+This function group enable/disable I2C module, interrupt and dma, get data register address for dma
+transfer.
+
+## I2C Transfer Operation {#I2CTransOps}
+
+This function group controls the transfer(start/re-start/stop/transfer direction...), send address, send
+and receive one byte of data
+
+## I2C Status Operation {#I2CStatusOps}
+
+This function group get/clear the I2C status
+
+## I2C SMBus Configuration {#I2CSMBusConfig}
+
+This function group configure the SMBus feature
+
+## I2C Block Transfer Operation {#I2CBlockTrans}
+
+This function group transfers a block of data, get transfer status and abort the transfer.
+
+# Typical use case {#I2CTpyUC}
+
+## Master Operation {#I2CMasterOps}
+
+~~~~~{.c}
+    I2c_master_config_t masterConfig;
+    status_t status;
+
+    I2C_MasterGetDefaultConfig(&masterConfig);
+    I2C_MasterInit(base, &masterConfig);
+    I2C_MasterStart(base, 7-bit slave address, kI2CTransmit/kI2CReceive);
+    while(!I2C_GetStatusFlag(base, I2C_XFER_COMPLETE_FLAG)) /*wait TCF flag set*/
+    if(I2C_GetStatusFlag(base, I2C_RECEIVE_NAK))
+    {
+      return kStatus_I2C_Nak;
+    }
+    status = I2C_MasterSend(base, txBuff, txSize);
+    if(status)
+    {
+      return status;
+    }
+    I2C_MasterStop(base, kI2CStop);
+    /* Wait until bus is idle */
+    while((base->S & kI2C_BusBusyFlag));
+~~~~~
+
+## Slave Operation {#I2CSlaveOps}
+
+~~~~~{.c}
+    i2c_slave_config_t slaveConfig;
+    I2C_SlaveGetDefaultConfig(&slaveConfig); /*default configuration 7-bit addressing mode*/
+    slaveConfig.slaveAddr = 7-bit address/10-bit address
+    slaveConfig.addressingMode = kI2CAddress10bit/kI2CRangeMatch;
+    I2C_SlaveInit(base, &slaveConfig);
+
+    i2c_slave_handle_t handle;
+    i2c_slave_transfer_t xfer;
+
+    xfer.data = txBuff;
+    xfer.dataSize = rxBuff;
+    I2C_SlaveCreateHandle(&handle, base);
+    I2C_SlaveTransferIRQ(base, &xfer);
+~~~~~
+
+*/
+/*! @} */

@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.smc.support" requires="devices.modules.D_IP_SMC_SYN_37"/>    <component name="platform.drivers.smc.support" requires="devices.modules.D_IP_SMC_SYN_51"/>    <component name="platform.drivers.smc.support" requires="devices.modules.D_IP_SMC_SYN_56"/>    <component name="platform.drivers.smc"              description="SMC Driver"             requires="platform.drivers.smc.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_smc.c"/>
+        <files mask="fsl_smc.h"/>      </source>    </component>  </components></metadata>

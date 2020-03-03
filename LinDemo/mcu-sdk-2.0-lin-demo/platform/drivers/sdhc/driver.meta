@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.sdhc.support" requires="devices.modules.D_IP_eSDHCV2_SYN_2"/>    <component name="platform.drivers.sdhc"              description="SDHC Driver"             requires="platform.drivers.sdhc.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_sdhc.c"/>
+        <files mask="fsl_sdhc.h"/>      </source>    </component>  </components></metadata>

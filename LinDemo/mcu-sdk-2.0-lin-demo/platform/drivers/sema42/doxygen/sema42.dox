@@ -1,0 +1,59 @@
+/*!
+@defgroup sema42 Semaphores2 (SEMA42)
+@details The SDK provides driver for the SEMA42 module of Kinetis devices.
+
+# Function description
+
+SEMA42 is used for multi-core platforms. Before using the SEMA42, call
+SEMA42_Init() to initialize the module, this function only enables the clock
+but does not reset the gates, becuase the module might be used by other processors
+at the same time. To reset the gates, call function SEMA42_ResetGate() or
+SEMA42_ResetAllGates(). The function SEMA42_Deinit() de-initialize the SEMA42.\n
+
+SEMA42 provides two functions to lock SEMA42 gate. The function SEMA42_TryLock()
+tries to lock the gate, if the gate has been locked by some other processor, this
+function returns error immediately. The function SEMA42_Lock() is blocking method,
+it waits until the gate is free and lock it.\n
+
+SEMA42_Unlock() unlocks the SEMA42 gate, the gate could only be unlocked by the
+processor which locked it, if the gate is not locked by current processor, this
+function takes no effect. Function SEMA42_GetGateStatus() returns whether the gate
+is unlocked and which processor locks the gate.\n
+
+The SEMA42 gate could be reset to unlock forcefully, the function SEMA42_ResetGate()
+resets specific gate, the function SEMA42_ResetAllGates() resets all gates.
+
+# Typical use case
+
+~~~~~{.c}
+
+    uint8_t procNum = xxx; /* Current processor number, got by XRDC or other module. */
+    uint8_t gateNum = 0U;  /* Lock SEMA42 gate 0 in the example. */
+
+    SEMA42_Init(SEMA420);  /* Initialize the SEMA42. */
+
+    /*--------------------- Block and lock the gate. ----------------------*/
+    SEMA42_Lock(SEMA420, gateNum, procNum);
+
+    /* Now gate 0 is locked by current processor. */
+
+    ... /* Do something. */
+
+    SEMA42_UnlockLock(SEMA420, gateNum);
+
+    /*--------------------- Polling and lock the gate. --------------------*/
+
+    /* Lock SEMA42 gate using SEMA42_TryLock. */
+    while (kStatus_Success != SEMA42_TryLock(SEMA420, gateNum, procNum)) { }
+
+    /* Now gate 0 is locked by current processor. */
+
+    ... /* Do something. */
+
+    SEMA42_UnlockLock(SEMA420, gateNum);
+
+    SEMA42_Deinit(SEMA420);
+
+~~~~~
+
+*/

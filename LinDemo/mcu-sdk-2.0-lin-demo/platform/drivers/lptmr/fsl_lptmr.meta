@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.lptmr.support" requires="devices.modules.D_IP_LPTIMER_SYN_011"/>    <component name="platform.drivers.lptmr.support" requires="devices.modules.D_IP_LPTIMER_SYN_012"/>    <component name="platform.drivers.lptmr.support" requires="devices.modules.D_IP_LPTIMER_SYN_013"/>    <component name="platform.drivers.lptmr"              description="LPTMR Driver"             requires="platform.drivers.lptmr.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_lptmr.c"/>
+        <files mask="fsl_lptmr.h"/>      </source>    </component>  </components></metadata>

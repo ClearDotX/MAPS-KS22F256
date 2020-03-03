@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.cmp.support" requires="devices.modules.D_IP_ANL_1C1D8C_SYN_029"/>    <component name="platform.drivers.cmp.support" requires="devices.modules.D_IP_ANL_1C1D8C_SYN_032"/>    <component name="platform.drivers.cmp"              description="CMP Driver"             requires="platform.drivers.cmp.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_cmp.c"/>
+        <files mask="fsl_cmp.h"/>      </source>    </component>  </components></metadata>

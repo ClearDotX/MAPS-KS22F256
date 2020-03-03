@@ -1,0 +1,32 @@
+/*!
+@defgroup wdog32 Watchdog Timer (WDOG32)
+@details The SDK provides driver for the WDOG32 module of Kinetis devices.
+
+@{
+*/
+/*!
+
+@defgroup wdog32_driver WDOG32 Peripheral driver
+@ingroup wdog32
+@details This section describes the programming interface of the WDOG32 Peripheral driver.
+The WDOG32 driver configures WDOG32 module.
+
+# Function groups
+
+## WDOG32 Initialization and De-initialization {#WDOG32InitConfig}
+This function group initialize and de-initialize WDOG32 module.
+
+## WDOG32 functional Operation {#WDOG32Functional}
+This function group implement WDOG32 functional API.
+
+# Typical use case
+~~~~~{.c}
+    wdog32_config_t config;
+    WDOG32_GetDefaultConfig(&config);
+    config.timeoutValue = 0x7ffU;
+    config.enableWindowMode = true;
+    config.windowValue = 0x1ffU;
+    WDOG32_Init(wdog_base,&config);
+~~~~~
+*/
+/*! @} */

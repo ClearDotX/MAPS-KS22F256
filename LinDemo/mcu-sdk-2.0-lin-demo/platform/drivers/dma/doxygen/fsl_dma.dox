@@ -1,0 +1,55 @@
+/*!
+@defgroup dma DMA direct memory access controller (DMA)
+@details The SDK provides driver for the direct memory access (DMA)
+         periphral of Kinetis devices.
+@{
+*/
+/*!
+@defgroup dma_driver DMA Peripheral driver
+@ingroup dma
+@details This section describes the programming interface of the DMA Peripheral driver.
+The DMA driver configures DMA periphral, provide functional interface and transactional 
+interface for user to build DMA application.
+
+# Function groups{#DMAFunGrps}
+
+## DMA Initialization and De-initialization{#DMAInit}
+
+This function group initialize DMA periphral and deinitialize DMA periphral.
+
+## DMA Channel Operation{#DMAChnOper}
+
+This function group enable/disable DMA interrupts and configure DMA channel attribute.
+
+## DMA Channel Transfer Operation{#DMATransOper}
+
+This function group controls DMA start and stop transfer. 
+
+## DMA Channel Status Operation{#DMAStatusOper}
+
+This function group get/clear the DMA status.
+
+## DMA Channel Transactional Operation{#DMATransacOper}
+
+This function group provide interface for install callback and initialize DMA handler.
+
+# Typical use case{#DMATypicalUseCase}
+
+## DMA Operation{#DMAOper}
+
+~~~~~{.c}
+    dma_transfer_config_t transferConfig;
+    uint32_t transferDone = false;
+
+    DMA_Init(DMA0);
+    DMA_CreateHandle(&g_DMA_Handle, DMA0, channel);
+    DMA_InstallCallback(&g_DMA_Handle, DMA_Callback, &transferDone);
+    DMA_PrepareTransfer(&transferConfig, srcAddr, srcWidth, destAddr, destWidth, transferBytes,
+                        kDMA_MemoryToMemory);
+    DMA_SubmitTransfer(&g_DMA_Handle, &transferConfig, true);
+    DMA_StartTransfer(&g_DMA_Handle);
+    /* Wait for DMA transfer finish */
+    while (transferDone != true);
+~~~~~
+*/
+/* @} */

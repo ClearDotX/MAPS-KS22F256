@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.rcm.support" requires="devices.modules.D_IP_RCM_SYN_027"/>    <component name="platform.drivers.rcm.support" requires="devices.modules.D_IP_RCM_SYN_032"/>    <component name="platform.drivers.rcm.support" requires="devices.modules.D_IP_RCM_SYN_034"/>    <component name="platform.drivers.rcm"              description="RCM Driver"             requires="platform.drivers.rcm.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_rcm.c"/>
+        <files mask="fsl_rcm.h"/>      </source>    </component>  </components></metadata>

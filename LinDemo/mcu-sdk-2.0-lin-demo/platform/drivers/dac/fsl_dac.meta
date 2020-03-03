@@ -1,0 +1,3 @@
+    <!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.dac.support" requires="devices.modules.DA_IP_DAC_3V12B_LP_NN_C90LP_052"/>    <component name="platform.drivers.dac.support" requires="devices.modules.DA_IP_DAC_3V12B_LP_NN_C90LP_056"/>    <component name="platform.drivers.dac.support" requires="devices.modules.DA_IP_DAC_3V12B_LP_NN_C90LP_059"/>    <component name="platform.drivers.dac"              description="DAC Driver"             requires="platform.drivers.dac.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_dac.c"/>
+        <files mask="fsl_dac.h"/>      </source>    </component>  </components></metadata>

@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.uart.support" requires="devices.modules.D_IP_HiSpd_SCI_SYN_019"/>    <component name="platform.drivers.uart.support" requires="devices.modules.D_IP_HiSpd_SCI_SYN_025"/>    <component name="platform.drivers.uart"              description="UART Driver"             requires="platform.drivers.uart.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_uart*.c"/>
+        <files mask="fsl_uart*.h"/>      </source>    </component>  </components></metadata>

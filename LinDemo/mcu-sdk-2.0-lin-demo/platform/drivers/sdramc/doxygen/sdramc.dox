@@ -1,0 +1,89 @@
+/*!
+@defgroup sdramc Synchronous DRAM Controller (SDRAMC)
+@details The SDK provides Peripheral driver for the Synchronous DRAM Controller
+ block of Kinetis devices.
+@{
+*/
+/*!
+@defgroup sdramc_driver SDRAMC Peripheral driver
+@ingroup sdramc
+@details This section describes the programming interface of the SDRAMC Peripheral driver.
+The SDRAMC driver configures SDRAMC module, provide functional interface for user
+
+# Function groups{#SDRAMCFunGrps}
+
+## SDRAMC Initialization and De-initialization {#SDRAMCInitReset}
+
+This function group initialize default configuration structure for SDRAM Controller configure, initialize SDRAM
+controller and de-initialize SDRAM Controller module.
+
+## SDRAMC Basic Operation {#SDRAMCBasicOps}
+
+This function group send sdram command, enable/disable write protection, enable/disable operation valid.
+
+# Typical use case {#SDRAMCTpyUC}
+This example shows how to use the SDRAM Controller driver to
+initialize the external 16bit port-size 8-column SDRAM chip.
+Initialize the sdram controller first, then run the initialize sequence. After 
+above two operation, the external SDRAM will be initialized. the SDRAM read
+and write is available.
+
+First, Initialize the SDRAM Controller.
+~~~~~{.c}
+    sdramc_config_t config;
+    uint32_t clockSrc;
+
+    /* SDRAM refresh timing configuration. */
+    clockSrc = CLOCK_GetFreq(kCLOCK_BusClk);
+    sdramc_refresh_config_t refConfig = 
+    {
+       kSDRAMC_RefreshThreeClocks,
+       15625,    /* SDRAM: 4096 rows/ 64ms. */
+       clockSrc,     
+    };
+    /* SDRAM controller configuration*/
+    sdramc_blockctl_config_t ctlConfig = 
+    {
+        kSDRAMC_Block0,
+        kSDRAMC_PortSize16Bit,    /*　Port size: 16 bit. */
+        kSDRAMC_Commandbit19,     /* Command bit location: bit 19. */
+        kSDRAMC_LatencyOne,      /* According to the external SDRAM chip. */
+        SDRAM_START_ADDRESS,
+        0x7c0000,    /* 8MByte. */     
+    };
+
+    config.refreshConfig = &refConfig;
+    config.blockConfig = &ctlConfig;
+    config.numBlockConfig = 1;
+    
+    /* SDRAM controller initialization. */
+    SDRAMC_Init(base, &config);
+~~~~~
+
+Then, run initialize sequence.
+
+~~~~~{.c}
+
+    /* Issue a PALL command. */
+    SDRAMC_SendCommand(base, whichBlock, kSDRAMC_PrechargeCommand);
+
+    /* Accessing a SDRAM location. */
+    *(uint8_t *)(SDRAM_START_ADDRESS) = SDRAM_COMMAND_ACCESSVALUE;
+     
+    /* Enable the refresh. */
+    SDRAMC_SendCommand(base, whichBlock, kSDRAMC_AutoRefreshEnableCommand);
+
+    /* Wait for 8 refresh cycles less than one microsecond. */
+    delay;
+
+    /* Issue MSR command. */
+    SDRAMC_SendCommand(base, whichBlock, kSDRAMC_ImrsCommand);
+    /* Put the right value on SDRAM address bus for SDRAM mode register. */
+    addr = ....;
+    /* Set MRS register. */
+    mrsAddr = (uint8_t *)(SDRAM_START_ADDRESS + addr);
+    *mrsAddr = SDRAM_COMMAND_ACCESSVALUE; 
+~~~~~
+
+*/
+/*! @} */

@@ -1,0 +1,11 @@
+<!-- This file is maintained by example author -->
+<metadata>
+  <components>
+    <component name="examples.source.demo_apps.hello_world" provides="examples.source.demo_apps">
+      <source path="">
+        <files mask="*.c"/>
+        <files mask="*.readme"/>
+      </source>
+    </component>
+  </components>
+</metadata>

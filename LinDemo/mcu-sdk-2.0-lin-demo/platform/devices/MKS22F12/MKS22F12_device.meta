@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<metadata>
+  <boards>
+    <board id="mapsks22" name="MAPS-KS22" part_name="MKS22FN256VLL12"/>
+  </boards>
+  <devices>
+    <device full_name="MKS22FN256xxx12" name="MKS22F12" series="K" subfamily="KS22" family="KS2x" frequency_mhz="120">
+      <core name="Cortex-M4F"/>
+      <memory ram_size_kb="64" flash_size_kb="256"/>
+      <part name="MKS22FN256VLL12"/>
+      <part name="MKS22FN256VLH12"/>
+      <modules>
+        <ip_block version="A_IP_ADC_3v16bSAR_NN_C90LP_45"/>
+        <ip_block version="A_IP_DAC_3V12B_LP_NN_C90LP_36"/>
+        <ip_block version="A_IP_ICS_NN_C90LP_65"/>
+        <ip_block version="A_IP_IO_84U3V4M_NN_C90LP_59"/>
+        <ip_block version="A_IP_IRC48M_3V_NN_C90LP_10"/>
+        <ip_block version="A_IP_ODPMC_3V_NN_C90LP_25"/>
+        <ip_block version="A_IP_PLL_USB_NN_C90LP_41"/>
+        <ip_block version="A_IP_USB11_XCVR_NN_C90LP_30"/>
+        <ip_block version="c90lctfs_2prf_w0064b064b1c2_in_la_13"/>
+        <ip_block version="c90lctfs_sp_w0512b016b1c8_in_la_14"/>
+        <ip_block version="c90lctfs_sp_w4096b032b1c8_in_la_14"/>
+        <ip_block version="c90lctfs_sp_w8192b032b1c16_in_la_14"/>
+        <ip_block version="cmos090_ams_42"/>
+        <ip_block version="cmos090_ams_51"/>
+        <ip_block version="cmos090_lp9tm1tfs_ddk_23"/>
+        <ip_block version="D_IP_ADC_16bSAR_SYN_47"/>
+        <ip_block version="D_IP_ANL_1C1D8C_SYN_32"/>
+        <ip_block version="D_IP_ATX_SYN_17"/>
+        <ip_block version="D_IP_CCM_SYN_34"/>
+        <ip_block version="D_IP_CJTAGC_SYN_38"/>
+        <ip_block version="D_IP_CLKDIV_PIONEER_SYN_7"/>
+        <ip_block version="D_IP_CLKGEN_DIVIDERS_PIONEER0_SYN_2"/>
+        <ip_block version="D_IP_clock_divider_pioneer_c90lp_3"/>
+        <ip_block version="D_IP_CRC_16_32_PROG_SYN_11"/>
+        <ip_block version="D_IP_CTI_SYN_13"/>
+        <ip_block version="D_IP_DMA_CH_MUX_SYN_31"/>
+        <ip_block version="D_IP_DSPI_SYN_34"/>
+        <ip_block version="D_IP_EWM_SYN_17"/>
+        <ip_block version="D_IP_FlexCAN3_SYN_46"/>
+        <ip_block version="D_IP_FLEXIO_SYN_18"/>
+        <ip_block version="D_IP_Gen2008_WDOG_SYN_11"/>
+        <ip_block version="D_IP_HiSpd_SCI_SYN_25"/>
+        <ip_block version="D_IP_JTAG2IPS_SYN_13"/>
+        <ip_block version="D_IP_JTAGC_SYN_45"/>
+        <ip_block version="D_IP_LLWU_SYN_14"/>
+        <ip_block version="D_IP_LPI2C_SYN_12"/>
+        <ip_block version="D_IP_LPTIMER_SYN_12"/>
+        <ip_block version="D_IP_LPTPM_SYN_20"/>
+        <ip_block version="D_IP_LPUART_SYN_20"/>
+        <ip_block version="D_IP_MCG_SYN_55"/>
+        <ip_block version="D_IP_MUXPADI_C90LP_SYN_3"/>
+        <ip_block version="D_IP_PMC_NN_C90LP_50"/>
+        <ip_block version="D_IP_RCM_SYN_32"/>
+        <ip_block version="D_IP_RGPIOC_SYN_19"/>
+        <ip_block version="D_IP_RNGA_32IP_CMOS090_LP9TM1_SYN_2"/>
+        <ip_block version="D_IP_SAI_SYN_17"/>
+        <ip_block version="D_IP_SCAN_ANNEX_SYN_7"/>
+        <ip_block version="D_IP_SMC_SYN_51"/>
+        <ip_block version="D_IP_SPP_DMA2_8CH_SYN_3"/>
+        <ip_block version="D_IP_SRTC_SYN_24"/>
+        <ip_block version="D_IP_USB_FS_OTG_WRAP_SYN_20"/>
+        <ip_block version="D_SSL_AWIC_PIONEER_SYN_11"/>
+        <ip_block version="D_SSL_PDB_Pioneer_SYN_11"/>
+        <ip_block version="D_SSL_PIONEER_SIM_SYN_26"/>
+        <ip_block version="D_SSL_PIONEER_SIMDGO_SYN_26"/>
+        <ip_block version="DA_IP_ANL_1C1D8C_NN_C90LP_22"/>
+        <ip_block version="DA_IP_DAC_3V12B_LP_NN_C90LP_56"/>
+        <ip_block version="DA_IP_MCG_NN_C90LP_143"/>
+        <ip_block version="DA_IP_OSC_NN_C90LP_51"/>
+        <ip_block version="DA_IP_SRTC_NN_C90LP_35"/>
+        <ip_block version="M_IP_FTFA_KS22_256K_MC_3"/>
+        <ip_block version="MCD_SPECIAL_PIONEER2_20"/>
+        <ip_block version="P_IP_RPP_CM4_KS22_SYN_1"/>
+        <ip_block version="pit_rti_40"/>
+      </modules>
+    </device>
+    <device full_name="MKS22FN128xxx12" name="MKS22F12" series="K" subfamily="KS22" family="KS2x" frequency_mhz="120">
+      <core name="Cortex-M4F"/>
+      <memory ram_size_kb="64" flash_size_kb="128"/>
+      <part name="MKS22FN128VLL12"/>
+      <part name="MKS22FN128VLH12"/>
+      <modules>
+        <ip_block version="A_IP_ADC_3v16bSAR_NN_C90LP_45"/>
+        <ip_block version="A_IP_DAC_3V12B_LP_NN_C90LP_36"/>
+        <ip_block version="A_IP_ICS_NN_C90LP_65"/>
+        <ip_block version="A_IP_IO_84U3V4M_NN_C90LP_59"/>
+        <ip_block version="A_IP_IRC48M_3V_NN_C90LP_10"/>
+        <ip_block version="A_IP_ODPMC_3V_NN_C90LP_25"/>
+        <ip_block version="A_IP_PLL_USB_NN_C90LP_41"/>
+        <ip_block version="A_IP_USB11_XCVR_NN_C90LP_30"/>
+        <ip_block version="c90lctfs_2prf_w0064b064b1c2_in_la_13"/>
+        <ip_block version="c90lctfs_sp_w0512b016b1c8_in_la_14"/>
+        <ip_block version="c90lctfs_sp_w4096b032b1c8_in_la_14"/>
+        <ip_block version="c90lctfs_sp_w8192b032b1c16_in_la_14"/>
+        <ip_block version="cmos090_ams_42"/>
+        <ip_block version="cmos090_ams_51"/>
+        <ip_block version="cmos090_lp9tm1tfs_ddk_23"/>
+        <ip_block version="D_IP_ADC_16bSAR_SYN_47"/>
+        <ip_block version="D_IP_ANL_1C1D8C_SYN_32"/>
+        <ip_block version="D_IP_ATX_SYN_17"/>
+        <ip_block version="D_IP_CCM_SYN_34"/>
+        <ip_block version="D_IP_CJTAGC_SYN_38"/>
+        <ip_block version="D_IP_CLKDIV_PIONEER_SYN_7"/>
+        <ip_block version="D_IP_CLKGEN_DIVIDERS_PIONEER0_SYN_2"/>
+        <ip_block version="D_IP_clock_divider_pioneer_c90lp_3"/>
+        <ip_block version="D_IP_CRC_16_32_PROG_SYN_11"/>
+        <ip_block version="D_IP_CTI_SYN_13"/>
+        <ip_block version="D_IP_DMA_CH_MUX_SYN_31"/>
+        <ip_block version="D_IP_DSPI_SYN_34"/>
+        <ip_block version="D_IP_EWM_SYN_17"/>
+        <ip_block version="D_IP_FlexCAN3_SYN_46"/>
+        <ip_block version="D_IP_FLEXIO_SYN_18"/>
+        <ip_block version="D_IP_Gen2008_WDOG_SYN_11"/>
+        <ip_block version="D_IP_HiSpd_SCI_SYN_25"/>
+        <ip_block version="D_IP_JTAG2IPS_SYN_13"/>
+        <ip_block version="D_IP_JTAGC_SYN_45"/>
+        <ip_block version="D_IP_LLWU_SYN_14"/>
+        <ip_block version="D_IP_LPI2C_SYN_12"/>
+        <ip_block version="D_IP_LPTIMER_SYN_12"/>
+        <ip_block version="D_IP_LPTPM_SYN_20"/>
+        <ip_block version="D_IP_LPUART_SYN_20"/>
+        <ip_block version="D_IP_MCG_SYN_55"/>
+        <ip_block version="D_IP_MUXPADI_C90LP_SYN_3"/>
+        <ip_block version="D_IP_PMC_NN_C90LP_50"/>
+        <ip_block version="D_IP_RCM_SYN_32"/>
+        <ip_block version="D_IP_RGPIOC_SYN_19"/>
+        <ip_block version="D_IP_RNGA_32IP_CMOS090_LP9TM1_SYN_2"/>
+        <ip_block version="D_IP_SAI_SYN_17"/>
+        <ip_block version="D_IP_SCAN_ANNEX_SYN_7"/>
+        <ip_block version="D_IP_SMC_SYN_51"/>
+        <ip_block version="D_IP_SPP_DMA2_8CH_SYN_3"/>        
+        <ip_block version="D_IP_SRTC_SYN_24"/>        
+        <ip_block version="D_IP_USB_FS_OTG_WRAP_SYN_20"/>
+        <ip_block version="D_SSL_AWIC_PIONEER_SYN_11"/>
+        <ip_block version="D_SSL_PDB_Pioneer_SYN_11"/>
+        <ip_block version="D_SSL_PIONEER_SIM_SYN_26"/>
+        <ip_block version="D_SSL_PIONEER_SIMDGO_SYN_26"/>
+        <ip_block version="DA_IP_ANL_1C1D8C_NN_C90LP_22"/>
+        <ip_block version="DA_IP_DAC_3V12B_LP_NN_C90LP_56"/>
+        <ip_block version="DA_IP_MCG_NN_C90LP_143"/>
+        <ip_block version="DA_IP_OSC_NN_C90LP_51"/>
+        <ip_block version="DA_IP_SRTC_NN_C90LP_35"/>
+        <ip_block version="M_IP_FTFA_KS22_256K_MC_3"/>
+        <ip_block version="MCD_SPECIAL_PIONEER2_20"/>
+        <ip_block version="P_IP_RPP_CM4_KS22_SYN_1"/>
+        <ip_block version="pit_rti_40"/>
+      </modules>
+    </device>
+  </devices>
+</metadata>

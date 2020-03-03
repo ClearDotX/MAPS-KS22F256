@@ -1,0 +1,6777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+	<attributes>
+		<attribute name="Title Block.Number">
+			SOC_CM4_K80256_CMOS090SGTFS_015
+		</attribute>
+		<attribute name="Page Two.Environment Variables">
+		</attribute>
+		<attribute name="Page Two.CM Path">
+			sync://sync-14804:14804/Projects/imm_k80_256/blocks/k80_256_top@k80_256_top.01.00.00.00::blocks/k80_256_top sync://sync-14804:14804/Projects/imm_k80_256/settings@k80_256_settings.00.00.00.19 sync://sync-14804:14804/Projects/imm_k80_256/blocks/clkgen_dividers_k80_256@clkgen_dividers_k80_256.00.00.00.03::blocks/clkgen_dividers_k80_256 sync://sync-14804:14804/Projects/imm_k80_256/blocks/intg_glue@intg_glue_k80_256.00.00.00.19::blocks/intg_glue sync://sync-14804:14804/Projects/imm_k80_256/blocks/mbist_wrap@mbist_wrap_k80_256.00.00.00.04::blocks/mbist_wrap sync://sync-14804:14804/Projects/imm_k80_256/blocks/tcu_k80_256@tcu_k80_256.00.00.00.06::blocks/tcu_k80_256
+		</attribute>
+		<attribute name="Page Two.CM Version">
+		</attribute>
+		<attribute name="Page Two.HCM Config">
+		</attribute>
+		<attribute name="Page Three.Tool List">
+		</attribute>
+		<attribute name="Page Two.Version">
+			0n03p.1p0[CUT1.0 BEOL]
+		</attribute>
+		<attribute name="Page Two.Design Engineer">
+			Chunxu Chen (r63982)
+		</attribute>
+		<attribute name="Page Two.Owner">
+			Chunxu Chen (r63982);Guoping Wan (r66104);Nora Edwards (r57247);Roxanne Flecha (rwek70)
+		</attribute>
+		<attribute name="Title Block.Lifecycle Phase">
+			Preliminary
+		</attribute>
+		<attribute name="Page Two.Compatible Technology and Processes">
+			cmos090|cmos090sgtfs_6m1t_lp_33
+		</attribute>
+		<attribute name="Page Two.ECCN (Export Control)">
+			Not Set-Restricted
+		</attribute>
+		<attribute name="Page Two.Owning Organization">
+			Microcontrollers
+		</attribute>
+		<attribute name="Page Two.Part Name">
+			SOC_CM4_K80256_CMOS090SGTFS
+		</attribute>
+	</attributes>
+	<bom>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_ADC_3v16bSAR_NN_C90LP_045
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_ADC_3v16bSAR_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/a_ip_adc_3v16bSAR_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_adc_3v16bSAR_nn_c90lp.01.00.51.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_DAC_3V12B_LP_NN_C90LP_036
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_DAC_3V12B_LP_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_DAC_3V12B_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_dac_3v12b_nn_c90lp_ams3p0_3v.00.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_ICS_NN_C90LP_065
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_ICS_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/a_ip_ics_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_ics_nn_c90lp.05.00.14.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_IO_84U3V6M_NN_C90LP_024
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				library/io84u65dgo6m3v/io84u65dgo6m3v
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_IO_84U3V6M_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://gygax:13503/Projects/libs/cmos090lp2/io84u65dgo6m3v
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					io84u65dgo6m3v.01.00.01.06
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_IRC48M_3V_NN_C90LP_010
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_IRC48M_3V_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_IRC48M_3V_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					A_IP_IRC48M_3V_NN_C90LP.00.00.04.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_ODPMC_3V_NN_C90LP_021
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_ODPMC_3V_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_ODPMC_3V_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					A_IP_ODPMC_3V_NN_C90LP.00.00.07.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_PLL_P3_NN_C90LP_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_PLL_P3_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-16058:16058/Projects/tipd_blocks/a_ip_pll_p3_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_pll_p3_nn_c90lp.01.00.05.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_USB11_XCVR_NN_C90LP_030
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_USB11_XCVR_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_USB11_XCVR_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					A_IP_USB11_XCVR_NN_C90LP.02.00.00.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					Mica, Descover, Karma, Calibre, virtuoso
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_USB2_120mAREG_NN_C90LP_041
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_USB2_120mAREG_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-16080:16080/Projects/ip_a_ip_usb2_120mareg_nn_c90lp/a_ip_usb2_120mareg_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_usb2_120mareg_nn_c90lp.01.03.07.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_2prf_w0064b064b1c2_nn_la_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_2prf_w0064b064b1c2_nn_la
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_2prf_w0064b064b1c2_nn_la
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_2prf_2_00_20130308/c90lctfs_2prf_w0064b064b1c2_nn_la
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_2prf_2_00__r119484_01_01_1
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_2prf_w0064b064b1c2_nn_la_001
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_2prf_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_2prf
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15042:15042/Projects/memdev_c90tfs_2prf/c90tfs_2prf/tool_data/memcomp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					c90tfs_2prf_2_00_20130308
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_2prf_002
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_2prf_w0128b032b1c2_nn_la_010
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_2prf_w0128b032b1c2_nn_la
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_2prf_w0128b032b1c2_nn_la
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_2prf_2_00_20130308/c90lctfs_2prf_w0128b032b1c2_nn_la
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_2prf_2_00__r118844_01_01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_2prf_w0128b032b1c2_nn_la_010
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_2prf_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_2prf
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15042:15042/Projects/memdev_c90tfs_2prf/c90tfs_2prf/tool_data/memcomp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					c90tfs_2prf_2_00_20130308
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_2prf_002
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_rom_w8192b32b1c32_nhh_k80rm_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_rom_w8192b32b1c32_nhh_k80rm
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_rom_w8192b32b1c32_nhh_k80rm
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/c90tfs_rom_2_10_20130807/c90lctfs_rom_w8192b32b1c32_nhh_k80rm
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_rom_2_10__r118843_01_01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_rom_w8192b32b1c32_nhh_k80rm_001
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_rom_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_rom
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_rom_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_w0064b064b1c8_in_la_022
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_sp_w0064b064b1c8_in_la
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp_w0064b064b1c8_in_la
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_sp_2_10_20130828/c90lctfs_sp_w0064b064b1c8_in_la
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_sp_2_10__r118841_01_01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_sp_w0064b064b1c8_in_la_022
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_sp_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_w0256b022b1c8_nn_pa_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_sp_w0256b022b1c8_nn_pa
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp_w0256b022b1c8_nn_pa
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_sp_2_10_20130828/c90lctfs_sp_w0256b022b1c8_nn_pa
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_sp_2_10__r118840_01_01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_sp_w0256b022b1c8_nn_pa_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_sp_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_w0512b016b1c8_in_la_015
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_sp_w0512b016b1c8_in_la
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp_w0512b016b1c8_in_la
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_sp_2_10_20130828/c90lctfs_sp_w0512b016b1c8_in_la
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_sp_2_10__r118839_01_01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_sp_w0512b016b1c8_in_la_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_sp_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_w0512b032b1c8_in_la_004
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_sp_w0512b032b1c8_in_la
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp_w0512b032b1c8_in_la
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_sp_2_10_20130828/c90lctfs_sp_w0512b032b1c8_in_la
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_sp_2_10__r119482_01_01_1
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_sp_w0512b032b1c8_in_la_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_sp_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_w1024b032b1c8_in_pa_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_sp_w1024b032b1c8_in_pa
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp_w1024b032b1c8_in_pa
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_sp_2_10_20130828/c90lctfs_sp_w1024b032b1c8_in_pa
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_sp_2_10__r118842_02_01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_sp_w1024b032b1c8_in_pa_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_sp_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_w8192b032b1c16_ic_pa_009
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				memories/c90lctfs_sp_w8192b032b1c16_ic_pa
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp_w8192b032b1c16_ic_pa
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15044:15044/Projects/memip_c90lp/instances/90tfs_sp_2_10_20130828/c90lctfs_sp_w8192b032b1c16_ic_pa
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_256__c90lctfs_sp_2_10__r118838_01_02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				c90lctfs_sp_w8192b032b1c16_ic_pa_009
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				c90lctfs_sp_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				0
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					c90lctfs_sp
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :c90lctfs_sp_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				cmos090_ams_042
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				library/cmos090/ams3.1_tfsrf
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					cmos090_ams
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14038:14038/Projects/libpdk_cmos090_oa@cmos090_ams3.1_tfsrf
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				cmos090_lp9tm1tfs_ddk_023
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				library/cmos090_lp9tm1tfs_2.3p1
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					cmos090_lp9tm1tfs_ddk
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://cde-az34-sync2:4001/Projects/cmos090_lp9tm1tfs
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					cmos090_lp9tm1tfs_2.3p1
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				common_scripts_086
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					common_scripts
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://gygax:13502/Projects/blocks/common_scripts
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					common_scripts.00.00.06.20
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :common_scripts_086
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_ADC_16bSAR_SYN_047
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_ADC_16bSAR_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/d_ip_adc_16bSAR_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_adc_16bSAR_syn.05.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_ATX_SYN_017
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_ATX_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://syncip.fsl.jdp.net:9000/Projects/d_ip_atx_syn MIRROR1:sync://sync-15088:15088/Projects/tipd_blocks/d_ip_atx_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_atx_syn.02.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CCM_SYN_034
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CCM_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ip_ccm_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_ccm_syn.00.00.04.06
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CJTAGC_SYN_037
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CJTAGC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://syncip.fsl.jdp.net:9000/Projects/d_ip_cjtagc_syn MIRROR1: sync://gygax:13502/Projects/blocks/d_ip_cjtagc_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_cjtagc_syn.01.12.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CMT_SYN_009
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CMT_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/cmt_ip8
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					cmt_ip8.02.00.07.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CRC_16_32_PROG_SYN_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CRC_16_32_PROG_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14018:14018/Projects/ip_d_crc_16_32_prog_syn/d_ip_crc_16_32_prog_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					pcrc.01.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CTI_SYN_010
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CTI_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ip_cti_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_cti_syn.00.00.00.11
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_DMA_CH_MUX_SYN_032
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_DMA_CH_MUX_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://syncip.fsl.jdp.net:9000/Projects/dma_ch_mux
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					dma_ch_mux.06.01.05.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_DSPI_SYN_034
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_DSPI_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://gygax:13502/Projects/blocks/dspi_ipi MIRROR1: sync://syncip.fsl.jdp.net:9000/Projects/dspi_ipi
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					dspi_ipi.04.03.00.04_pioneer2
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_EMV_SIM_SYN_021
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_EMV_SIM_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/d_ip_emv_sim_syn/d_ip_emv_sim_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					K80_R.00.01.05.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_eSDHCV2_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_eSDHCV2_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14802:14802/Projects/ipv_esdhc/esdhcv2 sync://sync-14802:14802/Projects/ipv_esdhc/esdhcv2_core
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					IPV.ESDHCV2_MSG.02.04.09.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_EWM_SYN_017
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_EWM_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14040:14040/Projects/tipd_ewm_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ip_ewm_syn.01.00.04.05
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_FLEXIO_SYN_018
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_FLEXIO_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_flexio_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_flexio_syn.01.01.00.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_FlexTimer32_SYN_027
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_FlexTimer32_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/D_IP_FlexTimer32_SYN
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_flextimer32_syn.04.00.26.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_Gen2008_WDOG_SYN_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_Gen2008_WDOG_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://zin33sync01:14018/Projects/ip_gen2008_wdog/gen2008_wdog
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					IPG.GEN2008_WDOG.00.00.06.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_IIC_SKYBLUE_SYN_060
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_IIC_SKYBLUE_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/iic_ip8
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					iic_ip8.09.02.00.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_JTAG2IPS_SYN_013
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_JTAG2IPS_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://syncip.fsl.jdp.net:9000/Projects/d_ip_jtag2ips_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					R.00.00.02.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_JTAGC_SYN_044
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_JTAGC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://syncip.fsl.jdp.net:9000/Projects/jtagc MIRROR1: sync://gygax:13502/Projects/blocks/jtagc
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					jtagc.04.01.01.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_LLWU_SYN_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_LLWU_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ip_llwu_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_llwu_syn.00.00.02.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_LPTIMER_SYN_012
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_LPTIMER_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_lptimer_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					lptimer.00.00.01.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_LPTPM_SYN_018
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_LPTPM_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_lptpm_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_lptpm_syn.00.00.04.06
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_LPUART_SYN_020
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_LPUART_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_lpuart_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_lpuart_syn.00.00.03.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_OTFAD_QUADSPI_SYN_006
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_OTFAD_QUADSPI_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/otfad_quadspi@otfad_quadspi.01.00.03.00 sync://sync-15010:15010/Projects/mcp_ip/pmacs@pmacs.01.01.00.32 sync://sync-15010:15010/Projects/mcp_ip/smacs@smacs.01.01.00.13
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_PMC_NN_C90LP_048
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_PMC_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/d_ip_pmc_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_pmc_nn_c90lp.04.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_QUADSPI_V2_SYN_037
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_QUADSPI_V2_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14040:14040/Projects/tipd_blocks/d_ip_quadspi_v2_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					quadspi_v2.02.03.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_RCM_SYN_032
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_RCM_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ip_rcm_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_rcm_syn.00.00.04.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_RGPIOC_SYN_017
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_RGPIOC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_rgpioc_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					rgpioc.00.00.02.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_SAI_SYN_017
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_SAI_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_sai_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					sai.00.00.02.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_SMC_SYN_051
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_SMC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ip_smc_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_smc_syn.01.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_USB_FS_OTG_WRAP_SYN_016
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_USB_FS_OTG_WRAP_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://gygax:13502/Projects/blocks/usb_v11_otg
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					usb_v11_otg.00.00.04.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_IP_USB_FS_OTG_WRAP_SYN_016
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CI_FS_USB_SYN_010
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CI_FS_USB_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://gygax:13502/Projects/blocks/vusb_bvci
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					vusb_bvci.rev1.0b.02.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_SSL_AWIC_PIONEER_SYN_007
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_SSL_AWIC_PIONEER_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ssl_awic_pioneer_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					awic.00.00.01.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_SSL_K80256_CLKGEN_SYN_013
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				blocks/clkgen_k80_256
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_SSL_K80256_CLKGEN_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14804:14804/Projects/imm_k80_256/blocks/clkgen_k80_256
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					clkgen_k80_256.00.00.00.19
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_SSL_K80256_CLKGEN_SYN_013
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CLKDIV_PIONEER_SYN_007
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CLKDIV_PIONEER_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15018:15018/Projects/imm_pioneer2/blocks/clkdiv
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					clkdiv.01.00.00.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_SSL_K80256_CLKGEN_SYN_013
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_SCAN_ANNEX_SYN_007
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_SCAN_ANNEX_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://gygax:13502/Projects/blocks/scan_annex
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					scan_annex.01.01.02.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_SSL_K80256_CLKGEN_SYN_013
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_SSL_CLKGEN_DIVIDERS_K80256_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_SSL_CLKGEN_DIVIDERS_K80256
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14804:14804/Projects/imm_k80_256/blocks/clkgen_dividers_k80_256
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					clkgen_dividers_k80_256.00.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_SSL_CLKGEN_DIVIDERS_K80256_002
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_clock_divider_pioneer_c90lp_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_clock_divider_pioneer_c90lp
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/clock_divider_pioneer_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					clock_divider_pioneer_c90lp.00.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_SSL_K80256_PADRING_SYN_012
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				blocks/padring_k80_256
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_SSL_K80256_PADRING_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14804:14804/Projects/imm_k80_256/blocks/padring_k80_256
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					padring_k80_256.00.00.00.20
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_SSL_K80256_PADRING_SYN_012
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_MUXPADI_C90LP_SYN_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_MUXPADI_C90LP_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/muxpadi_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					muxpadi_c90lp.01.00.00.01.br_io84_ode
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_SSL_PDB_Pioneer_SYN_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_SSL_PDB_Pioneer_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ssl_pdb_pioneer_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ssl_pdb_pioneer_syn.01.01.03.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_SSL_PIONEER_SIM_SYN_025
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_SSL_PIONEER_SIM_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15018:15018/Projects/imm_pioneer2/blocks/d_ssl_pioneer_sim_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ssl_pioneer_sim_syn.00.00.02.05
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_SSL_PIONEER_SIMDGO_SYN_024
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_SSL_PIONEER_SIMDGO_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15018:15018/Projects/imm_pioneer2/blocks/d_ssl_pioneer_simdgo_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					pioneer_simdgo.00.00.01.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_ANL_3C3D8C_NN_C90LP_039
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_ANL_3C3D8C_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/da_ip_anl_NcNd8Nc_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					da_ip_anl_NcNd8Nc_nn_c90lp.01.00.01.47
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_ANL_3C3D8C_NN_C90LP_039
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_ANL_1C1D8C_NN_C90LP_055
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_ANL_1C1D8C_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_ANL_1C1D8C_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_anl_1c1d8c_nn_c90lp.04.00.00.09
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_ANL_3C3D8C_NN_C90LP_039
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_ANL_1C1D8C_SYN_030
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_ANL_1C1D8C_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ip_anl_NcNd8Nc_nn_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_anl_NcNd8Nc_nn_syn.01.00.00.26
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_DAC_3V12B_LP_NN_C90LP_056
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_DAC_3V12B_LP_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/da_ip_dac_3v12b_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					da_ip_dac_3v12b_nn_c90lp_ams3p0_3v.01.00.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_MCG_NN_C90LP_143
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_MCG_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/da_ip_mcg_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					da_ip_mcg_nn_c90lp.04.00.05.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCG_NN_C90LP_143
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_ICS_NN_C90LP_082
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_ICS_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/d_ip_ics_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_ics_nn_c90lp.02.02.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCG_NN_C90LP_143
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_MCG_SYN_055
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_MCG_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/d_ip_mcg_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_mcg_syn.04.00.03.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_MCU_DRYICE_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/da_ip_dryice_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					da_ip_dryice_nn_c90lp.00.00.04.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_IRTC_NN_C90LP_024
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_IRTC_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/a_ip_irtc_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					IPV.A_IP_IRTC_NN_C90LP.00.02.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_MCU_DRYICE_NN_C90LP_021
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_MCU_DRYICE_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_MCU_DRYICE_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					A_IP_MCU_DRYICE_NN_C90LP.00.00.10.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_OSC_3v32kVLP_NN_C90LP_025
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_OSC_3v32kVLP_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_OSC_3v32kVLP_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_osc_3v32kvlp_nn_c90lp.01.00.01.23
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_OSC_3vComponents_NN_C90LP_016
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_OSC_3vComponents_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_OSC_3vComponents_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_osc_3vcomponents_nn_c90lp.01.00.01.16
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_DRYICE_NN_C90LP_013
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_DRYICE_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_dryice_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_dryice_nn_c90lp.00.00.01.11
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_IP_DRYICE_NN_C90LP_013
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_REGFILE_SYN_009
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_REGFILE_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/d_ip_regfile_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_regfile_syn.02.00.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_IP_DRYICE_NN_C90LP_013
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_SRTC_SYN_023
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_SRTC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_srtc_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					srtc.00.00.02.10
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_DRYICE_SYN_009
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_DRYICE_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_dryice_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_dryice_syn.00.00.03.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_MCU_DRYICE_NN_C90LP_031
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_IPS2DGO_SYN_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_IPS2DGO_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/d_ip_ips2dgo_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ips2dgo.00.00.01.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_OSC_NN_C90LP_051
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_OSC_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/da_ip_osc_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					da_ip_osc_nn_c90lp.01.00.01.40
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_OSC_NN_C90LP_051
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_OSC_NN_C90LP_035
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_OSC_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_OSC_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_osc_nn_c90lp.01.00.01.25
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_TSIv4_NN_C90LP_025
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_TSIv4_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/da_ip_tsiv4_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					da_ip_tsiv4_nn_c90lp.00.00.00.24
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_TSIv4_NN_C90LP_025
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_TSI_NOISEDET_NN_C90LP_016
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_TSI_NOISEDET_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/a_ip_tsi_noisedet_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_tsi_noisedet_nn_c90lp.01.00.04.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_TSIv4_NN_C90LP_025
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_TSIv4_SYN_016
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_TSIv4_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/d_ip_tsiv4_syn
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					d_ip_tsiv4_syn.00.00.00.16
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_USB_DCD_NN_C90LP_028
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_USB_DCD_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/da_ip_usb_dcd_nn_c90lp
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					da_ip_usb_dcd_syn.02.01.06.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_USB_DCD_NN_C90LP_028
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_USB_DCD_NN_C90LP_029
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_USB_DCD_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_USB_DCD_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					A_IP_USB_DCD_NN_C90LP.02.00.01.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_USB_DCD_NN_C90LP_028
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_USB_DCD_SYN_016
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_USB_DCD_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/tipd_blocks/D_IP_USB_DCD_SYN
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					D_IP_USB_DCD_SYN.02.01.03.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				DA_IP_VREF1v2_NN_C90LP_035
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					DA_IP_VREF1v2_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tipd_blocks/DA_IP_VREF1v2_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					DA_IP_VREF1v2_NN_C90LP.01.00.01.35
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				DA_IP_VREF1v2_NN_C90LP_035
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				A_IP_VREF1v2_NN_C90LP_032
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					A_IP_VREF1v2_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/analogIP_blocks/A_IP_VREF1V2_NN_C90LP
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					a_ip_vref1v2_nn_c90lp.01.00.01.28
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				imm_sdc_common_scripts_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					software
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					imm_sdc_common_scripts
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14804:14804/Projects/imm_sdc_common_scripts
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					imm_sdc_common_scripts.00.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :imm_sdc_common_scripts_001
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				ltc_mcu_mix_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					ltc_mcu_mix
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sun256:8088/Projects/stc_release_k81/ltc
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					STCSOFT.LTC_MCU_MIX.01.00.00_L2_6
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				ltc_mcu_rng_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					ltc_mcu_rng
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sun246:8088/Projects/stc_release_rng_cmos090tfs/rng4_sa
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					STCSOFT.LTC_MCU_RNG.01.00.00_L2_6
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				M_IP_FTFA_K80_256K_MC_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					M_IP_FTFA_K80_256K_MC
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15040:15040/Projects/nvm_c90tfsw/dummy_for_pi
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				M_IP_FTFA_K80_256K_MC_003
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_MGATE_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_MGATE
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-19800:19800/Projects/tipd_blocks/mgate
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					mgate.01.00.01.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				M_IP_FTFA_K80_256K_MC_003
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				M_IP_FTFA_256K4_128_FW_009
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					M_IP_FTFA_256K4_128_FW
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15040:15040/Projects/nvm_c90tfsw/ftfa_firmware
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ftfa_256k4_128_fw.08.01.02.08
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				M_IP_FTFA_K80_256K_MC_003
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				M_IP_FTFA_256K4_128_SYN_004
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					M_IP_FTFA_256K4_128_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15040:15040/Projects/nvm_c90tfsw/ftfa
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ftfa_256k4_128.08.01.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				M_IP_FTFA_K80_256K_MC_003
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				M_IP_TFSL_ANA_100_C90TFS_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					M_IP_TFSL_ANA_100_C90TFS
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15040:15040/Projects/nvm_c90tfs_release/tfs_analog_100
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					tfs_analog_100.01.04.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				M_IP_FTFA_K80_256K_MC_003
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				M_IP_TFSL_LPS_64K_6K_C90TFS_005
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				4
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					M_IP_TFSL_LPS_64K_6K_C90TFS
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15040:15040/Projects/nvm_c90tfs_release/tfs_core_lp_64k_6k
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					tfs_core_lps_64k_6k.01.03.02.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				M_IP_FTFA_K80_256K_MC_003
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_FTFL_VIP_070
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_FTFL_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15040:15040/Projects/nvm_c90tfsw/tfs_flash_vip/vip/ftfl_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ftfl_vip.08.14.11.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_FTFL_VIP_070
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				MCD_SPECIAL_PIONEER2_017
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					foundationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					MCD_SPECIAL_PIONEER2
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15088:15088/Projects/common_blocks/mcd_special
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					mcd_special.00.00.01.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				platform/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					P_IP_RPP_CM4_K80_256_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/rpp_cm4_k80_256@rpp_cm4_k80_256.01.00.02.00 sync://sync-15010:15010/Projects/mcp_armp/rpp_cm4_tb@rpp_cm4_tb_k80_256.01.00.00.10 sync://sync-15010:15010/Projects/mcp_env/eps_global@eps_global.01.00.00.02 sync://sync-15010:15010/Projects/mcp_env/settings@settings_rpp_cm4.00.00.00.33 sync://sync-15010:15010/Projects/mcp_vip/mem@mem.01.01.00.13 sync://sync-15010:15010/Projects/mcp_vip/tb_widgets@tb_widgets_cm4.01.00.00.50
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					rpp_cm4_k80_256.01.00.02.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				C_IP_CM4_K20_1024_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					C_IP_CM4_K20_1024_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armc/cm4_k20_1024
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					cm4_k20_1024.01.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				C_IP_CM4_K20_1024_SYN_001
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				C_IP_CM4F_MCU_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					C_IP_CM4F_MCU_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armc/cm4/arm_structure/AT521-BU-00000-r0p1-02rel0
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					AT521-BU-00000-r0p1-02rel0
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AHB_32_TO_64_GASKET_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AHB_32_TO_64_GASKET_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/ahb_32_to_64_gasket
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_32_to_64_gasket.01.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AHB_BME_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AHB_BME_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/ahb_bme
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_bme.01.00.00.18
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AHB_LMEM_SYN_026
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AHB_LMEM_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/ahb_lmem sync://sync-15010:15010/Projects/mcp_armp/ahb_cache@ahb_cache.01.00.00.42
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_lmem.01.00.00.56
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				D_IP_AHB_LMEM_SYN_026
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AHB_TCMC_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AHB_TCMC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/ahb_tcmc
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_tcmc.01.00.00.38
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AHB_MASTER_MUX_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AHB_MASTER_MUX_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/ahb_master_mux
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_master_mux.01.00.00.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AHB_MPU_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AHB_MPU_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/ahb_mpu
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_mpu.02.00.01.18
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AHB_SLV_SPLIT_1TO3_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AHB_SLV_SPLIT_1TO3_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/ahb_slv_split_1to3
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_slv_split_1to3.01.00.00.08
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AIPS_LITE_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AIPS_LITE_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/aips_lite
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					aips_lite.01.00.00.44
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AXBS_SLAVE_PORT_SPLITTER_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AXBS_SLAVE_PORT_SPLITTER_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/axbs_slave_port_splitter
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					axbs_slave_port_splitter.01.00.00.14
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_AXBS_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_AXBS_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/soc_max/blocks
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					max.03.00.01.18
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_BROMC_SYNC_SYN_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_BROMC_SYNC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/bromc_sync
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					bromc_sync.01.00.00.05
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_CORTEXM4INTEGRATION_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_CORTEXM4INTEGRATION_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/CORTEXM4INTEGRATION
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					CORTEXM4INTEGRATION_k80_256.01.00.00.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_FB_SDRAM_PINMUX_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_FB_SDRAM_PINMUX_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/fb_sdram_pinmux
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					fb_sdram_pinmux.01.00.00.00
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_FLEXBUS_SYN_007
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_FLEXBUS_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/flexbus sync://sync-15010:15010/Projects/mcp_ip/amba2mbus_lite@amba2mbus_lite.01.03.00.13
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					flexbus.01.02.01.12
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_MMCAU_APB3_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_MMCAU_APB3_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/mmcau_apb3@mmcau_apb3.01.00.00.11 sync://sync-15010:15010/Projects/mcp_cfc/cau@cau.02.00.00.00
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					mmcau_apb3.01.00.00.11
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_PFLEXNVM64_SYN_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_PFLEXNVM64_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/pflexnvm64
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					pflexnvm64.01.00.01.10
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_PLAT_IPD_SLOW_FAST_GASKET_SYN_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_PLAT_IPD_SLOW_FAST_GASKET_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/plat_ipd_slow_fast_gasket
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					plat_ipd_slow_fast_gasket.01.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_PLAT_MACROS_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_PLAT_MACROS_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/pmacs@pmacs.01.01.00.32 sync://sync-15010:15010/Projects/mcp_ip/smacs@smacs.01.01.00.13
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_RPP_CM4_PLAT_S1_BKD_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_RPP_CM4_PLAT_S1_BKD_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_armp/rpp_cm4_plat_s1_bkd
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					rpp_cm4_plat_s1_bkd.01.00.00.28
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_SDR_DRAMC_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_SDR_DRAMC_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/sdr_dramc@sdr_dramc.01.00.00.14 sync://sync-15010:15010/Projects/mcp_ip/amba2mbus_lite@amba2mbus_lite.01.03.00.13
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					sdr_dramc.01.00.00.14
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				P_IP_RPP_CM4_K80_256_SYN_008
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				D_IP_SPP_DMA2_SYN_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					D_IP_SPP_DMA2_SYN
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15010:15010/Projects/mcp_ip/spp_dma2
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					spp_dma2_pX_clk_gate.01.00.00.11
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				pit_rti_040
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_blocks/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					pit_rti
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://syncip.fsl.jdp.net:9000/Projects/pit_rti
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					pit_rti.05.00.06.11
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				SOC_CM4_K80256_CMOS090SGTFS_015
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_SS_K80_256_SOC_TB_004
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				blocks/soc_tb
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_SS_K80_256_SOC_TB
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14804:14804/Projects/imm_k80_256/blocks/soc_tb
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					soc_tb.00.00.00.09
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_SS_K80_256_SOC_TB_004
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_cs_pin_clk_drvmon_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_cs_pin_clk_drvmon
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_cs_pin_clk_drvmon
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_cs_pin_clk_drvmon.01.00.00.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_cs_pin_clk_drvmon_008
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_AHB_LITE_V6_IF_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_AHB_LITE_V6_IF
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/sv_ip/ahb_lite_v6_if
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_lite_v6_if.00.00.00.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_AHB_LITE_V6_IF_002
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_AHB_LITE_V6_VIP_009
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_AHB_LITE_V6_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/sv_ip/ahb_lite_v6_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					ahb_lite_v6_vip.00.00.00.18
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_AHB_LITE_V6_VIP_009
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_CAPI_010
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_CAPI
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/sv_ip/v_ip_capi
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ip_capi.00.00.00.09
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_CAPI_010
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_CAPI_ABS_IF_005
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_CAPI_ABS_IF
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/sv_ip/capi_abs_if
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					capi_abs_if.00.00.00.10
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_CAPI_ABS_IF_005
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_IO84U65DGO4M3V_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_IO84U65DGO4M3V
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ip_io84u65dgo4m3v
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ip_io84u65dgo4m3v.00.00.00.14
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_IO84U65DGO4M3V_014
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_JTAG_VIP_006
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_JTAG_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/sv_ip/jtag_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					jtag_vip.00.00.00.13
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_JTAG_VIP_006
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_SWDEBUG_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_SWDEBUG
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/sv_ip/v_ip_swdebug
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ip_swdebug.00.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_SWDEBUG_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_IP_TFS_ANALOG_000_002
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_IP_TFS_ANALOG_000
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ip_tfs_analog_000
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ip_tfs_analog_000.00.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_IP_TFS_ANALOG_000_002
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_ms_adc_vip_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_ms_adc_vip
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_adc_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_adc_vip.00.00.00.013
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_ms_adc_vip_014
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_AIPS_VIP_006
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_AIPS_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_aips_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_aips_vip.00.00.00.05
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_AIPS_VIP_006
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_AXBS_VIP_005
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_AXBS_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_axbs_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_axbs_vip.00.00.00.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_AXBS_VIP_005
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_CM4_VIP_005
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_CM4_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_cm4_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_cm4_vip.00.00.00.05
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_CM4_VIP_005
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_CMT_IP8_VIP_005
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_CMT_IP8_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_cmt_ip8_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_cmt_ip8_vip.00.00.00.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_CMT_IP8_VIP_005
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_CRC_VIP_006
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_CRC_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_crc_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_crc_vip.00.00.00.05
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_CRC_VIP_006
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_DAC_12B_VIP_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_DAC_12B_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_dac_12b_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_dac_12b_vip.00.00.00.10
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_DAC_12B_VIP_011
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_DMA_CH_MUX_VIP_023
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_DMA_CH_MUX_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_dma_ch_mux_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_dma_ch_mux_vip.00.00.00.16
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_DMA_CH_MUX_VIP_023
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_DRYICE_RTC_VIP_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_DRYICE_RTC_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_dryice_rtc_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_dryice_rtc_vip.00.00.00.11
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_DRYICE_RTC_VIP_011
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_DSPI_VIP_034
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_DSPI_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_dspi_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_dspi_vip.00.00.00.11.pioneer
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_DSPI_VIP_034
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_ESDHCV2_VIP_007
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_ESDHCV2_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_esdhcv2_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_esdhcv2_vip.00.00.00.06
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_ESDHCV2_VIP_007
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_EWM_VIP_007
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					designIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_EWM_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_ewm_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_ewm_vip.00.00.00.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_FLEXBUS_VIP_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_FLEXBUS_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_flexbus_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_flexbus_vip.00.00.00.13
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_FLEXBUS_VIP_011
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_FLEXTIMER_VIP_013
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_FLEXTIMER_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_flextimer_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_flextimer_vip.00.00.00.10
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_FLEXTIMER_VIP_013
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_FTFAC_VIP_001
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_FTFAC_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+				</attribute>
+				<attribute name="Page Two.CM Path">
+				</attribute>
+				<attribute name="Page Two.CM Version">
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_FTFAC_VIP_001
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_ms_ftfl_firmware_vip_004
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_ms_ftfl_firmware_vip
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_ftfl_firmware_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_ftfl_firmware_vip.00.00.00.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_ms_ftfl_firmware_vip_004
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_ms_ftfl_test_vip_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_ms_ftfl_test_vip
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_ftfl_test_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_ftfl_test_vip.00.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_ms_ftfl_test_vip_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_ms_ftfl_vip_027
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_ms_ftfl_vip
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_ftfl_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_ftfl_vip.00.00.00.26
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_ms_ftfl_vip_027
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_GEN2008_WDOG_VIP_011
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					integratedChipOrSoc
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_GEN2008_WDOG_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_gen2008_wdog_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_gen2008_wdog_vip.00.00.00.10
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_HSCMP_VIP_022
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_HSCMP_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_hscmp_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_hscmp_vip.00.00.00.21
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_HSCMP_VIP_022
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_I2C_VIP_020
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_I2C_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_i2c_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_i2c_vip.00.00.00.20
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_I2C_VIP_020
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_LLWU_VIP_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_LLWU_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_llwu_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_llwu_vip.00.00.00.13
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_LLWU_VIP_014
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_LPSCI_VIP_004
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_LPSCI_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tvip_blocks/v_ms_lpsci_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_lpsci_vip.01.00.00.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_LPSCI_VIP_004
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_LPTIMER_VIP_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_LPTIMER_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_lptimer_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_lptimer_vip.00.00.00.014
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_LPTIMER_VIP_014
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_LPTPM_VIP_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_LPTPM_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tvip_blocks/v_ms_lptpm_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_lptpm_vip.01.00.00.08
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_LPTPM_VIP_008
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_MCG_VIP_017
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_MCG_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_mcg_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_mcg_vip.00.00.00.16
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_MCG_VIP_017
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_ms_mmcau_apb3_vip_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_ms_mmcau_apb3_vip
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_mmcau_apb3_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_mmcau_apb3_vip.00.00.00.02
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_ms_mmcau_apb3_vip_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_OSC_VIP_013
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_OSC_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_osc_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_osc_vip.00.00.00.12
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_OSC_VIP_013
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_PDB_VIP_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_PDB_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_pdb_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_pdb_vip.00.00.00.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_PDB_VIP_008
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_ms_pit_rti_vip_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_ms_pit_rti_vip
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_pit_rti_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_pit_rti_vip.01.00.00.01
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_ms_pit_rti_vip_014
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				v_ms_ram_vip_010
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					v_ms_ram_vip
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_ram_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_ram_vip.00.00.00.09
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :v_ms_ram_vip_010
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_SAI_VIP_010
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_SAI_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_sai_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_sai_vip.00.01.00.04
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_SAI_VIP_010
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_SD_DRAMC_VIP_009
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_SD_DRAMC_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_sdr_dramc_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_sdr_dramc.00.00.00.09
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_SD_DRAMC_VIP_009
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_SPP_DMA2_VIP_021
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_SPP_DMA2_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_spp_dma2_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_spp_dma2_vip.00.00.00.17
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_SPP_DMA2_VIP_021
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_TSIV4_VIP_003
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_TSIV4_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-14800:14800/Projects/tvip_blocks/v_ms_tsiv4_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_tsiv4_vip.01.00.00.03
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_TSIV4_VIP_003
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_USB_DCD_VIP_008
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_USB_DCD_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_usb_dcd_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_usb_dcd_vip.00.00.00.07
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_USB_DCD_VIP_008
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_USB_V11_OTG_VIP_022
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_USB_V11_OTG_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_usb_v11_otg_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_usb_v11_otg_vip.00.00.00.22
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_USB_V11_OTG_VIP_022
+				</attribute>
+			</item-attributes>
+		</bom-item>
+		<bom-item>
+			<bom-parent>
+				V_SS_K80_256_SOC_TB_004
+			</bom-parent>
+			<attribute name="BOM.Item Number">
+				V_MS_VREF1V2_VIP_014
+			</attribute>
+			<attribute name="BOM.Workspace Path">
+				common_vip/$TAIL
+			</attribute>
+			<attribute name="BOM.Qty">
+				1
+			</attribute>
+			<item-attributes>
+				<attribute name="Title Block.Part Type">
+					verificationIp
+				</attribute>
+				<attribute name="Page Two.Part Name">
+					V_MS_VREF1V2_VIP
+				</attribute>
+				<attribute name="Page Two.CM System">
+					DesignSync
+				</attribute>
+				<attribute name="Page Two.CM Path">
+					sync://sync-15038:15038/Projects/tvip_blocks/v_ms_vref1v2_vip
+				</attribute>
+				<attribute name="Page Two.CM Version">
+					v_ms_vref1v2_vip.00.00.00.013
+				</attribute>
+				<attribute name="Page Two.HCM Config">
+				</attribute>
+				<attribute name="Page Two.Environment Variables">
+				</attribute>
+				<attribute name="Page Three.Tool List">
+					::::PDM-WS-ERROR::::Unable to get attribute id :Page Three.Tool List from bom component :V_MS_VREF1V2_VIP_014
+				</attribute>
+			</item-attributes>
+		</bom-item>
+	</bom>
+</item>

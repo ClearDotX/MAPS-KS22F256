@@ -1,0 +1,43 @@
+<!-- This file is maintained by board support author -->
+<metadata>
+  <components>
+    <component name="platform.devices.MKS22F12" requires="devices.MKS22F12" provides="platform.devices.device">
+      <source path="./">
+        <files mask="fsl_clock_MKS22F12.c"/>
+        <files mask="fsl_clock_MKS22F12.h"/>
+        <files mask="MKS22F12.h"/>
+        <files mask="MKS22F12.svd"/>
+        <files mask="MKS22F12_features.h"/>
+        <files mask="system_MKS22F12.c"/>
+        <files mask="system_MKS22F12.h"/>
+      </source>
+      <source path="./linker/arm">
+        <files mask="MKS22FN128xxx12_flash.scf"/>
+        <files mask="MKS22FN128xxx12_ram.scf"/>
+        <files mask="MKS22FN256xxx12_flash.scf"/>
+        <files mask="MKS22FN256xxx12_ram.scf"/>
+      </source>
+      <source path="./linker/gcc">
+        <files mask="MKS22FN128xxx12_flash.ld"/>
+        <files mask="MKS22FN128xxx12_ram.ld"/>
+        <files mask="MKS22FN256xxx12_flash.ld"/>
+        <files mask="MKS22FN256xxx12_ram.ld"/>
+      </source>
+      <source path="./linker/iar">
+        <files mask="MKS22FN128xxx12_flash.icf"/>
+        <files mask="MKS22FN128xxx12_ram.icf"/>
+        <files mask="MKS22FN256xxx12_flash.icf"/>
+        <files mask="MKS22FN256xxx12_ram.icf"/>
+      </source>
+      <source path="./arm">
+        <files mask="startup_MKS22F12.s"/>
+      </source>
+      <source path="./gcc">
+        <files mask="startup_MKS22F12.S"/>
+      </source>
+      <source path="./iar">
+        <files mask="startup_MKS22F12.s"/>
+      </source>
+    </component>
+  </components>
+</metadata>

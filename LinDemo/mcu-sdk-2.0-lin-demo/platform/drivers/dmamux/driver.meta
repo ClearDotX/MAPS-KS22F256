@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.dmamux.support" requires="devices.modules.D_IP_DMA_CH_MUX_SYN_30"/>    <component name="platform.drivers.dmamux.support" requires="devices.modules.D_IP_DMA_CH_MUX_SYN_31"/>    <component name="platform.drivers.dmamux.support" requires="devices.modules.D_IP_DMA_CH_MUX_SYN_33"/>    <component name="platform.drivers.dmamux"              description="DMAMUX Driver"             requires="platform.drivers.dmamux.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_dmamux.c"/>
+        <files mask="fsl_dmamux.h"/>      </source>    </component>  </components></metadata>

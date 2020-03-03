@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.scg.support" requires="devices.modules.DA_IP_SCG_SYN_15"/>    <component name="platform.drivers.scg"              description="SCG Driver"             requires="platform.drivers.scg.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_scg.c"/>
+        <files mask="fsl_scg.h"/>      </source>    </component>  </components></metadata>

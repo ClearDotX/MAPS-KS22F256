@@ -1,0 +1,32 @@
+/*!
+@defgroup mcglite Multipurpose Clock Generator Lite (MCGLITE)
+@details The SDK provides driver for the MCG_Lite module of Kinetis devices.
+# Function discription {#MCGLITEFunc}
+
+MCG_Lite driver provides three kinds of APIs:
+
+1. APIs to get MCG_Lite frequency,
+2. APIs for MCG_Lite mode.
+3. APIs for OSC setup.
+
+## Get clock frequency {#MCGLITEFreq}
+
+There are three functions: CLOCK_GetOutClkFreq(), CLOCK_GetInternalRefClkFreq()
+and CLOCK_GetPeriphClkFreq(). They are used to get the frequency of MCGOUTCLK,
+MCGIRCLK and MCGPCLK based on current hardware setting.
+
+## MCG_Lite mode {#MCGLITEMode}
+
+The function CLOCK_GetMode() gets current MCG_Lite mode.\n
+
+The function CLOCK_SetMcgliteConfig() sets MCG_Lite to desired configuration.
+The MCG_Lite could not switch between LIRC2M and LIRC8M, in this case, this
+function could switch to HIRC mode first then switch to the target mode.
+
+## OSC configuration {#MCGLITEOsc}
+
+To enable OSC clock, MCG_Lite should work together with OSC module. The function
+CLOCK_InitOsc0() involves MCG_Lite and OSC to initialize OSC. The OSC should be
+configured based on board design.
+
+*/

@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.sai.support" requires="devices.modules.D_IP_SAI_SYN_013"/>    <component name="platform.drivers.sai.support" requires="devices.modules.D_IP_SAI_SYN_017"/>    <component name="platform.drivers.sai"              description="SAI Driver"             requires="platform.drivers.sai.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_sai.c"/>
+        <files mask="fsl_sai.h"/>      </source>    </component>  </components></metadata>

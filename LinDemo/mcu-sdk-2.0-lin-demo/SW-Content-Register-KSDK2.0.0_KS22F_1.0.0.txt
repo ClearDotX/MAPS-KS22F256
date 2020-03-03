@@ -1,0 +1,49 @@
+Release Name: Kinetis     2.0.0-KS22F_1.0.0
+Software Development
+Kit (SDK)
+Package - Kinetis SDK     
+
+CMSIS DSP Library         Description: A digital signal processing
+                          library for Cortex-M cores from ARM
+                          Version: 1.4.4 (CMSIS download 4.2)
+                          Author:  ARM
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          URL: http://silver.arm.com
+                          Location:
+                          KSDK2.0.0_KS22F_1.0.0/platform/CMSIS/DSP_lib
+
+CMSIS Core header files   Description: Industry-standard header files
+                          distributed by ARM for Cortex-M cores
+                          Version: 4.20
+                          Author:  ARM
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          URL: http://silver.arm.com
+                          Location:
+                          KSDK2.0.0_KS22F_1.0.0/platform/CMSIS/Include
+
+Flash / NVM               Description: Software driver (SSD) for Flash
+                          and EEPROM
+                          Version: 3.4
+                          Author: Freescale
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          Location:
+                          KSDK2.0.0_KS22F_1.0.0/platform/drivers/flash
+
+KSDK Peripheral Drivers   Description: Peripheral drivers are designed
+                          for the most common use cases identified for
+                          the underlying hardware block.
+                          Version: 2.0.0
+                          Author: Freescale
+                          License: Open Source - BSD-3-Clause
+                          Format: source code
+                          Location: KSDK2.0.0_KS22F_1.0.0/platform/drivers
+
+Freescale LIN2.x Stack    Description: Freescale LIN2.x and SAE J2602 Stack
+                          package for S08 / S12/ KEA platforms
+                          Author: Freescale
+                          License: Proprietary.  See LA_OPT_FSL_OPEN_3RD_PARTY_IP
+                          Format: source code
+                          Location: KSDK2.0.0_KS22F_1.0.0/middleware/lin_stack

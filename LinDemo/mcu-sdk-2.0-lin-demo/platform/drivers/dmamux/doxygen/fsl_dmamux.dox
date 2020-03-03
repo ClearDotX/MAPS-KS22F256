@@ -1,0 +1,37 @@
+/*!
+@defgroup dmamux DMAMUX Direct Memory Access Multiplexer (DMAMUX)
+@details The SDK provides driver for the Direct Memory Access Multiplexer(DMAMUX)
+         periphral of Kinetis devices.
+@{
+*/
+/*!
+@defgroup dmamux_driver DMAMUX Peripheral driver
+@ingroup dmamux
+@details This section describes the programming interface of the DMAMUX Peripheral driver.
+The DMAMUX driver configures DMAMUX periphral, provide functional for user to application.
+
+# Function groups{#DMAFunGrps}
+
+## DMAMUX Initialization and De-initialization{#DMAMUXInit}
+
+This function group initialize DMAMUX periphral and de-initialize DMAMUX periphral.
+
+## DMAMUX Channel Operation{#DMAMUXChnOper}
+
+This function group configure DMAMUX channel attribute.
+
+# Typical use case{#DMAMUXTypicalUseCase}
+
+## DMAMUX Operation{#DMAMUXOper}
+
+~~~~~{.c}
+    DMAMUX_Init(DMAMUX0);
+    DMAMUX_SetSource(DMAMUX0, channel, source);
+    DMAMUX_EnableChannel(DMAMUX0, channel);
+    ...
+    DMAMUX_DisableChannel(DMAMUX, channel);
+    DMAMUX_Deinit(DMAMUX0);
+~~~~~
+
+*/
+/* @} */

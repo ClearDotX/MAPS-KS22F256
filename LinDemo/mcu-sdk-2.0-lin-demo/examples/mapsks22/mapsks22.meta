@@ -1,0 +1,11 @@
+<!-- This file is maintained by board support author -->
+<metadata>
+  <components>
+    <component name="examples.board" requires="devices.boards.mapsks22 examples.board.demo_apps examples.board.driver_examples" provides="examples.board">
+      <source path="">
+        <files mask="*.c"/>
+        <files mask="*.h"/>
+      </source>
+    </component>
+  </components>
+</metadata>

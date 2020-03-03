@@ -1,0 +1,231 @@
+************************************************************************************
+Freescale LIN2.x and SAE J2602 Stack package for S08 / S12/ KEA platforms
+
+Freescale(TM) and the Freescale logo are trademarks of Freescale Semiconductor, Inc. 
+
+All other product or service names are the property of their respective owners. 
+(C) Freescale Semiconductor, Inc. 2008-2015
+
+Release Version: 4.5.4
+************************************************************************************
+
+************************************************************************************
+Release content :
+************************************************************************************                     
+The LIN Stack package is compliant to LIN 2.0 and LIN 2.1 / 2.2a specifications
+	- compliance option select in LDF file: LIN_protocol_version = ["2.0"|"2.1"]
+The LIN Stack package contains the following deliverables:
+	- Source code for LIN Stack (/LIN_Stack)
+	- Source code for Demo and Sample Applications (/Examples)
+	- Node configuration Tool (used to generate stack configuration file) (/NCF_Tool)
+	- Node configuration files for Demo applications and individual sample projects
+    - Documentations: 	LIN Stack User Manual
+						Eclipse plug-in user manual
+						HTML Documentation
+************************************************************************************
+Changes from version 4.5.3 :
+************************************************************************************   	
+	Changed name of the LIN Driver to LIN Stack
+************************************************************************************
+Freescale LIN 2.x and SAE J2602 Stack package supports the following S08 and S12X derivatives:
+************************************************************************************
+GPIO(Bit-Bang):
+	9S08QD4
+  
+SLIC:
+	9S08EL32  
+  
+SCIv2:  
+	9S08AW16A
+	9S08AW60
+
+SCIv4:
+	9S08SG32	
+	9S08SG8		
+	9S08DZ60	
+	9S08DZ128
+	9S08EL32
+	0S08MP16
+	9S08LG32
+	9S08SC4
+	9S08RN60
+	
+SCIv5:
+	9S12HY64	
+	9S12P128	
+	9S12XS128	
+	9S12XS256	
+	9S12XEP100
+	9S12XEQ512
+	9S12XET256
+	9S12XDP512
+	9S12XF512
+	9S12G128
+	9S12XHY256
+	9S12GN32
+	9S12G64
+	9S12G128
+	9S12G240
+	9S12ZVHY64
+
+SCIv5+XGATE:
+	9S12XEP100
+	9S12XEQ512
+	9S12XET256
+	9S12XDP512
+	9S12XF512
+
+SCIv6:
+	9S12ZVL32
+	9S12VR64
+	9S12VR32
+	S12ZVML31 
+LIN phy:
+	MM912F634
+	MM912G634
+	MM912H634
+	MM912J637
+	MM912Z1J638
+
+Kinetis:
+	SKEAZN84
+	SKEAZN642
+    SKEAZ1284
+	
+It could be easily ported to other sub-derivatives using the IPs version defined above.
+
+
+************************************************************************************
+Supported Tools
+************************************************************************************
+S08 platform:
+ - CodeWarrior for Microcontrollers V6.2
+ - CodeWarrior for Microcontrollers V6.3
+S12X platform:
+ - CodeWarrior for HCS12(X) V4.7
+ - CodeWarrior for HCS12(X) V5.1
+S12Z platform:
+ - CodeWarrior MCU v10.6
+
+The Stack was tested using:
+CANOE.LIN version 7.5.41
+
+************************************************************************************
+Release History
+************************************************************************************
+v1.0.0
+ - LIN Driver Release package
+v1.1.0
+ - Updated source code for LIN Driver:
+ 	- Change request 1 (CR01): Change timeout setting from runtime to compile time
+    - Bug fix for LCT_D2; LCT_D5; LCT_D6; LCT_D7; LCT_D9; LCT_D10; LCT_D11; LCT_D14; LCT_D20; LCT_D21; LCT_D22.
+ - Updated source code for Demo Application: CR01
+ - Updated source code for Node configuration Tool: CR01
+ - Updated Node configuration files for Demo application and conformance project test
+ - Updated configuration files in Example code 
+v2.1
+ - Diagnostics features added for DZ60 slave mode
+v2.3
+ - Diagnostics features added for DZ60/DZ128 master mode
+
+v3.0
+ - Full featured LIN driver
+ - Diagnostics layer classes 1,2,3 supported
+ - Improved SCI layer combination
+ - Added resynchronization feature
+v3.1
+ - New hardware platforms support: MM912x battery sensors (QuIBS)
+ - Updated Driver with timer optional selection for S12X MCU
+ - Updated NCF tool with new NPF file structure
+
+v4.0
+ - New hardware platforms support: S12G240
+ - LIN configuration plugin for Eclipse
+v4.1
+ - added CAN demo
+ - added AUTOSAR wrapper example
+v4.2
+ - New hardware platforms support
+	S08:
+		9S08LG32
+		9S08SC4
+	S12:
+		9S12GN32
+		9S12G64
+		9S12G128
+		S12G240
+		9S12VR64 (MagniV family)
+		
+	MM912 (MagniV):
+		MM912F634
+		MM912G634
+		MM912H634
+		MM912J637 (QuIBS family)
+ - New NPF input file structure for the generated configuration code
+ - Added timer optional selection feature for S12X
+ - Added Static API functions has been added
+ - Added API functions for set configuration, save configuration, get configuration
+ - Corrected error on ld_read_by_id_callout API function
+ - Updated customer request on diagnostic implementation	
+ - Sample projects for MagniV platform
+ - Sample project for 9S12VR64 for LIN Physical Layer with SCI use case.
+V4.3
+ - New hardware platforms support
+	Carcassonne 9S12ZVM128 cut 2 
+V4.4.1
+ - SCI_V6 interface support
+ - New hardware platforms support
+	S12ZVL32_Knox 
+	S12ZVHY64_Lumen
+	MM912Z1J638 QuIBS+Z
+	9S08RN60
+	S912VR64 rev.3
+ - Changed timer channel allocation for 9S12ZVM to avoid conflict with motor control SW
+ - Fix issue of NCF tool for master project generation
+ - Update User Manual for LIN_PHY explanation
+ - Add Eclipse User Manual
+V4.5.1
+ - New hardware platforms support (ARM core MCUs):
+	KEA8
+	KEA64 
+	KEA128
+ - add AUTOBAUD feature for 9600 and 19200 bps and applicable for S12Z MCU family
+ - fix issue of NCF tool for generating wrong flag update function for 16 scalar signal
+ V4.5.2
+ - New hardware platforms support: 9S12ZVC64
+	- Service request supported:
+		- fixed time slot calculation and return value in the l_sch_tick() function
+		- KEA support changed to use timer channel FTM1_CH0 
+		- fixed NCF tool handling of 16-bit signal values
+		- fixed event trigger flags and collision table switching behaviour 
+V4.5.3
+- New hardware platforms supported: 
+	S12ZVML31  (Obidos)
+	9S12VR32 (Tomarino)
+
+************************************************************************************
+Known issues
+************************************************************************************
+LCT_D13: Conformance test on S12X 
+No wake up detected signal for XGATE+SCI interface at low baudrate (2400bps)
+LCT_D14: Conformance test on MM912F634 MCU
+CANoe sends framing error to DUT and expect the DUT detect this error to feedback to CANoe
+When using MM912J637 for LIN cluster, set the bus_clock of MCU as 8192000 Hz (not 8Mhz as usual)
+
+
+NCF tool
+The order of Event trigger frame in ldf file is fixed as at the end of configurable_frames
+in Node attributes. The error will happen if the order is changed.
+************************************************************************************
+Known limitation
+************************************************************************************	 
+1. Conformance test coverage 99.06% (The defects was confirmed as CANoeLIN and hardware limitations)
+
+
+************************************************************************************
+Note from LIN Consortium
+************************************************************************************	 
+The LIN Steering Group has concluded its work with the finalization of the LIN Specification 2.2.A.
+Currently the latest LIN specification is being transcribed
+to the ISO (International Organization for Standardization)
+as part of the process to be accepted as ISO standard ISO 17987 Part 1-7.

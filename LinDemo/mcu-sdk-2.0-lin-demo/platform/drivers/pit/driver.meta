@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.pit.support" requires="devices.modules.pit_rti_37"/>    <component name="platform.drivers.pit.support" requires="devices.modules.pit_rti_40"/>    <component name="platform.drivers.pit"              description="PIT Driver"             requires="platform.drivers.pit.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_pit.c"/>
+        <files mask="fsl_pit.h"/>      </source>    </component>  </components></metadata>

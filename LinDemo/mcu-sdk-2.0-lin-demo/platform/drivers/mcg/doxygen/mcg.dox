@@ -1,0 +1,282 @@
+/*!
+@defgroup mcg Multipurpose Clock Generator (MCG)
+@details The SDK provides driver for the MCG module of Kinetis devices.
+
+# Function discription {#MCGFunc}
+
+MCG driver provides such kinds of functions:
+ - Functions to get MCG clock frequency.
+ - Functions to configure MCG clock, e.g. PLLCLK, MCGIRCLK.
+ - Functions for MCG clock lock lost monitor.
+ - Functions for OSC configuration.
+ - Functions for MCG auto-trim machine.
+ - Functions for MCG mode.
+
+## MCG frequency functions {#MCGFreq}
+
+MCG module provides such clocks: MCGOUTCLK, MCGIRCLK, MCGFFCLK, MCGFLLCLK and
+MCGPLLCLK, the MCG driver provides separate functions accordingly to get the
+frequency of these clocks, they are: CLOCK_GetOutClkFreq(),
+CLOCK_GetInternalRefClkFreq(), CLOCK_GetFixedFreqClkFreq(), CLOCK_GetFllFreq(),
+CLOCK_GetPll0Freq(), CLOCK_GetPll1Freq() and CLOCK_GetExtPllFreq(). These functions
+get the clock frequency based on current MCG registers.
+
+## MCG clock configuration {#MCGCLKCfg}
+
+MCG driver provides functions to configure the MCGIRCLK and MCGPLLCLK.\n
+
+The function CLOCK_ConfigInternalRefClk() configures the MCGIRCLK, if current
+MCG mode is BLPI/FBI/PBI, configure the MCGIRCLK configuration may change the
+system clock.\n
+
+The MCGPLLCLK is disaled in FBE/FEE/FBI/FEI modes by default, applications could
+enable the MCGPLLCLK in these modes using the functions CLOCK_EnablePll0() and
+CLOCK_EnablePll1(). To enable the MCGPLLCLK, the PLL reference clock divider(PRDIV)
+and PLL VCO divider(VDIV) must be set to the proper value. The function
+CLOCK_CalcPllDiv() could help to get the PRDIV/VDIV.
+
+## MCG clock lock monitor functions {#MCGMonitor}
+
+MCG module could monitor the OSC and PLL clock lock status. MCG driver provides
+the functions to set the clock monitor mode, check clock lost status and clear
+the clock lost status.
+
+## OSC configuration {#MCGOsc}
+
+To enable OSC clock, MCG should work together with OSC module. The function
+CLOCK_InitOsc0() CLOCK_InitOsc1 involves MCG and OSC to initialize OSC. The OSC
+should be configured based on board design.
+
+## MCG auto-trim machine {#MCGAtm}
+
+MCG provides an auto-trim machine to trim the MCG internal reference clock based
+on external reference clock (BUS clock). During clock triming, the MCG must not
+work in FEI/FBI/BLPI/PBI/PEI mdoes. The function CLOCK_TrimInternalRefClk() is
+used for the auto clock triming.
+
+## MCG mode functions {#MCGMode}
+
+MCG module has many modes, the function CLOCK_GetMcgMode returns current MCG mode.
+The MCG could only switch between the neighboring modes. If the target mode is
+not current mode's neighboring mode, application must choose the proper switch
+path. For example, to switch to PEE mode from FEI mode,
+must work as FEI -> FBE -> PBE -> PEE. \n
+
+For the MCG mdoes, MCG driver provides three kinds of functions:\n
+
+The first kind of functions are the functions CLOCK_SetXxxMode, e.g. CLOCK_SetFeiMode().
+These functions only set the MCG mode from neighboring modes. If could not switch
+to the target mode directly from current mode, the functions returns error.
+
+The second kind of functions are the functions CLOCK_BootToXxxMode,
+e.g. CLOCK_BootToFeiMode(). These functions set the MCG to specific modes from
+reset mode. Because the source mode and target mode are all specific, so these
+functions could choose the best switch path. These functions are useful for setup
+system clock during boot up.
+
+The third kind of function is the CLOCK_SetMcgConfig(), this function could choose
+the right path to switch to the target mode. It is easy to use, but will introduce
+large code size.
+
+# Typical use case
+
+The MCG driver provides plent of mode functions, the function CLOCK_SetMcgConfig
+could be used to switch from any modes to any modes, but this heavy-light function
+introduces large code size. This section shows how to use the mode functions to
+implement quick and light-weight switch between typical specific modes. Note that
+the step to enable external clock is not included in the following steps, need
+to enable the correspond clock before change to use it as clock source.
+
+## Switch between BLPI and FEI
+
+<div>
+    <table>
+        <tr>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Use case</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Steps</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Functions</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> BLPI -> FEI </th>
+            <td align="center"> BLPI -> FBI </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(false)</td>
+        </tr>
+        <tr>
+            <td align="center"> FBI -> FEI </td>
+            <td align="left"> CLOCK_SetFeiMode(...)</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> FEI -> BLPI </th>
+            <td align="center"> FEI -> FBI </td>
+            <td align="left"> CLOCK_SetFbiMode(...) // fllStableDelay=NULL</td>
+        </tr>
+        <tr>
+            <td align="center"> FBI -> BLPI </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(true)</td>
+        </tr>
+    </table>
+</div>
+
+## Switch between BLPI and FEE
+
+<div>
+    <table>
+        <tr>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Use case</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Steps</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Functions</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> BLPI -> FEE </th>
+            <td align="center"> BLPI -> FBI </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(false)</td>
+        </tr>
+        <tr>
+            <td align="center"> FBI -> FEE </td>
+            <td align="left"> CLOCK_SetFeeMode(...)</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> FEE -> BLPI </th>
+            <td align="center"> FEE -> FBI </td>
+            <td align="left"> CLOCK_SetFbiMode(...) // fllStableDelay=NULL</td>
+        </tr>
+        <tr>
+            <td align="center"> FBI -> BLPI </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(true)</td>
+        </tr>
+    </table>
+</div>
+
+## Switch between BLPI and PEE
+
+<div>
+    <table>
+        <tr>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Use case</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Steps</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Functions</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="4"> BLPI -> PEE </th>
+            <td align="center"> BLPI -> FBI </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(false)</td>
+        </tr>
+        <tr>
+            <td align="center"> FBI -> FBE </td>
+            <td align="left"> CLOCK_SetFbeMode(...) // fllStableDelay=NULL </td>
+        </tr>
+        <tr>
+            <td align="center"> FBE -> PBE </td>
+            <td align="left"> CLOCK_SetPbeMode(...)</td>
+        </tr>
+        <tr>
+            <td align="center"> PBE -> PEE </td>
+            <td align="left"> CLOCK_SetPeeMode(...)</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="3"> PEE -> BLPI </th>
+            <td align="center"> PEE -> FBE </td>
+            <td align="left"> CLOCK_PeeToFbeModeQuick</td>
+        </tr>
+        <tr>
+            <td align="center"> FBE -> FBI </td>
+            <td align="left"> CLOCK_SetFbiMode(...) // fllStableDelay=NULL </td>
+        </tr>
+        <tr>
+            <td align="center"> FBI -> BLPI </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(true)</td>
+        </tr>
+    </table>
+</div>
+
+## Switch between BLPE and PEE
+
+<div>
+    <table>
+        <tr>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Use case</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Steps</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Functions</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> BLPE -> PEE </th>
+            <td align="center"> BLPE -> PBE </td>
+            <td align="left"> CLOCK_SetPbeMode(...) </td>
+        </tr>
+        <tr>
+            <td align="center"> PBE -> PEE </td>
+            <td align="left"> CLOCK_SetPeeMode(...) </td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> PEE -> BLPE </th>
+            <td align="center"> PEE -> FBE </td>
+            <td align="left"> CLOCK_PeeToFbeModeQuick </td>
+        </tr>
+        <tr>
+            <td align="center"> FBE -> BLPE </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(true) </td>
+        </tr>
+    </table>
+</div>
+
+## Switch between BLPE and FEE
+
+<div>
+    <table>
+        <tr>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Use case</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Steps</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Functions</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> BLPE -> FEE </th>
+            <td align="center"> BLPE -> FBE </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(false) </td>
+        </tr>
+        <tr>
+            <td align="center"> FBE -> FEE </td>
+            <td align="left"> CLOCK_SetFeeMode(...)</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> FEE -> BLPE </th>
+            <td align="center"> PEE -> FBE </td>
+            <td align="left"> CLOCK_SetPbeMode</td>
+        </tr>
+        <tr>
+            <td align="center"> FBE -> BLPE </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(true) </td>
+        </tr>
+    </table>
+</div>
+
+## Switch between BLPI and PEI
+
+<div>
+    <table>
+        <tr>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Use case</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Steps</td>
+            <td colspan="1" align=center bgcolor="#2E9AFE">Functions</td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> BLPI -> PEI </th>
+            <td align="center"> BLPI -> PBI </td>
+            <td align="left"> CLOCK_SetPbiMode(...) </td>
+        </tr>
+        <tr>
+            <td align="center"> PBI -> PEI </td>
+            <td align="left"> CLOCK_SetPeiMode(...) </td>
+        </tr>
+        <tr>
+            <th align="center" rowspan="2"> PEI -> BLPI </th>
+            <td align="center"> PEI -> FBI </td>
+            <td align="left"> CLOCK_PeiToFbiModeQuick() </td>
+        </tr>
+        <tr>
+            <td align="center"> FBI -> BLPI </td>
+            <td align="left"> CLOCK_SetLowPowerEnable(true) </td>
+        </tr>
+    </table>
+</div>
+
+*/

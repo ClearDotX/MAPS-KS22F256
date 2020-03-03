@@ -1,0 +1,43 @@
+/*!
+@defgroup tsi Touch Sensing Input  
+@details The SDK provides driver for the Touch Sensing Input(TSI)
+         module of Kinetis devices.
+@{
+*/
+/*!
+@defgroup tsi_v4_driver TSI Peripheral driver
+@ingroup tsi
+@details This section describes the programming interface of the TSI Peripheral driver.
+
+# Function groups
+
+## TSI initialization & configuration {#TSIInitConfig}
+This function group initializes default configuration of peripheral.
+Also, the calibration API is include.
+
+## TSI functional Operation {#TSIFunctional}
+
+This function group implement TSI functional APIs.
+Including interrupts enable/disable, trigger method selection, retrieve conversion counter value.
+
+# Typical use case
+
+## TSI Operation {#TSIOperation}
+
+~~~~~{.c}
+    TSI_Init(TSI0);
+    TSI_Configure(TSI0, &user_config);
+    TSI_SetMeasuredChannelNumber(TSI0, channelMask);
+    TSI_EnableInterrupts(TSI0, kTSI_GlobalInterruptEnable | kTSI_EndOfScanInterruptEnable);
+
+    TSI_EnableSoftwareTriggerScan(TSI0);
+    TSI_EnableModule(TSI0);
+    while(1) 
+    {
+       TSI_StartSoftwareTrigger(TSI0);
+       TSI_GetCounter(TSI0);
+    }
+~~~~~
+
+*/
+/*! @} */

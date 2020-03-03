@@ -1,0 +1,173 @@
+/*!
+@defgroup pdb Programmable Delay Block (PDB)
+@details The SDK provides driver for the Programmable Delay Block (PDB)
+         module of Kinetis devices.
+@{
+*/
+/*!
+
+#Overview
+
+PDB driver can be split into 4 parts: for basic PDB counter, and trigger generators for ADC, DAC and pulse-out. 
+
+The part for basic PDB counter can be used as a general programmable time with interrupt. The counter increases automatically with divided clock signal once triggered to start by external trigger input or software trigger. There are "milestone" for output trigger event. When the counter is equal to any of these "milestone" value, responding trigger would be generated and sent out to other modules. These "milestone" are for:
+ - Counter delay interrupt, which is the interrupt for PDB module own
+ - ADC pre-trigger to trigger the ADC's conversion
+ - DAC interval trigger to trigger the DAC buffer and move the buffer read pointer
+ - Pulse-out triggers to generate a single of rising and falling edge, which can be assembled to a window.
+
+According to the description from reference manual, these "milestone" values have flexible load mode. Actually, to call the APIs of setting these value is just to write the data to their buffer. The loading event would occur as the load mode describes. This design can make sure all the "milestone" can be updated as the same time.
+
+# Function groups
+
+## Initialization {#PdbInit}
+
+This function group implements APIs for the initialization/de-initialization of PDB module.
+
+## Basic Counter {#PdbCnt}
+
+This function group implements APIs for PDB counter.
+
+## ADC Pre-Trigger {#PdbAdcTgr}
+
+This function group implements APIs for ADC Pre-Trigger.
+
+## DAC Interval Trigger {#PdbDacTgr}
+
+This function group implements APIs for DAC Internal trigger.
+
+## Pulse-Out Trigger {#PdbPOutTgr}
+
+This function group implements APIs for Pulse-Out trigger.
+
+# Typical use case
+
+## Working as basic DPB counter with just PDB interrupt.
+
+~~~~~{.c}
+
+int main(void)
+{
+    // ...
+    EnableIRQ(DEMO_PDB_IRQ_ID);
+
+    // ...
+    // Configure the PDB counter.
+    PDB_GetDefaultConfig(&pdbConfigStruct);
+    PDB_Init(DEMO_PDB_INSTANCE, &pdbConfigStruct);
+
+    // Configure the delay interrupt.
+    PDB_SetModulusValue(DEMO_PDB_INSTANCE, 1000U);
+    PDB_SetCounterDelayValue(DEMO_PDB_INSTANCE, 1000U); // The available delay value is less than or equal to the modulus value.
+    PDB_EnableInterrupts(DEMO_PDB_INSTANCE, kPDB_DelayInterruptEnable);
+    PDB_DoLoadValues(DEMO_PDB_INSTANCE);
+    
+    while (1)
+    {
+        // ...
+        g_PdbDelayInterruptFlag = false;
+        PDB_DoSoftwareTrigger(DEMO_PDB_INSTANCE);
+        while (!g_PdbDelayInterruptFlag)
+        {
+        }
+    }
+ }
+
+void DEMO_PDB_IRQ_HANDLER_FUNC(void)
+{
+    // ...
+    g_PdbDelayInterruptFlag = true;
+    PDB_ClearStatusFlags(DEMO_PDB_INSTANCE, kPDB_DelayEventFlag);
+}
+
+~~~~~
+
+## Working with additional trigger. Taking ADC trigger's case as example.
+
+~~~~~{.c}
+
+void DEMO_PDB_IRQ_HANDLER_FUNC(void)
+{
+    PDB_ClearStatusFlags(DEMO_PDB_INSTANCE, kPDB_DelayEventFlag);
+    g_PdbDelayInterruptCounter++;
+    g_PdbDelayInterruptFlag = true;
+}
+
+void DEMO_PDB_InitADC(void)
+{
+    adc16_config_t adc16ConfigStruct;
+    adc16_channel_config_t adc16ChannelConfigStruct;
+
+    ADC16_GetDefaultConfig(&adc16ConfigStruct);
+    ADC16_Init(DEMO_PDB_ADC_INSTANCE, &adc16ConfigStruct);
+#if defined(FSL_FEATURE_ADC16_HAS_CALIBRATION) && FSL_FEATURE_ADC16_HAS_CALIBRATION
+    ADC16_EnableHardwareTrigger(DEMO_PDB_ADC_INSTANCE, false);
+    ADC16_DoAutoCalibration(DEMO_PDB_ADC_INSTANCE);
+#endif /* FSL_FEATURE_ADC16_HAS_CALIBRATION */
+    ADC16_EnableHardwareTrigger(DEMO_PDB_ADC_INSTANCE, true);
+
+    adc16ChannelConfigStruct.channelNumber = DEMO_PDB_ADC_USER_CHANNEL;
+    adc16ChannelConfigStruct.enableInterruptOnConversionCompleted = true; /* Enable the interrupt. */
+#if defined(FSL_FEATURE_ADC16_HAS_DIFF_MODE) && FSL_FEATURE_ADC16_HAS_DIFF_MODE
+    adc16ChannelConfigStruct.enableDifferentialConversion = false;
+#endif /* FSL_FEATURE_ADC16_HAS_DIFF_MODE */
+    ADC16_SetChannelConfig(DEMO_PDB_ADC_INSTANCE, DEMO_PDB_ADC_CHANNEL_GROUP, &adc16ChannelConfigStruct);
+}
+
+void DEMO_PDB_ADC_IRQ_HANDLER_FUNCTION(void)
+{
+    uint32_t tmp32;
+
+    tmp32 = ADC16_GetChannelConversionValue(DEMO_PDB_ADC_INSTANCE, DEMO_PDB_ADC_CHANNEL_GROUP); /* Read to clear COCO flag. */
+    g_AdcInterruptCounter++;
+    g_AdcInterruptFlag = true;
+}
+
+int main(void)
+{
+    // ...
+    
+    EnableIRQ(DEMO_PDB_IRQ_ID);
+    EnableIRQ(DEMO_PDB_ADC_IRQ_ID);
+    
+    // ...
+
+    // Configure the PDB counter.
+    PDB_GetDefaultConfig(&pdbConfigStruct);
+    PDB_Init(DEMO_PDB_INSTANCE, &pdbConfigStruct);
+
+    // Configure the delay interrupt.
+    PDB_SetModulusValue(DEMO_PDB_INSTANCE, 1000U);
+    PDB_SetCounterDelayValue(DEMO_PDB_INSTANCE, 1000U); // The available delay value is less than or equal to the modulus value.
+    PDB_EnableInterrupts(DEMO_PDB_INSTANCE, kPDB_DelayInterruptEnable);
+
+    // Configure the ADC Pre-Trigger.
+    pdbAdcPreTriggerConfigStruct.enablePreTriggerMask = 1U << DEMO_PDB_ADC_PRETRIGGER_CHANNEL;
+    pdbAdcPreTriggerConfigStruct.enableOutputMask = 1U << DEMO_PDB_ADC_PRETRIGGER_CHANNEL;
+    pdbAdcPreTriggerConfigStruct.enableBackToBackOperationMask = 0U;
+    PDB_SetADCPreTriggerConfig(DEMO_PDB_INSTANCE, DEMO_PDB_ADC_TRIGGER_CHANNEL, &pdbAdcPreTriggerConfigStruct);
+    PDB_SetADCPreTriggerDelayValue(DEMO_PDB_INSTANCE,
+                                   DEMO_PDB_ADC_TRIGGER_CHANNEL, DEMO_PDB_ADC_PRETRIGGER_CHANNEL, 200U);
+                        // The available Pre-Trigger delay value is less than or equal to the modulus value.
+
+    PDB_DoLoadValues(DEMO_PDB_INSTANCE);
+
+    // Configure the ADC.
+    DEMO_PDB_InitADC();
+
+    while (1)
+    {
+        g_PdbDelayInterruptFlag = false;
+        g_AdcInterruptFlag = false;
+        PDB_DoSoftwareTrigger(DEMO_PDB_INSTANCE);
+        while ((!g_PdbDelayInterruptFlag) || (!g_AdcInterruptFlag)) 
+        {
+        }
+        // ...
+    }
+}
+
+~~~~~
+
+*/
+/*! @} */

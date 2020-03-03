@@ -1,0 +1,30 @@
+/*!
+@defgroup trgmux Trigger MUX module (TRGMUX)
+@details The SDK provides driver for the Trigger MUX module (TRGMUX)
+         of Kinetis devices.
+@{
+*/
+/*!
+
+@defgroup trgmux_source TRGMUX trigger source and device
+@ingroup trgmux
+@details This section describes the trigger sources and configurable device.
+
+@defgroup trgmux_driver TRGMUX Peripheral driver
+@ingroup trgmux
+@details This section describes the programming interface of the TRGMUX Peripheral driver.
+The TRGMUX driver configures TRGMUX module to support other IPs.
+
+# Function groups
+
+## TRGMUX functional Operation {#TRGMUXFunctional}
+
+This function group implement TRGMUX functional API.
+
+# Typical use case
+~~~~~{.c}
+    TRGMUX_SetTriggerSource(TRGMUX0,kTRGMUX_Trgmux0Dmamux0,kTRGMUX_TriggerInput0,kTRGMUX_SourcePortPin);
+~~~~~
+
+*/
+/*! @} */

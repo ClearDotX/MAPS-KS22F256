@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.rnga.support" requires="devices.modules.D_IP_RNGA_32IP_CMOS090_LP9TM1_SYN_2"/>    <component name="platform.drivers.rnga.support" requires="devices.modules.D_SSL_L5K_ltc_mcu_rng_3"/>    <component name="platform.drivers.rnga"              description="RNGA Driver"             requires="platform.drivers.rnga.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_rnga.c"/>
+        <files mask="fsl_rnga.h"/>      </source>    </component>  </components></metadata>

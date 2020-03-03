@@ -1,0 +1,32 @@
+/*!
+@defgroup wdog Watchdog Timer (WDOG)
+@details The SDK provides driver for the Watchdog module (WDOG) of Kinetis devices.
+
+@{
+*/
+/*!
+
+@defgroup wdog_driver WDOG Peripheral driver
+@ingroup wdog
+@details This section describes the programming interface of the WDOG Peripheral driver.
+The WDOG driver configures WDOG module.
+
+# Function groups
+
+## WDOG Initialization and De-initialization {#WDOGInitConfig}
+This function group initialize and de-initialize WDOG module.
+
+## WDOG functional Operation {#WDOGFunctional}
+This function group implement WDOG functional API.
+
+# Typical use case
+~~~~~{.c}
+    wdog_config_t config;
+    WDOG_GetDefaultConfig(&config);
+    config.timeoutValue = 0x7ffU;
+    config.enableWindowMode = true;
+    config.windowValue = 0x1ffU;
+    WDOG_Init(wdog_base,&config);
+~~~~~
+*/
+/*! @} */

@@ -1,0 +1,115 @@
+/*!
+@defgroup gpio General-Purpose Input/Output (GPIO)
+@details The SDK provides Peripheral driver for the General-Purpose Input/Output (GPIO)
+module of Kinetis devices.
+@{
+*/
+
+/*!
+@defgroup gpio_driver GPIO Peripheral driver
+@ingroup gpio
+@details This section describes the programming interface of the GPIO Peripheral driver.
+The GPIO driver configures GPIO module, provide functional interface for user to build gpio application
+
+# Function groups {#GPIOFunGrps}
+
+## GPIO Configuration {#GPIOConfig}
+
+This function group configures the GPIO pin 
+
+## GPIO Output Operations {#GPIOOut}
+
+This function group set the GPIO pin output(write, set, clear, toggle)
+
+## GPIO Input Operations {#GPIOinput}
+
+This function read the GPIO pin value
+
+## GPIO Interrupt {#GPIOinterrupt}
+
+This function group check or clear the GPIO pin interrupt
+
+# Typical use case {#GPIOTpyUC}
+
+## Output Operation {#GPIOOutOps}
+
+~~~~~{.c}
+    /* Output pin configuration */
+    gpio_pin_config_t led_config =
+    {
+        kGpioDigitalOutput,
+        1,
+    };
+    /*  Set the configuration */
+    GPIO_PinInit(GPIO_LED, LED_PINNUM, &led_config);
+~~~~~
+
+## Input Operation {#GPIOInOps}
+
+~~~~~{.c}
+    /*  Input pin configuration */
+    PORT_SetPinInterruptConfig(BOARD_SW2_PORT, BOARD_SW2_GPIO_PIN, kPORT_InterruptFallingEdge);
+    NVIC_EnableIRQ(BOARD_SW2_IRQ);    
+    gpio_pin_config_t sw1_config =
+    {
+        kGpioDigitalInput,
+        0,
+    };
+    /* Set the input pin configuration */
+    GPIO_PinInit(GPIO_SW1, SW1_PINNUM, &sw1_config);
+~~~~~
+
+@defgroup fgpio_driver FGPIO Peripheral driver
+@ingroup fgpio
+@details This section describes the programming interface of the FGPIO Peripheral driver.
+The FGPIO driver configures FGPIO module, provide functional interface for user to build gpio application
+
+# Function groups {#FGPIOFunGrps}
+
+## FGPIO Configuration {#FGPIOConfig}
+
+This function group configures the FGPIO pin 
+
+## FGPIO Output Operations {#FGPIOOut}
+
+This function group set the FGPIO pin output(write, set, clear, toggle)
+
+## FGPIO Input Operations {#FGPIOinput}
+
+This function read the FGPIO pin value
+
+## FGPIO Interrupt {#FGPIOinterrupt}
+
+This function group check or clear the FGPIO pin interrupt
+
+# Typical use case {#FGPIOTpyUC}
+
+## Output Operation {#FGPIOOutOps}
+
+~~~~~{.c}
+    /* Output pin configuration */
+    gpio_pin_config_t led_config =
+    {
+        kGpioDigitalOutput,
+        1,
+    };
+    /*  Set the configuration */
+    FGPIO_PinInit(FGPIO_LED, LED_PINNUM, &led_config);
+~~~~~
+
+## Input Operation {#FGPIOInOps}
+
+~~~~~{.c}
+    /*  Input pin configuration */
+    PORT_SetPinInterruptConfig(BOARD_SW2_PORT, BOARD_SW2_FGPIO_PIN, kPORT_InterruptFallingEdge);
+    NVIC_EnableIRQ(BOARD_SW2_IRQ);    
+    gpio_pin_config_t sw1_config =
+    {
+        kGpioDigitalInput,
+        0,
+    };
+    /* Set the input pin configuration */
+    FGPIO_PinInit(FGPIO_SW1, SW1_PINNUM, &sw1_config);
+~~~~~
+*/
+/*! @} */

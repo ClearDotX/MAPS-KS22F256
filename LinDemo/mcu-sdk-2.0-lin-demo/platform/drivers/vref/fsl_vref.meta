@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.vref.support" requires="devices.modules.DA_IP_VREF1v2_NN_C90LP_033"/>    <component name="platform.drivers.vref.support" requires="devices.modules.DA_IP_VREF2v1_NN_C90LP_006"/>    <component name="platform.drivers.vref"              description="VREF Driver"             requires="platform.drivers.vref.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_vref.c"/>
+        <files mask="fsl_vref.h"/>      </source>    </component>  </components></metadata>

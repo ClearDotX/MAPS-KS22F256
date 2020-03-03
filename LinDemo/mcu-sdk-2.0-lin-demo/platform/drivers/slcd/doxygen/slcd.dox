@@ -1,0 +1,56 @@
+/*!
+@defgroup slcd Segment LCD (SLCD)
+@details The SDK provides Peripheral driver for the Segment LCD (SLCD)
+         module of Kinetis devices.
+@{
+*/
+/*!
+@defgroup slcd_driver SLCD Peripheral driver
+@ingroup slcd
+@details This section describes the programming interface of the SLCD Peripheral driver.
+The SLCD driver configures SLCD module, provide functional interface for user to build SLCD application
+
+# Function groups{#SLCDFunGrps}
+
+This function group initialize default configuration structure, initialize SLCD 
+with user configuration, de-initialize SLCD module, set SLCD front/back plane pins,
+start/stop SLCD display, start/stop blink display and enable/disable/clear/get 
+SLCD interrupt event. 
+
+# Typical use case {#SLCDTpyUC}
+
+## SLCD Initialize Operation {#SLCDInitOpera}
+
+~~~~~{.c}
+    slcd_config_t configure = 0; 
+    slcd_clock_config_t clkConfig = 
+    {
+        kSLCD_AlternateClk1,
+        kSLCD_AltClkDivFactor1,
+        kSLCD_ClkPrescaler00
+#if FSL_FEATURE_SLCD_HAS_FAST_FRAME_RATE
+         ,
+        false
+#endif
+    };
+    SLCD_GetDefaultConfig(&configure);
+    configure.clkConfig.        = &clkConfig;
+    configure.loadAdjust        = kSLCD_LowLoadOrIntermediateClkSrc;
+    configure.dutyCycle         = kSLCD_1Div4DutyCycle;
+    configure.slcdlowPinEnabled = 0x1a44;
+    configure.backPlanelowPin   = 0x0822;
+    configure.faultConfig       = NULL;
+
+    SLCD_Init(base, &configure);
+    SLCD_SetBackPlanePhase(base, 1, kSLCD_PhaseAActivate);
+    SLCD_SetBackPlanePhase(base, 5, kSLCD_PhaseBActivate);
+    SLCD_SetBackPlanePhase(base, 11, kSLCD_PhaseCActivate);
+
+    SLCD_SetFrontPlaneSegments(base, 0, (kSLCD_PhaseAActivate | kSLCD_PhaseBActivate));
+    SLCD_SetFrontPlaneSegments(base, 9, (kSLCD_PhaseBActivate | kSLCD_PhaseCActivate));
+
+    SLCD_StartDisplay(base);
+~~~~~
+
+*/
+/*! @} */

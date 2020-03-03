@@ -1,0 +1,1311 @@
+/*
+* Copyright (c) 2015, Freescale Semiconductor, Inc.
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without modification,
+* are permitted provided that the following conditions are met:
+*
+* o Redistributions of source code must retain the above copyright notice, this list
+*   of conditions and the following disclaimer.
+*
+* o Redistributions in binary form must reproduce the above copyright notice, this
+*   list of conditions and the following disclaimer in the documentation and/or
+*   other materials provided with the distribution.
+*
+* o Neither the name of Freescale Semiconductor, Inc. nor the names of its
+*   contributors may be used to endorse or promote products derived from this
+*   software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+* ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+* ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+#include "fsl_smartcard_uart.h"
+
+/*******************************************************************************
+* Variables
+******************************************************************************/
+
+/*******************************************************************************
+* Prototypes
+******************************************************************************/
+static void smartcard_uart_CompleteSendData(UART_Type *base, smartcard_context_t *context);
+static status_t smartcard_uart_StartSendData(UART_Type *base, smartcard_context_t *context);
+static void smartcard_uart_CompleteReceiveData(UART_Type *base, smartcard_context_t *context);
+static status_t smartcard_uart_StartReceiveData(UART_Type *base, smartcard_context_t *context);
+static void smartcard_uart_SetTransferType(UART_Type *base, smartcard_context_t *context, smartcard_control_t control);
+static void smartcard_uart_TimerInit(void);
+void smartcard_uart_TimerStart(uint8_t channel, uint32_t time);
+static void smartcard_uart_TimerStop(uint8_t channel);
+static clock_ip_name_t smartcard_uart_GetClockName(UART_Type *base);
+static uint32_t smartcard_uart_GetInstance(UART_Type *base);
+/*******************************************************************************
+* Code
+******************************************************************************/
+/*FUNCTION**********************************************************************
+* Function Name : smartcard_uart_GetClockName
+* Description   : Returns uart istance clock name.
+*END**************************************************************************/
+static clock_ip_name_t smartcard_uart_GetClockName(UART_Type *base)
+{
+    clock_ip_name_t gate;
+
+    switch ((uint32_t)base)
+    {
+#if defined(UART0)
+        case (uint32_t)UART0:
+            gate = kCLOCK_Uart0;
+            break;
+#endif
+#if defined(UART1)
+        case (uint32_t)UART1:
+            gate = kCLOCK_Uart1;
+            break;
+#endif
+#if defined(UART2)
+        case (uint32_t)UART2:
+            gate = kCLOCK_Uart2;
+            break;
+#endif
+#if defined(UART3)
+        case (uint32_t)UART3:
+            gate = kCLOCK_Uart3;
+            break;
+#endif
+#if defined(UART4)
+        case (uint32_t)UART4:
+            gate = kCLOCK_Uart4;
+            break;
+#endif
+#if defined(UART5)
+        case (uint32_t)UART5:
+            gate = kCLOCK_Uart5;
+            break;
+#endif
+        default:
+            gate = (clock_ip_name_t)0;
+            break;
+    }
+    return gate;
+}
+
+/*!
+ * @brief Get the UART instance from peripheral base address.
+ *
+ * @param base UART peripheral base address.
+ * @return UART instance.
+ */
+static uint32_t smartcard_uart_GetInstance(UART_Type *base)
+{
+    uint8_t instance;
+
+    switch ((uint32_t)base)
+    {
+#if defined(UART0)
+        case (uint32_t)UART0:
+            instance = 0;
+            break;
+#endif
+#if defined(UART1)
+        case (uint32_t)UART1:
+            instance = 1;
+            break;
+#endif
+#if defined(UART2)
+        case (uint32_t)UART2:
+            instance = 2;
+            break;
+#endif
+#if defined(UART3)
+        case (uint32_t)UART3:
+            instance = 3;
+            break;
+#endif
+#if defined(UART4)
+        case (uint32_t)UART4:
+            instance = 4;
+            break;
+#endif
+#if defined(UART5)
+        case (uint32_t)UART5:
+            instance = 5;
+            break;
+#endif
+        default:
+            instance = 0;
+            break;
+    }
+
+    return instance;
+}
+
+/*!
+ * @brief Finish up a transmit by completing the process of sending data and disabling the interrupt.
+ *
+ * @param base The UART peripheral base address.
+ * @param context A pointer to a smartcard driver context structure.
+ */
+static void smartcard_uart_CompleteSendData(UART_Type *base, smartcard_context_t *context)
+{
+    assert((NULL != context));
+
+    /* Disable the transmission complete interrupt */
+    base->C2 &= ~UART_C2_TCIE_MASK;
+    /* Wait for TC bit to clear - last byte to be completely shifted out off IO line */
+    while (!((base->S1 & UART_S1_TC_MASK) >> UART_S1_TC_SHIFT))
+    {
+    }
+    /* Switch to receive mode after transmission is complete */
+    base->C3 &= ~UART_C3_TXDIR_MASK;
+    /* disable transmitter after transmit */
+    base->C2 &= ~UART_C2_TE_MASK;
+    /* Enable Receiver */
+    base->C2 |= UART_C2_RE_MASK;
+    /* Update the information of the module driver context */
+    context->xIsBusy = false;
+    context->transferState = kSMARTCARD_IdleState;
+    /* Clear txSize to avoid any spurious transmit from ISR */
+    context->xSize = 0;
+    /* Invoke user call-back */
+    if (NULL != context->transferCallback)
+    {
+        context->transferCallback(context, context->transferCallbackParam);
+    }
+}
+
+/*!
+ * @brief Finish up a receive by completing the process of receiving data and disabling the interrupt.
+ *
+ * @param base The UART peripheral base address.
+ * @param context A pointer to a smartcard driver context structure.
+ */
+static void smartcard_uart_CompleteReceiveData(UART_Type *base, smartcard_context_t *context)
+{
+    assert(NULL != context);
+
+    /* Disable receive data full interrupt */
+    base->C2 &= ~UART_C2_RIE_MASK;
+    /* Update the information of the module driver context */
+    context->xIsBusy = false;
+    context->transferState = kSMARTCARD_IdleState;
+    /* Invoke user call-back */
+    if (NULL != context->transferCallback)
+    {
+        context->transferCallback(context, context->transferCallbackParam);
+    }
+}
+
+/*!
+ * @brief Initiate (start) a transmit by beginning the process of sending data and enabling the interrupt.
+ *
+ * @param base The UART peripheral base address.
+ * @param context A pointer to a smartcard driver context structure.
+ */
+static status_t smartcard_uart_StartSendData(UART_Type *base, smartcard_context_t *context)
+{
+    assert(NULL != context);
+
+    /* Check that we're not busy already transmitting data from a previous
+    * function call. */
+    if (context->xIsBusy)
+    {
+        return kStatus_SMARTCARD_TxBusy;
+    }
+    context->transferState = kSMARTCARD_TransmittingState;
+    /* Disable transmitter and receiver */
+    base->C2 &= ~UART_C2_TE_MASK;
+    base->C2 &= ~UART_C2_RE_MASK;
+    /* Check if current transport protocol is T=1 */
+    if (context->tType == kSMARTCARD_T1Transport)
+    { /* Reset CWT timer at the beginning of transmission only */
+        context->timersState.cwtExpired = false;
+        /* save the current value of IE7816 register */
+        uint8_t temp = base->IE7816;
+        /* disable 7816 function */
+        base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+        /* clear any pending Character WT interrupt flag */
+        base->IS7816 |= UART_IS7816_CWT_MASK;
+        /* enable 7816 function */
+        base->C7816 |= UART_C7816_ISO_7816E_MASK;
+        /* re-enable all interrupts */
+        base->IE7816 = temp;
+        /* Enable CWT timer interrupt */
+        base->IE7816 |= UART_IE7816_CWTE_MASK;
+        /* Disable WWT timer as not in T=0 mode */
+        base->IE7816 &= ~UART_IE7816_WTE_MASK;
+        /* The TLEN does not count the NAD, PCB, LEN, LRC */
+        base->TL7816 = context->xSize - 4;
+    }
+    context->xIsBusy = true;
+    /* Set the TX pin as output and enable transmitter */
+    base->C3 |= UART_C3_TXDIR_MASK;
+    base->C2 |= UART_C2_TE_MASK;
+    /* Enable the transmission complete interrupt. The TC bit will
+     * set whenever the transmit data is shifted out */
+    base->C2 |= UART_C2_TCIE_MASK;
+
+    return kStatus_SMARTCARD_Success;
+}
+
+/*!
+ * @brief Initiate (start) a receive by beginning the process of receiving data and enabling the interrupt.
+ *
+ * @param base The UART peripheral base address.
+ * @param context A pointer to a smartcard driver context structure.
+ */
+static status_t smartcard_uart_StartReceiveData(UART_Type *base, smartcard_context_t *context)
+{
+    assert((NULL != context));
+
+    /* Check that we're not busy receiving data from a previous function call. */
+    if (context->xIsBusy)
+    {
+        return kStatus_SMARTCARD_RxBusy;
+    }
+    /* Initialize the module driver context structure to indicate transfer in progress */
+    context->xIsBusy = true;
+    /* Disable transmitter */
+    base->C2 &= ~UART_C2_TE_MASK;
+    /* Enable receiver and switch to receive direction */
+    base->C2 |= UART_C2_RE_MASK;
+    base->C3 &= ~UART_C3_TXDIR_MASK;
+    /* Disable GTV flag for data receiving */
+    base->IE7816 &= ~UART_IE7816_GTVE_MASK;
+    /* Enable the receive data full interrupt */
+    base->C2 |= UART_C2_RIE_MASK;
+
+    return kStatus_SMARTCARD_Success;
+}
+
+/*!
+ * @brief Sets up the UART hardware for T=0 or T=1 protocol data exchange and initialize timer values.
+ *
+ * @param base The UART peripheral base address.
+ * @param context A pointer to a smartcard driver context structure.
+ */
+static void smartcard_uart_SetTransferType(UART_Type *base, smartcard_context_t *context, smartcard_control_t control)
+{
+    assert((NULL != context));
+    assert((control != kSMARTCARD_SetupATRMode) || (control != kSMARTCARD_SetupT0Mode) ||
+           (control != kSMARTCARD_SetupT1Mode));
+
+    uint16_t temp16;
+    uint8_t temp8;
+    uint16_t bwiVal = 0;
+
+    if (control == kSMARTCARD_SetupATRMode)
+    { /* Set default values as per EMV specification */
+        context->cardParams.Fi = 372;
+        context->cardParams.currentD = 1;
+        context->cardParams.WI = 0x0A;
+        /* Configure UART baud rate */
+        SMARTCARD_UART_Control(base, context, kSMARTCARD_ConfigureBaudrate, 0);
+        /* Disable ISO7816 mode 1st */
+        base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+        /* Set transport protocol type to T=0 */
+        base->C7816 &= ~UART_C7816_TTYPE_MASK;
+/* Calculate and set Work Wait Timer (WWT) */
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+        /* EMV expectation: WWT = (960 x D x WI) + (D x 480) = 480xD x (2xWI + 1)
+        * UART formula: WI x 480
+        */
+        temp16 = context->cardParams.currentD * ((2 * context->cardParams.WI) + 1);
+        base->TYPE0.WP7816A_T0 = (uint8_t)(temp16 >> 8);
+        base->TYPE0.WP7816B_T0 = (uint8_t)(temp16);
+#else
+        base->WP7816T0 = context->cardParams[cardSlotNo].WI;
+#endif
+        /* Set Extended Guard Timer value
+        * EMV expectation: GT = GTN not equal to 255 -> 12 + GTN
+        * = GTN equal to 255 -> 12
+        * UART formula: same as above
+        */
+        if ((context->cardParams.GTN <= SMARTCARD_EMV_RX_TO_TX_GUARD_TIME_T0))
+        {
+            temp8 = SMARTCARD_EMV_RX_TO_TX_GUARD_TIME_T0;
+        }
+        else
+        { /* All other values include default 0xFF */
+            temp8 = context->cardParams.GTN;
+        }
+        base->WN7816 = temp8;
+        /* Set FD multiplier */
+        base->WF7816 = context->cardParams.currentD;
+        /* Setup for single wire ISO7816 mode */
+        base->C1 |= UART_C1_LOOPS_MASK;
+        base->C1 |= UART_C1_RSRC_MASK;
+        base->C1 |= UART_C1_M_MASK;
+        /* Normally, parity mode should be set to kUartParityEven,
+        * but in case can be set to kUartParityOdd to help in initial character
+        * (TS) detection by SW(by switching off hardware feature) */
+        if (context->parity == kSMARTCARD_OddParity)
+        {
+            base->C1 |= UART_C1_PT_MASK | UART_C1_PE_MASK;
+        }
+        else
+        {
+            base->C1 &= ~UART_C1_PT_MASK;
+            base->C1 |= UART_C1_PE_MASK;
+        }
+        /*
+         * Setting RX threshold to 0 so that an interrupt is generated when a NACK is
+         * sent either due to parity error or wrong INIT char.
+         */
+        base->ET7816 &= ~UART_ET7816_RXTHRESHOLD_MASK;
+        /* Setting up TX NACK threshold */
+        temp8 = base->ET7816 & ~UART_ET7816_TXTHRESHOLD_MASK;
+        base->ET7816 = temp8 | (SMARTCARD_EMV_TX_NACK_THRESHOLD << UART_ET7816_TXTHRESHOLD_SHIFT);
+        /* Enable Interrupt for RXT crossing */
+        base->IE7816 |= UART_IE7816_RXTE_MASK;
+        /* Enable parity error indication */
+        base->C3 |= UART_C3_PEIE_MASK;
+        /* Disable ANACK generation */
+        base->C7816 &= ~UART_C7816_ANACK_MASK;
+        /* Enable ISO7816 mode */
+        base->C7816 |= UART_C7816_ISO_7816E_MASK;
+        /* Set transport type to T=0 in smartcard context structure */
+        context->tType = kSMARTCARD_T0Transport;
+    }
+    else if (control == kSMARTCARD_SetupT0Mode)
+    { /* Disable ISO7816 mode 1st */
+        base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+        /* Set transport protocol type to T=0 */
+        base->C7816 &= ~UART_C7816_TTYPE_MASK;
+/* Calculate and set Work Wait Timer (WWT) */
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+        /* EMV expectation: WWT = (960 x D x WI) + (D x 480) = 480xD x (2xWI + 1)
+        * UART formula: WI x 480
+        */
+        temp16 = context->cardParams.currentD * ((2 * context->cardParams.WI) + 1);
+        base->TYPE0.WP7816A_T0 = (uint8_t)(temp16 >> 8);
+        base->TYPE0.WP7816B_T0 = (uint8_t)(temp16);
+#else
+        base->WP7816T0 = (uint8_t)context->cardParams[cardSlotNo].WI;
+#endif
+        /* Set Extended Guard Timer value
+        * EMV expectation: GT = GTN not equal to 255 -> 12 + GTN
+        * = GTN equal to 255 -> 12
+        * UART formula: same as above
+        */
+        if (context->cardParams.GTN <= SMARTCARD_EMV_RX_TO_TX_GUARD_TIME_T0)
+        {
+            temp8 = SMARTCARD_EMV_RX_TO_TX_GUARD_TIME_T0;
+        }
+        else
+        { /* All other values include default 0xFF */
+            temp8 = context->cardParams.GTN;
+        }
+        base->WN7816 = temp8;
+        /* Set FD multiplier */
+        base->WF7816 = (uint8_t)context->cardParams.currentD;
+        /* Setup for single wire ISO7816 mode, 9 bits per char */
+        base->C1 |= UART_C1_LOOPS_MASK | UART_C1_RSRC_MASK | UART_C1_M_MASK;
+        /* Normally, parity mode should be set to kUartParityEven,
+        * but in case can be set to kUartParityOdd to help in initial character
+        * (TS) detection by SW(by switching off hardware feature) */
+        if (context->parity == kSMARTCARD_OddParity)
+        {
+            base->C1 |= UART_C1_PT_MASK | UART_C1_PE_MASK;
+        }
+        else
+        {
+            base->C1 &= ~UART_C1_PT_MASK;
+            base->C1 |= UART_C1_PE_MASK;
+        }
+        /* Enable NACK on error interrupt */
+        base->C7816 |= UART_C7816_ANACK_MASK;
+        /*Setting RX threshold so that an interrupt is generated when a NACK is
+        sent either due to parity error or wrong INIT char*/
+        temp8 = base->ET7816 & ~UART_ET7816_RXTHRESHOLD_MASK;
+        base->ET7816 = temp8 | (SMARTCARD_EMV_RX_NACK_THRESHOLD << UART_ET7816_RXTHRESHOLD_SHIFT);
+        /* Setting up TX NACK threshold */
+        temp8 = base->ET7816 & ~UART_ET7816_TXTHRESHOLD_MASK;
+        base->ET7816 = temp8 | (SMARTCARD_EMV_TX_NACK_THRESHOLD << UART_ET7816_TXTHRESHOLD_SHIFT);
+        /* Enable Interrupt for RXT crossing */
+        base->IE7816 |= UART_IE7816_RXTE_MASK;
+        /* Enable parity error indication */
+        base->C3 |= UART_C3_PEIE_MASK;
+        /* Enable ISO7816 mode */
+        base->C7816 |= UART_C7816_ISO_7816E_MASK;
+        /* Set transport type to T=0 in smartcard context structure */
+        context->tType = kSMARTCARD_T0Transport;
+    }
+    else
+    { /* Disable ISO7816 mode 1st */
+        base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+/* Calculate and set Block Wait Timer (BWT) value */
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+        /*
+        * EMV expectation: BWT = 11 + (2^BWI x 960 x D) + (D x 960)
+        = 11 + (2^BWI + 1) x 960 x D
+        * UART formula: BWT = (11 + (BWI × 960 × GTFD)) * (WTX + 1)
+        */
+        bwiVal = (1 << context->cardParams.BWI) + 1;
+        base->TYPE1.WP7816A_T1 = (uint8_t)(bwiVal >> 8);
+        base->TYPE1.WP7816B_T1 = (uint8_t)(bwiVal);
+#else
+        base->WP7816T1 = context->cardParams[cardSlotNo].BWI;
+#endif
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+        /* Set Wait Timer Multiplier default value */
+        base->WP7816 = 0;
+#endif
+/* Calculate and set Character Wait Timer (BWT) value */
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+        /*
+        * EMV expectation: CWT = ((2^CWI + 11) + 4)
+        * UART formula: CWT = 2^CWI1 + CWI2
+        * EMV expectation: BGT = 22
+        * UART formula: BWT = 16 + BGI
+        */
+        temp8 = base->WGP7816_T1 & ~UART_WGP7816_T1_CWI1_MASK;
+        /* Set CW1 */
+        base->WGP7816_T1 = temp8 | context->cardParams.CWI;
+        /* Set CW2 */
+        base->WP7816C_T1 = 15;
+        /* Set Block Guard Time Integer */
+        temp8 = base->WGP7816_T1 & ~UART_WGP7816_T1_BGI_MASK;
+        base->WGP7816_T1 = temp8 | (uint8_t)(context->cardParams.BGI & 0x0F);
+#else
+        temp8 = base->WP7816_T1 & ~UART_WP7816T1_CWI_MASK;
+        base->WP7816_T1 = temp8 | (context->cardParams[cardSlotNo].CWI << UART_WP7816T1_CWI_SHIFT);
+#endif
+        /* Set Extended Guard Timer value
+        * EMV expectation: GT = GTN not equal to 255 -> 12 + GTN
+        = GTN equal to 255 -> 11
+        * UART formula: same as above
+        */
+        base->WN7816 = context->cardParams.GTN;
+        /* Set FD multiplier */
+        base->WF7816 = context->cardParams.currentD;
+        /* Setup for single wire ISO7816 mode, 9 bits per char */
+        base->C1 |= UART_C1_LOOPS_MASK | UART_C1_RSRC_MASK | UART_C1_M_MASK;
+        /* Set parity mode */
+        if (context->parity == kSMARTCARD_OddParity)
+        {
+            base->C1 |= UART_C1_PT_MASK | UART_C1_PE_MASK;
+        }
+        else
+        { /* Even parity */
+            base->C1 &= ~UART_C1_PT_MASK;
+            base->C1 |= UART_C1_PE_MASK;
+        }
+        /* Set transport protocol type to T=1 */
+        base->C7816 |= UART_C7816_TTYPE_MASK;
+        /* Clear all ISO interrupt modes, and enable only GTV interrupt by default */
+        base->IE7816 = 0;
+        base->IE7816 |= UART_IE7816_GTVE_MASK;
+        /* Enable ISO7816 mode */
+        base->C7816 |= UART_C7816_ISO_7816E_MASK;
+        /* Set transport type to T=1 in smartcard context structure */
+        context->tType = kSMARTCARD_T1Transport;
+    }
+}
+
+#if defined(FSL_FEATURE_SOC_PIT_COUNT) && FSL_FEATURE_SOC_PIT_COUNT
+/*!
+ * @brief Function un-gates peripheral clock of PIT0.
+ */
+static void smartcard_uart_TimerInit(void)
+{
+    /* Un-gate the TPM clock*/
+    CLOCK_EnableClock(kCLOCK_Pit0);
+    /* enable timers clock */
+    PIT->MCR &= ~PIT_MCR_MDIS_MASK;
+    /* Enable timer interrupt to occur */
+    NVIC_EnableIRQ(PIT0_IRQn);
+}
+
+/*!
+ * @brief Function gates peripheral clock of PIT0.
+ */
+static void smartcard_uart_TimerDeinit(void)
+{
+    /* Gate the TPM clock*/
+    CLOCK_DisableClock(kCLOCK_Pit0);
+    /* Disable pit irq interrupt to occur */
+    NVIC_DisableIRQ(PIT0_IRQn);
+}
+
+/*!
+ * @brief Initializes timer specific channel with input period, enable interrupts and start counter.
+ */
+void smartcard_uart_TimerStart(uint8_t channel, uint32_t time)
+{
+    /* Set timer period */
+    PIT->CHANNEL[channel].LDVAL = time;
+    /* Stop timer if it's not */
+    PIT->CHANNEL[channel].TCTRL &= ~PIT_TCTRL_TEN_MASK;
+    /* Enable timer channel interrupt */
+    PIT->CHANNEL[channel].TCTRL |= PIT_TCTRL_TIE_MASK;
+    /* Start timer */
+    PIT->CHANNEL[channel].TCTRL |= PIT_TCTRL_TEN_MASK;
+}
+
+/*!
+ * @brief Stop timer specific channel, disable interrupts and stops counter.
+ */
+static void smartcard_uart_TimerStop(uint8_t channel)
+{
+    /* Stop timer if it's not */
+    PIT->CHANNEL[channel].TCTRL &= ~PIT_TCTRL_TEN_MASK;
+    /* Disable timer channel interrupt */
+    PIT->CHANNEL[channel].TCTRL &= ~PIT_TCTRL_TIE_MASK;
+}
+#endif /* FSL_FEATURE_SOC_PIT_COUNT */
+
+void SMARTCARD_UART_GetDefaultConfig(smartcard_card_params_t *cardParams)
+{
+    /* EMV default values */
+    cardParams->Fi = 372;
+    cardParams->Di = 1;
+    cardParams->currentD = 1;
+    cardParams->WI = 0x0A;
+    cardParams->GTN = 0x00;
+}
+
+status_t SMARTCARD_UART_Init(UART_Type *base, smartcard_context_t *context, uint32_t sourceClockHz)
+{
+    if ((NULL == context) || (sourceClockHz == 0))
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+
+    IRQn_Type uart_irqs[] = UART_RX_TX_IRQS;
+    IRQn_Type uartError_irqs[] = UART_ERR_IRQS;
+    uint32_t instance = 0;
+
+    context->base = base;
+    /* Enable peripheral clock */
+    CLOCK_EnableClock(smartcard_uart_GetClockName(base));
+    /* Initialize UART to a known context. */
+    base->BDH = 0U;
+    base->BDL = 0U;
+    base->C1 = 0U;
+    base->C2 = 0U;
+    base->S2 = 0U;
+    base->C3 = 0U;
+#if FSL_FEATURE_UART_HAS_ADDRESS_MATCHING
+    base->MA1 = 0U;
+    base->MA2 = 0U;
+#endif
+    base->C4 = 0U;
+#if FSL_FEATURE_UART_HAS_DMA_ENABLE
+    base->C5 = 0U;
+#endif
+#if FSL_FEATURE_UART_HAS_MODEM_SUPPORT
+    base->MODEM = 0U;
+#endif
+#if FSL_FEATURE_UART_HAS_IR_SUPPORT
+    base->IR = 0U;
+#endif
+#if FSL_FEATURE_UART_HAS_FIFO
+    base->PFIFO = 0U;
+    base->CFIFO = 0U;
+    base->SFIFO = 0xC0U;
+    base->TWFIFO = 0U;
+    base->RWFIFO = 1U;
+#endif
+    /* Initialize UART module for smartcard mode of default operation */
+    smartcard_uart_SetTransferType(base, context, kSMARTCARD_SetupATRMode);
+#if FSL_FEATURE_UART_HAS_FIFO
+    /* Flush FIFO contents */
+    base->CFIFO = (base->CFIFO & ~(UART_CFIFO_TXFLUSH_MASK)) | (1 << UART_CFIFO_TXFLUSH_SHIFT);
+    base->CFIFO = (base->CFIFO & ~(UART_CFIFO_RXFLUSH_MASK)) | (1 << UART_CFIFO_RXFLUSH_SHIFT);
+#endif
+    /* For modules that do not support a FIFO, they have a data buffer that
+    * essentially acts likes a one-entry FIFO, thus to make the code cleaner,
+    * we'll equate txFifoEntryCount to 1. Also note that TDRE flag will set
+    * only when the tx buffer is empty. */
+    context->txFifoEntryCount = 1;
+#if defined(FSL_FEATURE_PIT_TIMER_COUNT) && (FSL_FEATURE_PIT_TIMER_COUNT)
+    /* Initialize HW timer for the initial character (TS) delay measurement */
+    smartcard_uart_TimerInit();
+#endif
+    /* Enable UART interrupt on NVIC level. */
+    instance = smartcard_uart_GetInstance(base);
+    NVIC_EnableIRQ(uart_irqs[instance]);
+    NVIC_EnableIRQ(uartError_irqs[instance]);
+    /* Finally, disable the UART receiver and transmitter */
+    base->C2 &= ~UART_C2_TE_MASK;
+    base->C2 &= ~UART_C2_RE_MASK;
+
+    return kStatus_SMARTCARD_Success;
+}
+
+void SMARTCARD_UART_Deinit(UART_Type *base)
+{
+    assert(base != NULL);
+
+    uint32_t instance = 0;
+    IRQn_Type uart_irqs[] = UART_RX_TX_IRQS;
+    IRQn_Type uartError_irqs[] = UART_ERR_IRQS;
+    /* In case there is still data in the TX FIFO or shift register that is
+    * being transmitted wait till transmit is complete.
+    * Wait until the data is completely shifted out of shift register */
+    while (0 == ((base->S1 & UART_S1_TC_MASK) >> UART_S1_TC_SHIFT))
+    {
+    }
+
+    base->C2 &= ~UART_C2_TIE_MASK;
+#if FSL_FEATURE_UART_IS_SCI
+    base->C4 &= ~UART_C4_TDMAS_MASK;
+#else
+    base->C5 &= ~UART_C5_TDMAS_MASK;
+#endif
+    base->C2 &= ~UART_C2_RIE_MASK;
+#if FSL_FEATURE_UART_IS_SCI
+    base->C4 &= ~UART_C4_RDMAS_MASK;
+#else
+    base->C5 &= ~UART_C5_RDMAS_MASK;
+#endif
+    /* Disable TX and RX */
+    base->C2 &= ~UART_C2_TE_MASK;
+    base->C2 &= ~UART_C2_RE_MASK;
+#if FSL_FEATURE_UART_HAS_FIFO
+    /* Flush FIFO contents */
+    base->CFIFO = (base->CFIFO & ~(UART_CFIFO_TXFLUSH_MASK)) | (1u << UART_CFIFO_TXFLUSH_SHIFT);
+    base->CFIFO = (base->CFIFO & ~(UART_CFIFO_RXFLUSH_MASK)) | (1u << UART_CFIFO_RXFLUSH_SHIFT);
+#endif
+    /* Disable UART module clock */
+    CLOCK_DisableClock(smartcard_uart_GetClockName(base));
+    /* Disable the interrupt */
+    instance = smartcard_uart_GetInstance(base);
+    NVIC_DisableIRQ(uart_irqs[instance]);
+    NVIC_DisableIRQ(uartError_irqs[instance]);
+/* De-initialize also external PIT timer */
+#if defined(FSL_FEATURE_PIT_TIMER_COUNT) && (FSL_FEATURE_PIT_TIMER_COUNT)
+    smartcard_uart_TimerDeinit();
+#endif
+}
+
+status_t SMARTCARD_UART_GetTransferStatus(UART_Type *base, smartcard_context_t *context)
+{
+    if ((NULL == context))
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+
+    /* Return kStatus_UART_TxBusy or kStatus_UART_Success depending on whether
+    * or not the UART has a FIFO. If it does have a FIFO, we'll need to wait
+    * until the FIFO is completely drained before indicating success in
+    * addition to isTxBusy = 0. If there is no FIFO, then we need to only worry
+    * about isTxBusy. */
+    if (context->xIsBusy)
+    {
+        if (context->direction == kSMARTCARD_Transmit)
+        {
+            return kStatus_SMARTCARD_TxBusy;
+        }
+        else if (context->direction == kSMARTCARD_Receive)
+        {
+            return kStatus_SMARTCARD_RxBusy;
+        }
+    }
+
+    return kStatus_SMARTCARD_Success;
+}
+
+status_t SMARTCARD_UART_AbortTransfer(UART_Type *base, smartcard_context_t *context)
+{
+    if ((NULL == context))
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+
+    /* Check if a transfer is running. */
+    if ((!context->xIsBusy))
+    {
+        return kStatus_SMARTCARD_NoTransferInProgress;
+    }
+    /* Call transfer complete to abort transfer */
+    if (context->direction == kSMARTCARD_Receive)
+    { /* Stop the running transfer. */
+        smartcard_uart_CompleteReceiveData(base, context);
+    }
+    else if (context->direction == kSMARTCARD_Transmit)
+    { /* Stop the running transfer. */
+        smartcard_uart_CompleteSendData(base, context);
+    }
+    else
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+
+    return kStatus_SMARTCARD_Success;
+}
+
+status_t SMARTCARD_UART_TransferNonBlocking(UART_Type *base, smartcard_context_t *context, smartcard_xfer_t *xfer)
+{
+    if ((NULL == context))
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+
+    smartcard_status_t status;
+
+    /* Check if some transfer is in progress */
+    status = (smartcard_status_t)SMARTCARD_UART_GetTransferStatus(base, context);
+    if (status != kStatus_SMARTCARD_Success)
+    {
+        return status;
+    }
+    /* Initialize error check flags */
+    context->rxtCrossed = false;
+    context->txtCrossed = false;
+    context->parityError = false;
+    /* Check input parameters */
+    if ((NULL == xfer->buff) || (0 == xfer->size))
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+    /* Initialize SMARTCARD context structure to start transfer */
+    context->xBuff = xfer->buff;
+    context->xSize = xfer->size;
+
+    if (xfer->direction == kSMARTCARD_Receive)
+    {
+        context->direction = xfer->direction;
+        context->transferState = kSMARTCARD_ReceivingState;
+        /* Start transfer */
+        smartcard_uart_StartReceiveData(base, context);
+    }
+    else if (xfer->direction == kSMARTCARD_Transmit)
+    {
+        context->direction = xfer->direction;
+        context->transferState = kSMARTCARD_TransmittingState;
+        /* Start transfer */
+        smartcard_uart_StartSendData(base, context);
+    }
+    else
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+
+    return kStatus_SMARTCARD_Success;
+}
+
+void SMARTCARD_UART_ErrIRQHandler(UART_Type *base, smartcard_context_t *context)
+{
+    if ((NULL == context))
+    {
+        return;
+    }
+    uint8_t temp8;
+
+    /* Check if a parity error occurred */
+    if (base->S1 & UART_S1_PF_MASK)
+    {
+        if (context->transferState == kSMARTCARD_WaitingForTSState)
+        {
+            /* A parity error detected during initial character (TS) detection phase */
+            context->transferState = kSMARTCARD_InvalidTSDetecetedState;
+            /* Un-block any caller waiting for initial character detection */
+            if ((context->xIsBusy) && (context->direction == kSMARTCARD_Receive))
+            {
+                smartcard_uart_CompleteReceiveData(base, context);
+            }
+        }
+        else
+        { /* Parity error detected after initial character detection phase */
+            context->parityError = true;
+        }
+    }
+    /* Check if Transmission threshold value was exceeded */
+    if (base->IS7816 & UART_IS7816_TXT_MASK)
+    { /* Disable transmitter */
+        base->C2 &= ~UART_C2_TE_MASK;
+        /* Clear Transmission threshold interrupt flag */
+        base->IS7816 = UART_IS7816_TXT_MASK;
+        /* Enable transmitter */
+        base->C2 = UART_C2_TE_MASK;
+        context->txtCrossed = true;
+    }
+    /* Check if Receiver threshold value was exceeded */
+    if (base->IS7816 & UART_IS7816_RXT_MASK)
+    {
+        /* Clear Receiver threshold interrupt flag */
+        base->IS7816 = UART_IS7816_RXT_MASK;
+        /* Check if Receiver threshold was exceeded during initial character detection */
+        if (context->transferState == kSMARTCARD_WaitingForTSState)
+        {
+            context->transferState = kSMARTCARD_InvalidTSDetecetedState;
+            if ((context->xIsBusy) && (context->direction == kSMARTCARD_Receive))
+            {
+                smartcard_uart_CompleteReceiveData(base, context);
+            }
+        }
+        else
+        { /* Receiver threshold exceeded during normal transfer, set flags */
+            context->rxtCrossed = true;
+        }
+    }
+    /* Check if a Guard Timer rule was violated */
+    if (base->IS7816 & UART_IS7816_GTV_MASK)
+    { /* Clear respective interrupt status flag */
+        base->IS7816 = UART_IS7816_GTV_MASK;
+    }
+    /* Check if a Work Wait Timer expired */
+    if (base->IS7816 & UART_IS7816_WT_MASK)
+    { /* Reset WWT timer */
+        SMARTCARD_UART_Control(base, context, kSMARTCARD_ResetWWT, 0);
+        /* Indicate WWT expired */
+        context->timersState.wwtExpired = true;
+
+        if (context->xIsBusy)
+        {
+            if (context->direction == kSMARTCARD_Receive)
+            { /* Terminate and un-block any caller */
+                smartcard_uart_CompleteReceiveData(base, context);
+            }
+            else if (context->direction == kSMARTCARD_Transmit)
+            { /* Terminate and un-block any caller */
+                smartcard_uart_CompleteSendData(base, context);
+            }
+        }
+    }
+    /* Check if a Character Wait Timer expired */
+    if (base->IS7816 & UART_IS7816_CWT_MASK)
+    { /* Disable Character Wait Timer interrupt */
+        base->IE7816 &= ~UART_IE7816_CWTE_MASK;
+        /* Reset CWT timer otherwise this interrupt keeps coming */
+        SMARTCARD_UART_Control(base, context, kSMARTCARD_ResetCWT, 0);
+        /* Change transfer context to Idle */
+        context->transferState = kSMARTCARD_IdleState;
+        /* Indicate CWT expired */
+        context->timersState.cwtExpired = true;
+
+        if (context->xIsBusy)
+        {
+            if (context->direction == kSMARTCARD_Receive)
+            { /* Terminate and un-block any caller */
+                smartcard_uart_CompleteReceiveData(base, context);
+            }
+            else if (context->direction == kSMARTCARD_Transmit)
+            { /* Terminate and un-block any caller */
+                smartcard_uart_CompleteSendData(base, context);
+            }
+        }
+    }
+    /* Check if a Block Wait Timer expired */
+    if (base->IS7816 & UART_IS7816_BWT_MASK)
+    { /* Disable Block Wait Timer interrupt */
+        base->IE7816 &= ~UART_IE7816_BWTE_MASK;
+        /* Reset BWT timer */
+        SMARTCARD_UART_Control(base, context, kSMARTCARD_ResetBWT, 0);
+        /* Indicate BWT expired */
+        context->timersState.bwtExpired = true;
+        /* Check if Wait Time Extension was requested */
+        if (context->wtxRequested)
+        {
+            temp8 = 0;
+            SMARTCARD_UART_Control(base, context, kSMARTCARD_ResetWaitTimeMultiplier, (uint32_t)temp8);
+        }
+        if (context->xIsBusy)
+        {
+            if (context->direction == kSMARTCARD_Receive)
+            { /* Terminate and un-block any caller */
+                smartcard_uart_CompleteReceiveData(base, context);
+            }
+            else if (context->direction == kSMARTCARD_Transmit)
+            { /* Terminate and un-block any caller */
+                smartcard_uart_CompleteSendData(base, context);
+            }
+        }
+    }
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+    /* Check if a ATR duration timer Wait Timer expired */
+    if ((base->IE7816 & UART_IE7816_ADTE_MASK) && (base->IS7816 & UART_IS7816_ADT_MASK))
+    { /* Clear ATR Duration Timer interrupt flag */
+        base->IS7816 = UART_IS7816_ADT_MASK;
+        /* Indicate ADT expired */
+        context->timersState.adtExpired = true;
+    }
+#endif
+    /* Clear pending interrupts */
+    temp8 = base->S1;
+    temp8 = base->D;
+}
+
+void SMARTCARD_UART_IRQHandler(UART_Type *base, smartcard_context_t *context)
+{
+    if ((NULL == context))
+    {
+        return;
+    }
+
+    /* Check if Initial Character (TS) was detected */
+    if (base->IS7816 & UART_IS7816_INITD_MASK)
+    {
+#if defined(FSL_FEATURE_PIT_TIMER_COUNT) && (FSL_FEATURE_PIT_TIMER_COUNT)
+        /* Stop TS timer */
+        smartcard_uart_TimerStop(context->interfaceConfig.tsTimerId);
+#endif
+        /* Get Data Convention format from RXINV bit in UART_S2 register */
+        context->cardParams.convention = (smartcard_card_convention_t)(base->S2 & UART_S2_RXINV_MASK);
+        /* Clear interrupt flag for initial character detected */
+        base->IS7816 = UART_IS7816_INITD_MASK;
+        /* Disable initial character detection */
+        base->IE7816 &= ~UART_IE7816_INITDE_MASK;
+        /* Set transfer mode to receiving(ATR bytes) mode */
+        context->transferState = kSMARTCARD_ReceivingState;
+        /* Complete receive process */
+        smartcard_uart_CompleteReceiveData(base, context);
+    }
+    /* Exit the ISR if no transfer is happening for this instance. */
+    if ((!context->xIsBusy))
+    {
+        return;
+    }
+    /* Handle receive data register full interrupt, if RX data register full
+     * interrupt is enabled AND there is data available. */
+    if ((base->C2 & UART_C2_RIE_MASK) && (base->S1 & UART_S1_RDRF_MASK))
+    { /* Get data and put into receive buffer */
+        *(context->xBuff) = base->D;
+        ++context->xBuff;
+        --context->xSize;
+
+        if ((context->tType == kSMARTCARD_T1Transport) && (context->xSize > 0) &&
+            (base->IE7816 & UART_IE7816_BWTE_MASK))
+        {
+            /* Only the 1st byte has been received, now time to disable BWT interrupt */
+            base->IE7816 &= ~UART_IE7816_BWTE_MASK;
+            /* And, enable CWT interrupt */
+            context->timersState.cwtExpired = false;
+            base->IE7816 = UART_IE7816_CWTE_MASK;
+        }
+        /* Check and see if this was the last byte received */
+        if (context->xSize == 0)
+        {
+            smartcard_uart_CompleteReceiveData(base, context);
+        }
+    }
+    /* Handle transmit data register empty interrupt and
+     * last data was shifted out of IO line */
+    if ((base->C2 & UART_C2_TE_MASK) && (base->S1 & (UART_S1_TDRE_MASK | UART_S1_TC_MASK)))
+    {
+        if (context->txtCrossed)
+        { /* Un-block the caller */
+            smartcard_uart_CompleteSendData(base, context);
+        } /* Check to see if there are any more bytes to send */
+        else if (context->xSize)
+        {
+            uint8_t emptyEntryCountInFifo;
+            emptyEntryCountInFifo = context->txFifoEntryCount;
+
+            while (emptyEntryCountInFifo--)
+            { /* Transmit data and update tx size/buff */
+                base->D = *(context->xBuff);
+                ++context->xBuff;
+                --context->xSize;
+
+                if (!context->xSize)
+                {
+                    smartcard_uart_CompleteSendData(base, context);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+status_t SMARTCARD_UART_Control(UART_Type *base,
+                                smartcard_context_t *context,
+                                smartcard_control_t control,
+                                uint32_t param)
+{
+    if ((NULL == context))
+    {
+        return kStatus_SMARTCARD_InvalidInput;
+    }
+
+    uint32_t uartModuleClock;
+    uint8_t temp;
+    uint32_t brfa, sbr;
+    uint32_t sourceClockInKHz = 0;
+    uint32_t sCClockInKHz = 0;
+
+    switch (control)
+    {
+        case kSMARTCARD_EnableADT:
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+            /*Disable ISO-7816 mode first*/
+            base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+            /* Set ATR timer value */
+            base->AP7816A_T0 = (uint8_t)(SMARTCARD_EMV_ATR_DURATION_ETU >> 8);
+            base->AP7816B_T0 = (uint8_t)(SMARTCARD_EMV_ATR_DURATION_ETU);
+            /* Enable ATR specific interrupt */
+            base->IE7816 |= UART_IE7816_ADTE_MASK;
+            /*Enable ISO-7816 mode */
+            base->C7816 |= UART_C7816_ISO_7816E_MASK;
+#endif
+            break;
+        case kSMARTCARD_DisableADT:
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+            /* Disable ATR specific interrupt */
+            base->IE7816 &= ~UART_IE7816_ADTE_MASK;
+            /* Clear ATR timer value */
+            base->AP7816A_T0 = 0;
+            base->AP7816B_T0 = 0;
+#endif
+            break;
+        case kSMARTCARD_EnableGTV:
+            /* Enable GTV specific interrupt */
+            base->IE7816 |= UART_IE7816_GTVE_MASK;
+            break;
+        case kSMARTCARD_DisableGTV:
+            /* Disable GTV specific interrupt */
+            base->IE7816 &= ~UART_IE7816_GTVE_MASK;
+            break;
+        case kSMARTCARD_ResetWWT:
+            /* save the current value of IE7816 register */
+            temp = base->IE7816;
+            /* disable 7816 function */
+            base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+            /* clear any pending WT interrupt flag */
+            base->IS7816 |= UART_IS7816_WT_MASK;
+            /* enable 7816 function */
+            base->C7816 |= UART_C7816_ISO_7816E_MASK;
+            /* re-enable all interrupts */
+            base->IE7816 = temp;
+            break;
+        case kSMARTCARD_EnableWWT:
+            /* Enable WWT Timer interrupt to occur */
+            base->IE7816 |= UART_IE7816_WTE_MASK;
+            break;
+        case kSMARTCARD_DisableWWT:
+            /* Disable WWT Timer interrupt to occur */
+            base->IE7816 &= ~UART_IE7816_WTE_MASK;
+            break;
+        case kSMARTCARD_ResetCWT:
+            /* Reset CWT Timer */
+            /* Save interrupts configuration */
+            temp = base->IE7816;
+            /* disable 7816 function */
+            base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+            /* Clear Character Wait Timer interrupt flag */
+            base->IS7816 |= UART_IS7816_CWT_MASK;
+            /* enable 7816 function */
+            base->C7816 |= UART_C7816_ISO_7816E_MASK;
+            /* re-enable all interrupts */
+            base->IE7816 = temp;
+            break;
+        case kSMARTCARD_EnableCWT:
+            /* Enable CWT Timer interrupt to occur */
+            base->IE7816 |= UART_IE7816_CWTE_MASK;
+            break;
+        case kSMARTCARD_DisableCWT:
+            /* Disable WWT Timer interrupt to occur */
+            base->IE7816 &= ~UART_IE7816_CWTE_MASK;
+            break;
+        case kSMARTCARD_ResetBWT:
+            /* Reset BWT timer */
+            /* Save interrupts configuration */
+            temp = base->IE7816;
+            /* disable 7816 function */
+            base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+            /* Clear Block Wait Timer interrupt flag */
+            base->IS7816 |= UART_IS7816_BWT_MASK;
+            /* enable 7816 function */
+            base->C7816 |= UART_C7816_ISO_7816E_MASK;
+            /* re-enable all interrupts */
+            base->IE7816 = temp;
+            break;
+        case kSMARTCARD_EnableBWT:
+            /* Enable BWT Timer interrupt to occur */
+            base->IE7816 |= UART_IE7816_BWTE_MASK;
+            break;
+        case kSMARTCARD_DisableBWT:
+            /* Disable BWT Timer interrupt to occur */
+            base->IE7816 &= ~UART_IE7816_BWTE_MASK;
+            break;
+        case kSMARTCARD_EnableInitDetect:
+            /*Clear all ISO7816 interrupt flags */
+            base->IS7816 = 0xFF;
+            /* Enable initial character detection */
+            base->C7816 |= UART_C7816_INIT_MASK;
+            /* Check and clear any pending initial character detected flag */
+            base->IS7816 = UART_IS7816_INITD_MASK;
+            /* Enable TS detect interrupt*/
+            base->IE7816 |= UART_IE7816_INITDE_MASK;
+            break;
+        case kSMARTCARD_EnableAnack:
+            /* Enable Nack-on-error interrupt to occur */
+            base->C7816 |= UART_C7816_ANACK_MASK;
+            break;
+        case kSMARTCARD_DisableAnack:
+            /* Disable Nack-on-error interrupt to occur */
+            base->C7816 &= ~UART_C7816_ANACK_MASK;
+            break;
+        case kSMARTCARD_ConfigureBaudrate:
+            /* Get UART module clock from system clock module */
+            switch ((uint32_t)base)
+            {
+                case (uint32_t)UART0:
+#if defined(UART0_CLK_SRC)
+                    uartModuleClock = CLOCK_GetFreq(UART0_CLK_SRC);
+#else
+                    uartModuleClock = CLOCK_GetFreq(kCLOCK_CoreSysClk);
+#endif
+                    break;
+                case (uint32_t)UART1:
+#if defined(UART1_CLK_SRC)
+                    uartModuleClock = CLOCK_GetFreq(UART1_CLK_SRC);
+#else
+                    uartModuleClock = CLOCK_GetFreq(kCLOCK_CoreSysClk);
+#endif
+                    break;
+#if (FSL_FEATURE_SOC_UART_COUNT >= 3)
+                case (uint32_t)UART2:
+#if defined(UART2_CLK_SRC)
+                    uartModuleClock = CLOCK_GetFreq(UART2_CLK_SRC);
+#else
+                    uartModuleClock = CLOCK_GetFreq(kCLOCK_CoreSysClk);
+#endif
+                    break;
+#endif
+#if (FSL_FEATURE_SOC_UART_COUNT >= 4)
+                case (uint32_t)UART3:
+#if defined(UART3_CLK_SRC)
+                    uartModuleClock = CLOCK_GetFreq(UART3_CLK_SRC);
+#else
+                    uartModuleClock = CLOCK_GetFreq(kCLOCK_CoreSysClk);
+#endif
+                    break;
+#endif
+#if (FSL_FEATURE_SOC_UART_COUNT >= 5)
+                case (uint32_t)UART4:
+#if defined(UART4_CLK_SRC)
+                    uartModuleClock = CLOCK_GetFreq(UART4_CLK_SRC);
+#else
+                    uartModuleClock = CLOCK_GetFreq(kCLOCK_CoreSysClk);
+#endif
+                    break;
+#endif
+#if (FSL_FEATURE_SOC_UART_COUNT >= 6)
+                case (uint32_t)UART5:
+#if defined(UART5_CLK_SRC)
+                    uartModuleClock = CLOCK_GetFreq(UART5_CLK_SRC);
+#else
+                    uartModuleClock = CLOCK_GetFreq(kCLOCK_CoreSysClk);
+#endif
+                    break;
+#endif
+                default:
+                    uartModuleClock = 0;
+                    break;
+            }
+            sourceClockInKHz = uartModuleClock / 1000;
+            sCClockInKHz = context->interfaceConfig.smartCardClock / 1000;
+            /* BaudRate = (SourceClkInHz)/[16 * (SBR +  BRFA)] */
+            sbr = (uint16_t)(sourceClockInKHz * context->cardParams.Fi /
+                             (context->cardParams.currentD * sCClockInKHz * 16));
+            /* check to see if sbr is out of range of register bits */
+            if ((sbr > 0x1FFF) || (sbr < 1))
+            { /* unsupported baud rate for given source clock input*/
+                return kStatus_SMARTCARD_OtherError;
+            }
+            temp = base->BDH & ~UART_BDH_SBR_MASK;
+            base->BDH = temp | (uint8_t)(sbr >> 8);
+            base->BDL = (uint8_t)sbr;
+#if FSL_FEATURE_UART_HAS_BAUD_RATE_FINE_ADJUST_SUPPORT
+            /* determine if a fractional divider is needed to fine tune closer to the
+            * desired baud, each value of brfa is in 1/32 increments,
+            * hence the multiply-by-32. */
+            brfa =
+                (32 * sourceClockInKHz * context->cardParams.Fi) / (context->cardParams.currentD * sCClockInKHz * 16);
+            brfa -= (uint16_t)(32 * sbr);
+            /* write the brfa value to the register*/
+            temp = base->C4 & ~UART_C4_BRFA_MASK;
+            base->C4 = temp | brfa;
+#endif
+            break;
+        case kSMARTCARD_SetupATRMode:
+            /* Set in default ATR mode */
+            smartcard_uart_SetTransferType(base, context, kSMARTCARD_SetupATRMode);
+            break;
+        case kSMARTCARD_SetupT0Mode:
+            /* Set transport protocol type to T=0 */
+            smartcard_uart_SetTransferType(base, context, kSMARTCARD_SetupT0Mode);
+            break;
+        case kSMARTCARD_SetupT1Mode:
+            /* Set transport protocol type to T=1 */
+            smartcard_uart_SetTransferType(base, context, kSMARTCARD_SetupT1Mode);
+            break;
+        case kSMARTCARD_EnableReceiverMode:
+            /* Enable receiver mode and switch to receive direction */
+            base->C2 |= UART_C2_RE_MASK;
+            base->C3 &= ~UART_C3_TXDIR_MASK;
+            break;
+        case kSMARTCARD_DisableReceiverMode:
+            /* Disable receiver */
+            base->C2 &= ~UART_C2_RE_MASK;
+            break;
+        case kSMARTCARD_EnableTransmitterMode:
+            /* Enable transmitter mode and switch to transmit direction */
+            base->C2 |= UART_C2_TE_MASK;
+            base->C3 |= UART_C3_TXDIR_MASK;
+            break;
+        case kSMARTCARD_DisableTransmitterMode:
+            /* Disable transmitter */
+            base->C2 &= ~UART_C2_TE_MASK;
+            break;
+        case kSMARTCARD_ResetWaitTimeMultiplier:
+#if FSL_FEATURE_UART_HAS_IMPROVED_SMART_CARD_SUPPORT
+            /* Reset Wait Timer Multiplier */
+            /* Save interrupts configuration */
+            temp = base->IE7816;
+            /* Disable ISO7816 functionality */
+            base->C7816 &= ~UART_C7816_ISO_7816E_MASK;
+            /* Setting of the Wait Parameter Register */
+            base->WP7816 = (uint8_t)(param);
+            /* enable 7816 functionality */
+            base->C7816 |= UART_C7816_ISO_7816E_MASK;
+            /* Restore interrupts configuration */
+            base->IE7816 = temp;
+            /* Set flag to smartcard context accordingly */
+            if ((uint8_t)param == 0)
+            {
+                context->wtxRequested = false;
+            }
+            else
+            {
+                context->wtxRequested = true;
+            }
+#endif
+            break;
+        default:
+            break;
+    }
+
+    return kStatus_SMARTCARD_Success;
+}
+
+void SMARTCARD_UART_TSExpiryCallback(UART_Type *base, smartcard_context_t *context)
+{
+    if ((NULL == context))
+    {
+        return;
+    }
+#if defined(FSL_FEATURE_SOC_PIT_COUNT) && FSL_FEATURE_SOC_PIT_COUNT
+    /* Clear PIT timer interrupt status flag */
+    PIT->CHANNEL[context->interfaceConfig.tsTimerId].TFLG |= PIT_TFLG_TIF_MASK;
+#endif /* FSL_FEATURE_SOC_PIT_COUNT */
+    /* Set timer has expired */
+    context->timersState.initCharTimerExpired = true;
+    /* Stop TS timer */
+    smartcard_uart_TimerStop(context->interfaceConfig.tsTimerId);
+    context->transferState = kSMARTCARD_IdleState;
+    /* Un-block the caller */
+    smartcard_uart_CompleteReceiveData(base, context);
+
+    return;
+}

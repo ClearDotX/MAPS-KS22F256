@@ -1,0 +1,281 @@
+/*!
+@defgroup crc Cyclic Redundancy Check (CRC)
+@details The Kinetis SDK provides the Peripheral driver for the Cyclic Redundancy Check (CRC) module of Kinetis devices.@n
+ @n
+The cyclic redundancy check (CRC) module generates 16/32-bit CRC code for error detection.
+The CRC module provides a programmable polynomial, seed, and other parameters required to implement a 16-bit or 32-bit CRC standard.
+ @n
+@{
+*/
+
+/*!
+@defgroup crc_driver CRC driver
+@details This section describes the programming interface of the CRC driver.
+@ingroup crc
+
+# CRC Driver Initialization and Configuration {#CRCInit}
+
+CRC_Init() functions enables the clock gate for the CRC module in the Kinetis SIM module. To fully (re-)configure the CRC module, call CRC_Configure() function 
+and pass the user configuration data structure to it. 
+The seed member of the user configuration structure is the initial checksum for which new data can be add to. When starting new checksum computation, the seed shall
+be set to the initial checksum per the CRC protocol specification. For continued checksum operation, the seed shall be set to the intermediate checksum value
+as obtained from previous calls to CRC_Get16bitResult()/CRC_Get32bitResult() function. After CRC_Init()/CRC_Configure(), one or multiple CRC_WriteData() calls follow to update checksum with data, 
+then CRC_Get16bitResult()/CRC_Get32bitResult() follows to read the result.
+@n
+CRC_GetDefaultConfig() function can be used to set the user configuration structure with parameters for CRC-16/CCIT-FALSE protocol.
+
+# CRC Write Data {#CRCWrite}
+
+The CRC_WriteData() function is used to add data to actual CRC. Internally it tries to use 32-bit reads and writes for all aligned data in the user buffer and it uses 8-bit reads 
+and writes for all unaligned data in the user buffer. This function can update CRC with user supplied data chunks of arbitrary size,
+so one can update CRC byte by byte or with all bytes at once. Prior call to CRC_Configure() fully specifies the CRC module configuration for CRC_WriteData() call.
+
+# CRC Get CRC {#CRCGet}
+
+The CRC_Get16bitResult()/CRC_Get32bitResult() function is used to read the CRC module data register. Depending on prior CRC module usage (CRC_Configure() and CRC_WriteData(), the return value 
+is either intermediate checksum or final checksum. @n @n
+
+  CRC_Configure() / CRC_WriteData() / CRC_Get() to get final checksum.
+  CRC_Configure() / CRC_WriteData() / ... / CRC_WriteData() / CRC_Get() to get final checksum.
+  CRC_Configure() / CRC_WriteData() / CRC_Get() to get intermediate checksum.
+  CRC_Configure() / CRC_WriteData() / ... / CRC_WriteData() / CRC_Get() to get intermediate checksum.
+@n @n
+For intermediate checksum, CRC_Configure() should configure "readTranspose" member of user configuration strcuture to kCrcTransposeNone and "complementChecksum" member
+of user configuration structure to false.
+For final checksum, CRC_Configure() should configure "readTranspose" and "complementChecksum" members of user configuration structure per protocol needs.
+
+# Comments about API usage in RTOS {#CRCRtos}
+
+If multiple RTOS tasks will share the CRC module to compute checksums with different data and/or protocols, the following shall be implemented by user: @n @n
+
+CRC_Configre() / CRC_WriteData() / CRC_GetCRC() triplets shall be protected by RTOS mutex to protect CRC module against concurrent accesses from different tasks.
+@code{.c}
+  CRC_Module_RTOS_Mutex_Lock;
+  CRC_Configure();
+  CRC_WriteData(); 
+  CRC_Get16bitResult();
+  CRC_Module_RTOS_Mutex_Unlock;
+@endcode
+
+# Comments about API usage in interrupt handler {#CRCisr}
+
+All APIs can be used form interrupt handler although execution time shall be considered (interrupt latency of equal and lower priority interrupts will increase).
+Protection against concurrent accesses from different interrupt handlers and/or tasks shall be assured by the user.
+
+# CRC Driver Examples {#CRCEx}
+
+Simple example
+@n
+
+Simple example with default CRC-16/CCIT-FALSE protocol:
+@code{.c}
+    crc_config_t config;
+    CRC_Type *base;
+    uint8_t data[] = {0x00, 0x01, 0x02, 0x03, 0x04};
+    uint16_t checksum;
+        
+    base = CRC0;
+    CRC_Init(base);
+    CRC_GetDefaultConfig(base, &config); /* default gives CRC-16/CCIT-FALSE */
+    CRC_Configure(base, &config);
+    CRC_WriteData(base, data, sizeof(data));
+    checksum = CRC_Get16bitResult(base);
+@endcode
+@n
+Simple example with user config for CRC-32 protocol:
+@code{.c}
+    crc_config_t config;
+    uint32_t checksum;
+    
+    config.polynomial = 0x04C11DB7u;
+    config.seed = 0xFFFFFFFFu;
+    config.crcBits = kCrcBits32;    
+    config.writeTranspose = CRC_GetTransposeTypeFromReflectIn(base, true);
+    config.readTranspose = CRC_GetTransposeTypeFromReflectOut(base, true);
+    config.complementChecksum = true;
+
+    CRC_Init(base);
+    CRC_Configure(base, &config);
+    /* example: update by 1 byte at time */
+    while (dataSize)
+    {
+        uint8_t c = GetCharacter();
+        CRC_WriteData(base, &c, 1);
+        dataSize--;
+    }        
+    checksum = CRC_Get32bitResult(base);
+@endcode
+@n
+@n
+Advanced examples
+@n
+Per-partes data updates with context switch between. Assuming we have 3 tasks/threads, each using CRC module to compute checksums of different protocol,
+with context switches.
+@n
+Firstly, we prepare 3 CRC module init functions for 3 different protocols: CRC-16 (ARC), CRC-16/CCIT-FALSE and CRC-32. Table below lists the individual protocol specifications.
+See also: http://reveng.sourceforge.net/crc-catalogue/
+
+<table>
+  <tr>
+    <th></th>
+    <th>CRC-16/CCIT-FALSE</th>
+    <th>CRC-16</th>
+    <th>CRC-32</th>
+  </tr>
+  <tr>
+    <td><b>Width</b></td>
+    <td>16 bits</td>
+    <td>16 bits</td>
+    <td>32 bits</td>
+  </tr>
+  <tr>
+    <td><b>Polynomial</b></td>
+    <td>0x1021</td>
+    <td>0x8005</td>
+    <td>0x04C11DB7</td>
+  </tr>
+  <tr>
+    <td><b>Initial seed</b></td>
+    <td>0xFFFF</td>
+    <td>0x0000</td>
+    <td>0xFFFFFFFF</td>
+  </tr>
+  <tr>
+    <td><b>Complement checksum</b></td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><b>Reflect In</b></td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><b>Reflect Out</b></td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+Corresponding init functions:
+@
+@code{.c}
+void InitCrc16_CCIT(CRC_Type *base, uint32_t seed)
+{
+    crc_config_t config;
+    
+    CRC_GetDefaultConfig(&config);
+    config.seed = seed;
+
+    CRC_Configure(base, &config);
+}
+
+void InitCrc16(CRC_Type *base, uint32_t seed, bool isLast)
+{
+    crc_config_t config;
+            
+    config.polynomial = 0x8005;
+    config.seed = seed;
+    config.writeTranspose = CRC_GetTransposeTypeFromReflectIn(base, true);
+    /* do not transpose and complement when reading intermediate checksum, only when reading the final result */
+    if (isLast)
+    {
+        config.readTranspose = CRC_GetTransposeTypeFromReflectOut(base, true);
+    }
+    else
+    { 
+        config.readTranspose = kCrcTransposeNone;
+    }    
+    config.complementChecksum = false;
+    config.crcBits = kCrcBits16;
+    
+    CRC_Configure(base, &config);
+}
+
+void InitCrc32(CRC_Type *base, uint32_t seed, bool isLast)
+{
+    crc_config_t config;
+    
+    config.polynomial = 0x04C11DB7U;
+    config.seed = seed;
+    config.writeTranspose = CRC_GetTransposeTypeFromReflectIn(base, true);
+    /* do not transpose and complement when reading intermediate checksum, only when reading the final result */
+     if (isLast)
+    {
+        config.readTranspose = CRC_GetTransposeTypeFromReflectOut(base, true);
+    }
+    else
+    { 
+        config.readTranspose = kCrcTransposeNone;
+    }    
+    /* do not transpose and complement when reading intermediate checksum, only when reading the final result */
+    config.complementChecksum = isLast;
+    config.crcBits = kCrcBits32;
+
+    CRC_Configure(base, &config);
+}
+@endcode
+@n
+CRC-16/CCIT-FALSE protocol does not use any transpose and complement checksum features. Thus, there is no difference between intermediate and final checksum.@n
+CRC-16 protocol uses data transpose and CRC-32 uses data transpose and complement checksum features, thus, there is a flag "isLast" to distinguish between intermediate or final checksum.
+For intermediate checksum (isLast = false), the data transpose feature on CRC data register read and complement checksum is not applied.
+For final checksum (isLast = true), the data transpose feature on CRC data register read and complement checksum is applied.
+@n 
+@code{.c}
+    uint16_t checksumCrc16;
+    uint32_t checksumCrc32;
+    uint16_t checksumCrc16Ccit;
+    
+    checksumCrc16 = 0x0;
+    checksumCrc32 = 0xFFFFFFFFU;
+    checksumCrc16Ccit = 0xFFFFU;
+    
+    CRC_Init(base);
+    
+    /* Task A bytes[0-3] */
+    InitCrc16(base, checksumCrc16, false);
+    CRC_WriteData(base, &data[0], 4);
+    checksumCrc16 = CRC_Get16bitResult(base);
+    
+    /* Task B bytes[0-3] */
+    InitCrc16_CCIT(base, checksumCrc16Ccit);
+    CRC_WriteData(base, &data[0], 4);
+    checksumCrc16Ccit = CRC_Get16bitResult(base);
+    
+    /* Task C 4 bytes[0-3] */
+    InitCrc32(base, checksumCrc32, false);
+    CRC_WriteData(base, &data[0], 4);
+    checksumCrc32 = CRC_Get32bitResult(base);
+    
+    /* Task B 5 bytes[4-8] */
+    InitCrc16_CCIT(base, checksumCrc16Ccit);
+    CRC_WriteData(base, &data[4], 5);
+    checksumCrc16Ccit = CRC_Get16bitResult(base);
+    
+    /* Task C 3 bytes[4-6] */
+    InitCrc32(base, checksumCrc32, false);
+    CRC_WriteData(base, &data[4], 3);
+    checksumCrc32 = CRC_Get32bitResult(base);
+    
+    /* Task A 3 bytes[4-6] */
+    InitCrc16(base, checksumCrc16, false);
+    CRC_WriteData(base, &data[4], 3);
+    checksumCrc16 = CRC_Get16bitResult(base);
+    
+    /* Task C 2 bytes[7-8] */
+    InitCrc32(base, checksumCrc32, true);
+    CRC_WriteData(base, &data[7], 2);
+    checksumCrc32 = CRC_Get32bitResult(base);
+    
+    /* Task A 2 bytes[7-8] */
+    InitCrc16(base, checksumCrc16, true);
+    CRC_WriteData(base, &data[7], 2);
+    checksumCrc16 = CRC_Get16bitResult(base);
+@endcode
+*/
+
+
+/*! @} */

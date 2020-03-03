@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.rtc.support" requires="devices.modules.D_IP_SRTC_SYN_023"/>    <component name="platform.drivers.rtc.support" requires="devices.modules.D_IP_SRTC_SYN_024"/>    <component name="platform.drivers.rtc"              description="RTC Driver"             requires="platform.drivers.rtc.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_rtc.c"/>
+        <files mask="fsl_rtc.h"/>      </source>    </component>  </components></metadata>

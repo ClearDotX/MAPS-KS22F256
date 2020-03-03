@@ -1,0 +1,13 @@
+"D:\Program Files\IAR Systems\Embedded Workbench 7.3\arm\bin\armproc.dll" 
+
+"D:\Program Files\IAR Systems\Embedded Workbench 7.3\arm\bin\armsim2.dll" 
+
+"D:\cygwin\home\R65388\mcu-sdk-2.0\lib\ksdk_platform_lib\iar\MKS22F12\debug\psp_arm.out" 
+
+--plugin "D:\Program Files\IAR Systems\Embedded Workbench 7.3\arm\bin\armbat.dll" 
+
+--device_macro "D:\Program Files\IAR Systems\Embedded Workbench 7.3\arm\config\debugger\Freescale\KSxx.dmac" 
+
+
+
+

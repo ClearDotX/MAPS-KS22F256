@@ -1,0 +1,6 @@
+<!-- This file is maintained by board support author -->
+<metadata>
+  <components>
+    <component name="platform" requires="platform.CMSIS platform.devices platform.drivers platform.utilities"/>
+  </components>
+</metadata>

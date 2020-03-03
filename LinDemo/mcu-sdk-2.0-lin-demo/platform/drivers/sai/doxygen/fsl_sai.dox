@@ -1,0 +1,169 @@
+/*!
+@defgroup sai Serial Audio Interface (SAI)
+@details The SDK provides driver for the Serial Audio Interface (SAI)
+         module of Kinetis devices.
+
+# Overview {#SAIOvw}
+
+  SAI driver includes 2 parts: functional APIs and transactional APIs.
+
+  Functional APIs are feature/property target low level APIs. User can use
+functional APIs for SAI initialization/configuration/operation for
+optimization/custumization purpose. Using the functional API require user get
+konwledge of the SAI peripheral and know how to organize functional APIs to
+meet the requirement of application. All functional API use the peripheral base
+address as the first parameter. SAI functional operation groups provide the
+functional APIs set.
+
+  Transactional APIs are transaction target high level APIs. User can use the
+transactional API to enable the peripheral quickly and can also use in the
+application if the code size and performance of transactional APIs can satisfy
+requirement. If the code size and performance are critical requirement, user can
+refer to the transactional API implementation and write their own code. All
+transactional APIs use the sai_handle_t as the first parameter and user need to
+initialize the handle by calling SAI_TxCreateHandle() or SAI_RxCreateHandle() API.
+
+  Transactional APIs support asynchronized transfer. It means, the functions
+SAI_SendNonBlocking() and SAI_ReceiveNonBlocking() setup interrupt for data
+transfer, when the transfer complete, upper layer is notified through callback
+function with status kStatus_SAI_TxIdle and kStatus_SAI_RxIdle.
+
+# Function groups {#SAIFunc}
+
+## Initialization and deinitialization {#SAIInit}
+
+  The function SAI_TxInit() and SAI_RxInit() initializes SAI Tx or Rx with specified configurations, the function
+SAI_TxGetDefaultConfig() and SAI_RxGetDefaultConfig() could help to get the default configurations.
+
+## Status {#SAIStatus}
+
+  Provide functions to get and clear the SAI status.
+
+## Interrupt {#SAIInterrupt}
+
+  Provide functions to enable/disable SAI interrupts.
+
+## DMA Control {#SAIDmaCtrl}
+
+  Provide functions to enable/disable SAI to generate DMA request for different flags.
+
+## Bus Operations {#SAIBusOperation}
+
+  Provide functions to enable/disable TX/RX and functions to write/read data. And also functions to set
+  audio format.
+
+## Transactional {#SAITrans}
+
+  Provide functions to send/receive data through interrupt or DMA.
+
+# Typical use case {#SAICase}
+
+## SAI Send/Receive in interrupt way {#SAICaseInterrupt}
+
+~~~~~{.c}
+    sai_handle_t g_saiTxHandle;
+    sai_config_t user_config;
+    sai_transfer_t sendXfer;
+    volatile bool txFinished;
+    volatile bool rxFinished;
+    const uint8_t sendData[] = [......];
+
+    void SAI_UserCallback(sai_handle_t *handle, status_t status, void *userData)
+    {
+        userData = userData;
+
+        if (kStatus_SAI_TxIdle == status)
+        {
+            txFinished = true;
+        }
+    }
+
+    void main(void)
+    {
+        //...
+
+        SAI_TxGetDefaultConfig(&user_config);
+
+        SAI_TxInit(SAI0, &user_config);
+        SAI_TxCreateHandle(SAI0, &g_saiHandle);
+        SAI_TxSetTransferCallback(&g_saiHandle, SAI_UserCallback, NULL);
+
+        //Configure sai format
+        SAI_TxSetTransferFormat(SAI0, &g_saiHandle, mclkSource, mclk);
+
+        // Prepare to send.
+        sendXfer.data = sendData
+        sendXfer.dataSize = sizeof(sendData)/sizeof(sendData[0]);
+        txFinished = false;
+
+        // Send out.
+        SAI_SendNonBlocking(SAI0, &g_saiHandle, &sendXfer);
+
+        // Wait send finished.
+        while (!txFinished)
+        {
+        }
+
+        // ...
+    }
+~~~~~
+
+## SAI Send/Receive in DMA way {#SAICaseDma}
+
+~~~~~{.c}
+    sai_handle_t g_saiHandle;
+    dma_handle_t g_saiTxDmaHandle;
+    dma_handle_t g_saiRxDmaHandle;
+    sai_config_t user_config;
+    sai_transfer_t sendXfer;
+    volatile bool txFinished;
+    uint8_t sendData[] = ...;
+
+    void SAI_UserCallback(sai_handle_t *handle, status_t status, void *userData)
+    {
+        userData = userData;
+
+        if (kStatus_SAI_TxIdle == status)
+        {
+            txFinished = true;
+        }
+    }
+
+    void main(void)
+    {
+        //...
+
+        SAI_TxGetDefaultConfig(&user_config);
+        SAI_TxInit(SAI0, &user_config);
+
+        // Setup the DMA
+        DMAMUX_Init(DMAMUX0);
+        DMAMUX_SetSource(DMAMUX0, SAI_TX_DMA_CHANNEL, SAI_TX_DMA_REQUEST);
+        DMAMUX_EnableChannel(DMAMUX0, SAI_TX_DMA_CHANNEL);
+
+        DMA_Init(DMA0);
+
+        /* Create DMA handle. */
+        DMA_CreateHandle(&g_saiTxDmaHandle, DMA0, SAI_TX_DMA_CHANNEL);
+
+        SAI_CreateHandleDMA(SAI0, &g_saiTxDmaHandle);
+        SAI_SetTransferCallbackDMA(&g_saiDmaHandle, SAI_UserCallback, NULL);
+
+        // Prepare to send.
+        sendXfer.data = sendData
+        sendXfer.dataSize = sizeof(sendData)/sizeof(sendData[0]);
+        txFinished = false;
+
+        // Send out.
+        SAI_SendDMA(&g_saiHandle, &sendXfer);
+
+        // Wait send finished.
+        while (!txFinished)
+        {
+        }
+
+        // ...
+    }
+~~~~~
+
+*/

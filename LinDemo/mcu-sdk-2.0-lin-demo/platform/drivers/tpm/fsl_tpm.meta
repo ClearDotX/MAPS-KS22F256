@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.tpm.support" requires="devices.modules.D_IP_LPTPM_SYN_020"/>    <component name="platform.drivers.tpm"              description="TPM Driver"             requires="platform.drivers.tpm.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_tpm.c"/>
+        <files mask="fsl_tpm.h"/>      </source>    </component>  </components></metadata>

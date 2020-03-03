@@ -1,0 +1,149 @@
+/*!
+@defgroup flexcan Flex Controller Area Network (FlexCAN)
+@details The SDK provides Peripheral driver for the Flex Controller Area Network (FlexCAN)
+         module of Kinetis devices.
+@{
+*/
+/*!
+@defgroup flexcan_driver FlexCAN driver
+@ingroup flexcan
+@details This section describes the programming interface of the FlexCAN driver.
+The FlexCAN driver configures FlexCAN module, provide functional interface and transactional
+interface for user to build FlexCAN application.
+
+# Function groups{#FlexCANFunGrps}
+
+## FLEXCAN Initialization and De-initialization {#FLEXCANInitReset}
+
+This function group initialize default configuration structure for FlexCAN module, initialize FlexCAN
+module with given configuration, reset FlexCAN module and de-initialize FlexCAN module.
+
+## FlexCAN Configuration {#FlexCANConfig}
+
+This function group configure the FlexCAN module including timing characteristic, Tx/Rx Message Buffer, Rx FIFO
+ and Global/Individual mask for both Rx Message Buffer and Rx FIFO.
+
+## FlexCAN Basic Operation {#FlexCANBasicOps}
+
+This function group enable/disable FlexCAN module, FlexCAN Module interrupt, FlexCAN Message Buffer interrupt
+and dma, get Rx FIFO head address for Rx FIFO dma transfer.
+
+## FlexCAN Transfer Operation {#FlexCANTransOps}
+
+This function group controls the transfer action including writing Tx Message Buffer, Reading Rx Message Buffer and
+Reading Rx FIFO.
+
+## FlexCAN Status Operation {#FlexCANStatusOps}
+
+This function group get/clear the FlexCAN Module status and get/clear the FlexCAN Message Buffer/Rx FIFO status.
+
+## FlexCAN Block Transfer Operation {#FlexCANBlockTrans}
+
+This function group transfers a block of data, get transfer status and abort the transfer.
+
+# Typical use case {#FlexCANTpyUC}
+
+## Message Buffer Send Operation {#FlexCANMbSendOps}
+
+~~~~~{.c}
+    flexcan_config_t flexcanConfig;
+    flexcan_frame_t txFrame;
+
+    /* Init FlexCAN module. */
+    FLEXCAN_GetDefaultConfig(&flexcanConfig);
+    FLEXCAN_Init(EXAMPLE_CAN, &flexcanConfig);
+
+    /* Enable FlexCAN module. */
+    FLEXCAN_Enable(EXAMPLE_CAN, true);
+
+    /* Setup Tx Message Buffer. */
+    FLEXCAN_SetTxMbConfig(EXAMPLE_CAN, TX_MESSAGE_BUFFER_INDEX);
+
+    /* Prepare Tx Frame for sending. */
+    txFrame.format = KFLEXCAN_FrameFormatStandard;
+    txFrame.type   = KFLEXCAN_FrameTypeData;
+    txFrame.id     = CAN_ID_STD(0x123);
+    txFrame.length = 8;
+    txFrame.dataWord0 = CAN_WORD0_DATA_BYTE_0(0x11) |
+                        CAN_WORD0_DATA_BYTE_1(0x22) |
+                        CAN_WORD0_DATA_BYTE_2(0x33) |
+                        CAN_WORD0_DATA_BYTE_3(0x44);
+    txFrame.dataWord1 = CAN_WORD1_DATA_BYTE_4(0x55) |
+                        CAN_WORD1_DATA_BYTE_5(0x66) |
+                        CAN_WORD1_DATA_BYTE_6(0x77) |
+                        CAN_WORD1_DATA_BYTE_7(0x88);
+    /* Write Tx Message Buffer to send CAN Message. */
+    FLEXCAN_WriteTxMb(EXAMPLE_CAN, TX_MESSAGE_BUFFER_INDEX, &txFrame);
+
+    /* Wait until Tx Message Buffer empty. */
+    while (!FLEXCAN_GetMbStatusFlags(EXAMPLE_CAN, 1 << TX_MESSAGE_BUFFER_INDEX));
+
+    /* Clean Tx Message Buffer empty Status. */
+    FLEXCAN_ClearMbStatusFlags(EXAMPLE_CAN, 1 << TX_MESSAGE_BUFFER_INDEX);
+~~~~~
+
+## Message Buffer Receive Operation {#FlexCANMbReceiveOps}
+
+~~~~~{.c}
+    flexcan_config_t flexcanConfig;
+    flexcan_frame_t rxFrame;
+
+    /* Init FlexCAN module. */
+    FLEXCAN_GetDefaultConfig(&flexcanConfig);
+    FLEXCAN_Init(EXAMPLE_CAN, &flexcanConfig);
+
+    /* Enable FlexCAN module. */
+    FLEXCAN_Enable(EXAMPLE_CAN, true);
+
+    /* Setup Rx Message Buffer. */
+    mbConfig.format    = KFLEXCAN_FrameFormatStandard;
+    mbConfig.type      = KFLEXCAN_FrameTypeData;
+    mbConfig.id        = CAN_ID_STD(0x123);
+    FLEXCAN_SetRxMbConfig(EXAMPLE_CAN, RX_MESSAGE_BUFFER_INDEX, &mbConfig);
+
+    /* Wait until Rx Message Buffer full. */
+    while (!FLEXCAN_GetMbStatusFlags(EXAMPLE_CAN, 1 << RX_MESSAGE_BUFFER_INDEX));
+
+    /* Read Received Message from Rx Message Buffer. */
+    FLEXCAN_ReadRxMb(EXAMPLE_CAN, RX_MESSAGE_BUFFER_INDEX, &rxFrame);
+
+    /* Clean Rx Message Buffer full Status. */
+    FLEXCAN_ClearMbStatusFlags(EXAMPLE_CAN, 1 << RX_MESSAGE_BUFFER_INDEX);
+~~~~~
+
+## Rx FIFO Receive Operation {#FlexCANFifoReceiveOps}
+~~~~~{.c}
+    uint32_t rxFifoFilter[] = {FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x321, 0, 0),
+                               FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x321, 1, 0),
+                               FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x123, 0, 0),
+                               FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x123, 1, 0)};
+
+    flexcan_config_t flexcanConfig;
+    flexcan_frame_t rxFrame;
+
+    /* Init FlexCAN module. */
+    FLEXCAN_GetDefaultConfig(&flexcanConfig);
+    FLEXCAN_Init(EXAMPLE_CAN, &flexcanConfig);
+
+    /* Enable FlexCAN module. */
+    FLEXCAN_Enable(EXAMPLE_CAN, true);
+
+    /* Setup Rx FIFO. */
+    rxFifoConfig.idFilterTable = rxFifoFilter;
+    rxFifoConfig.idFilterType  = KFLEXCAN_RxFifoFilterTypeA;
+    rxFifoConfig.idFilterNum   = sizeof(rxFifoFilter) / sizeof(rxFifoFilter[0]);
+    rxFifoConfig.priority      = KFLEXCAN_RxFifoPrioHigh;
+    FlEXCAN_SetRxFifoConfig(EXAMPLE_CAN, &rxFifoConfig);
+
+    /* Wait until Rx FIFO available. */
+    while (!FLEXCAN_GetMbStatusFlags(EXAMPLE_CAN, KFLEXCAN_RxFifoFrameAvlFlag));
+
+    /* Read Message from Rx FIFO. */
+    FlEXCAN_ReadRxFifo(EXAMPLE_CAN, &rxFrame);
+
+    /* Clean Rx FIFO available Status. */
+    FLEXCAN_ClearMbStatusFlags(EXAMPLE_CAN, KFLEXCAN_RxFifoFrameAvlFlag);
+~~~~~
+
+*/
+/*! @} */

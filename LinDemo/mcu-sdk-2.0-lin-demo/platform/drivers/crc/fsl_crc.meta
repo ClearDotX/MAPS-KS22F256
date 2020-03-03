@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.crc.support" requires="devices.modules.D_IP_CRC_16_32_PROG_SYN_011"/>    <component name="platform.drivers.crc"              description="CRC Driver"             requires="platform.drivers.crc.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_crc.c"/>
+        <files mask="fsl_crc.h"/>      </source>    </component>  </components></metadata>

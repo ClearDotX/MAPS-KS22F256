@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.flexcan.support" requires="devices.modules.D_IP_FlexCAN3_SYN_033"/>    <component name="platform.drivers.flexcan.support" requires="devices.modules.D_IP_FlexCAN3_SYN_046"/>    <component name="platform.drivers.flexcan"              description="FLEXCAN Driver"             requires="platform.drivers.flexcan.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_flexcan.c"/>
+        <files mask="fsl_flexcan.h"/>      </source>    </component>  </components></metadata>

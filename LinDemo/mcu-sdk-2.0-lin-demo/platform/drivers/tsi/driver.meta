@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.tsi.support" requires="devices.modules.D_IP_TSIv4_SYN_16"/>    <component name="platform.drivers.tsi"              description="TSI Driver"             requires="platform.drivers.tsi.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_tsi.c"/>
+        <files mask="fsl_tsi.h"/>      </source>    </component>  </components></metadata>

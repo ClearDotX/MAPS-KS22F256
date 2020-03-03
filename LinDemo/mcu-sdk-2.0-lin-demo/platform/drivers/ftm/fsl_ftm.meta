@@ -1,0 +1,3 @@
+<!-- This file is maintained by driver author -->
+<metadata>  <components>    <component name="platform.drivers.ftm.support" requires="devices.modules.D_IP_FlexTimer32_SYN_022"/>    <component name="platform.drivers.ftm"              description="FTM Driver"             requires="platform.drivers.ftm.support"             provides="platform.drivers">      <source path=".">        <files mask="fsl_ftm.c"/>
+        <files mask="fsl_ftm.h"/>      </source>    </component>  </components></metadata>

@@ -1,0 +1,33 @@
+/*!
+@defgroup ewm External Watchdog Monitor (EWM)
+@details The SDK provides driver for the external watchdog monitor module (EWM) of Kinetis devices.
+
+@{
+*/
+/*!
+
+@defgroup ewm_driver EWM Peripheral driver
+@ingroup ewm
+@details This section describes the programming interface of the EWM Peripheral driver.
+The EWM driver configures EWM module.
+
+# Function groups
+
+## EWM Initialization and De-initialization {#EWMInitConfig}
+This function group initialize and de-initialize EWM module.
+
+## EWM functional Operation {#EWMFunctional}
+This function group implement other EWM functional API.
+
+# Typical use case
+~~~~~{.c}
+    ewm_config_t config;
+    EWM_GetDefaultConfig(&config);
+    config.enableInterrupt = true;
+    config.compareLowValue = 0U;
+    config.compareHighValue = 0xAAU;
+    NVIC_EnableIRQ(WDOG_EWM_IRQn);
+    EWM_Init(base, &config);
+~~~~~
+*/
+/*! @} */

@@ -1,0 +1,16 @@
+<!-- This file is maintained by driver author -->
+<metadata>
+  <components>
+    <component name="platform.drivers.flash" 
+             description="Flash Driver"
+             provides="platform.drivers">
+      <source path="./">
+        <files mask="flash_*.c"/>
+        <files mask="flash_*.h"/>
+        <files mask="fsl_flash_*.h"/>
+        <files mask="SSD_FTFx_*.c"/>
+        <files mask="SSD_FTFx_*.h"/>
+      </source>
+    </component>
+  </components>
+</metadata>

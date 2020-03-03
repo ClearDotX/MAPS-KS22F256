@@ -1,0 +1,17 @@
+/*!
+@defgroup osc Oscillator (OSC)
+@details The SDK provides driver for the Oscillator (OSC) module of Kinetis devices.
+# Function discription {#OSCFunc}
+
+OSC driver provides two functions:
+
+1. The function `OSC_SetExtRefClkConfig`.
+  The OSC could provide the MCU's external reference clock, this function is used
+to configure the external reference clock, including enable mode and divider.
+
+2. The function `OSC_SetCapLoad`.
+  This function configures the OSC capacitor load setting.\n
+
+  The OSC driver should be used together with MCG driver or MCG_Lite driver.
+
+*/

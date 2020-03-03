@@ -1,0 +1,28 @@
+/*!
+@defgroup cop COP watchdog (COP)
+@details The SDK provides driver for the COP module (COP) of Kinetis devices.
+
+@{
+*/
+/*!
+
+@defgroup cop_driver COP Peripheral driver
+@ingroup cop
+@details This section describes the programming interface of the COP Peripheral driver.
+The COP driver configures COP module.
+
+# Function groups
+
+## COP functional Operation {#COPFunctional}
+
+This function group implement COP functional API.
+
+# Typical use case
+~~~~~{.c}
+    cop_config_t config;
+    COP_GetDefaultConfig(&config);
+    config.timeoutCycles = kCOP_2Power8CyclesOr2Power16Cycles;
+    COP_Init(sim_base,&config); 
+~~~~~
+*/
+/*! @} */

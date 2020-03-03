@@ -1,0 +1,105 @@
+/*!
+@defgroup smartcard Smart Card
+@details The Kinetis SDK provides both HAL and Peripheral drivers for the UART-ISO7816 and EMVSIM modules of Kinetis devices which are wraps into Smart Card driver.@n
+ @n
+Smart Card driver covers all necessary functions to access and control integrated circuit cards. 
+The driver controls communication modules (UART/EMVSIM) and also handles special ICC sequences, such as the activation/deactivation 
+(using EMVSIM IP or external interface chip). The Smart Card driver consist of two IPs (SmartCard_Uart and SmartCard_EmvSim drivers) 
+and two PHY drivers (SmartCard_interface_direct and SmartCard_interface_ncn8025 drivers). These drivers can be combined with each other, which
+ means that Smart Card driver wraps one IP (transmission) and one PHY (interface) driver.
+ @n
+@{
+*/
+
+/*!
+@defgroup emvsim_hal EMVSIM HAL driver
+@details This section describes the programming interface of the EMVSIM HAL driver.
+@ingroup smartcard
+*/
+
+/*!
+@defgroup uart_hal UART HAL driver
+@details This section describes the programming interface of the UART-ISO7816 HAL driver.
+@ingroup smartcard
+*/
+
+/*!
+@defgroup smartcard_driver Smart Card driver
+@details This section describes the programming interface of the Smart Card driver.
+@ingroup smartcard
+
+The driver provides synchronous and also asynchronous functions to communicate with the Integrated Circuit Card (ICC). The driver uses a semaphores as synchronization 
+objects of synchronous transfers. The driver is implemented single threaded and additional protection 
+for multithreading is not supported.
+@n
+Smart Card driver also provides DMA transfers, which is useful for bigger transfer sizes. This feature can be activated in the Smart Card user configuration.
+@n 
+
+# SmartCard Driver Initialization {#SmartCardInit}
+
+Smart Card Driver is initialized by calling the SMARTCARD_DRV_Init() function. If DMA features are required, initialize eDMA driver first.
+The Smart Card Driver initialization configuration structure requires these settings: 
+<ul>
+<li>Smart Card voltage class</li>
+<li>Smart Card Interface options such as the RST, IRQ, CLK pins, and so on.</li>
+</ul>
+The driver also supports user callback installation for assertion/de-assertion Smart Card events. This feature is useful to detect the card presence 
+following a card reset.
+The user should initialize the Smart Card driver, which then initializes IP and PHY drivers. In other words, the user should use only the Smart Card driver which covers
+all functionality.
+
+# SmartCard Call diagram {#SmarCardCallDiagram}
+Because the call diagram is complex, the detailed use of the Smart Card driver is not described in this section.
+For details how to use the Smart Card driver, see the Smart Card driver example which demonstrates a simple use case.
+
+@{
+*/
+
+/*!
+@defgroup smartcard_interface_driver Smart Card Interface Driver
+@details This section describes features of Smart Card interface drivers which handle all necessary ICC actions, such as activation/deactivation, reset sequence 
+and operating voltage setting.
+@n
+The Smart Card interface driver is initialized by calling function SMARTCARD_DRV_Init(), which calls the internal interface driver initialization.
+During the initialization phase,  internal driver structures are initialized and additional hardware settings which are specific for each interface driver.
+@n
+@ingroup smartcard_driver
+
+@{
+*/
+
+/*!
+@defgroup smartcard_interface_ncn8025 Smart Card Interface NCN8025 Driver
+@details The Smart Card interface NCN8025 driver handles the external interface chip NCN8025 which supports all necessary functions to control the ICC. 
+These functions involve ICC pin initialization,
+ICC clock generation, ICC card detection, and activation/deactivation sequences.
+@ingroup smartcard_interface_driver
+*/
+
+/*!
+@defgroup smartcard_interface_direct Smart Card Interface Direct Driver
+@details The Smart Card interface direct driver handles the EMVSIM peripheral, which covers all necessary functions to control the ICC. These functions are 
+ICC clock setup, ICC voltage setup, ICC card detection, activation/deactivation, and ICC reset sequences. The EMVSIM peripheral covers all features of 
+interface ICC chips.
+@ingroup smartcard_interface_driver
+*/
+
+/*! @} */
+
+
+/*!
+@defgroup smartcard_uart_driver Smart Card UART Driver
+@details The Smart Card UART driver uses a standard UART peripheral which supports the ISO-7816 standard. The driver supports transmission functionality 
+in CPU and also DMA mode. The driver also supports blocking (synchronous) and non-blocking (asynchronous) types of data transfers.
+@ingroup smartcard_driver
+*/
+
+/*!
+@defgroup smartcard_emvsim_driver Smart Card EMVSIM Driver
+@details The SmartCard EMVSIM driver covers the transmission functionality in CPU and DMA mode. The driver also supports blocking (synchronous)
+and non-blocking (asynchronous) types of data transfers.
+@ingroup smartcard_driver
+*/
+
+/*! @} */
+/*! @} */
