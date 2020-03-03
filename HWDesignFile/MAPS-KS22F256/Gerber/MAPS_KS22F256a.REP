@@ -1,0 +1,38 @@
+*************************************************************
+FileName = MAPS_KS22F256a.GBR
+AutoAperture = True
+*************************************************************
+Generating : Drill Drawing
+      File : MAPS_KS22F256a.GD1
+
+    Adding Layer      : Mechanical1
+
+    Adding Drill Pair : TopLayer-BottomLayer
+
+    Adding Layer      : DrillDrawing
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+*************************************************************
+
+*************************************************************
+Generating : Drill Guide
+      File : MAPS_KS22F256a.GG1
+
+    Adding Layer      : Mechanical1
+
+    Adding Drill Pair : TopLayer-BottomLayer
+
+    Adding Layer      : DrillGuide
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+*************************************************************
+

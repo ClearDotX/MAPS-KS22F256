@@ -1,0 +1,30 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: MAPS_KS22F256a.PCB   11/9/2015  5:49:09 PM
+---------------------------------------------------------------------------
+
+Layer Pair : TopLayer to BottomLayer
+ASCII RoundHoles File : MAPS_KS22F256a.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        12mil (0.3048mm)         Round          344              58.77 Inch (1492.70 mm)
+T2        15mil (0.381mm)          Round          1                0.00 Inch (0.00 mm)
+T3        15.75mil (0.40005mm)     Round          12               0.51 Inch (12.89 mm)
+T4        23.62mil (0.59995mm)     Round          6                0.55 Inch (13.90 mm)
+T5        30mil (0.762mm)          Round          6                0.79 Inch (20.07 mm)
+T6        40mil (1.016mm)          Round          254              45.79 Inch (1162.96 mm)
+T7        60mil (1.524mm)          Round          2                0.20 Inch (5.08 mm)
+T8        60mil (1.524mm)          Round          2         NPTH   0.79 Inch (19.98 mm)
+T9        100mil (2.54mm)          Round          4         NPTH   5.36 Inch (136.03 mm)
+T10       120mil (3.048mm)         Round          2         NPTH   6.05 Inch (153.67 mm)
+T11       125mil (3.175mm)         Round          2         NPTH   1.75 Inch (44.45 mm)
+T12       125.98mil (3.19989mm)    Round          2         NPTH   1.75 Inch (44.45 mm)
+---------------------------------------------------------------------------
+Totals                                            637              122.29 Inch (3106.18 mm)
+
+Two holes at same point : 2
+-----------------------
+-3076,500
+-3076,2250
+
+Total Processing Time (hh:mm:ss) : 00:00:00
