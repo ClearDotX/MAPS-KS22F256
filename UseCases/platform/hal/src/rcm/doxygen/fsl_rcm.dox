@@ -1,0 +1,39 @@
+/*!
+
+@defgroup rcm Reset Control Module (RCM)
+@details The Kinetis SDK provides a HAL driver for the Reset Control Module (RCM) block of Kinetis devices. 
+@{
+*/
+
+/*!
+@defgroup rcm_hal RCM HAL driver
+@ingroup rcm
+@details The RCM implements the reset functions for the MCU.
+
+  RCM HAL driver provides these APIs:
+  - APIs for system reset source.
+  - APIs for RESET pin filter.
+  - APIs for ROM boot.
+
+# System Reset Source APIs {#RCMSRS}
+
+  The function RCM_HAL_GetSrcStatus() checks whether the system is reset by a
+specific source. For some platforms, there is sticky register for reset source.
+The function RCM_HAL_GetStickySrcStatus() checks the sticky status and the
+function RCM_HAL_ClearStickySrcStatus() clears the sticky status.
+
+# RESET Pin Filter APIs {#RCMRPF}
+
+  The function RCM_HAL_SetResetPinFilterConfig() configures the RESET pin filter,
+including enable/disable filter, filter selection, and filter width setting.
+
+# ROM Boot APIs {#RCMRB}
+
+  The MCU can be configured to boot from ROM forcefully. Use function
+RCM_HAL_SetForceBootRomSrc() to set the boot source and use function
+RCM_HAL_GetBootRomSrc() to get the boot source after reset.
+
+*/
+
+/*! @}*/
+

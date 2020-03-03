@@ -1,0 +1,9 @@
+iar
+kds
+uv4
+output
+Debug
+Release
+settings
+*.dep
+

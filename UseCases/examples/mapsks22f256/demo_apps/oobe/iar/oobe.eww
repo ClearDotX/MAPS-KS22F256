@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\oobe.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>all</name>
+      <member>
+        <project>oobe</project>
+        <configuration>Release</configuration>
+      </member>
+      <member>
+        <project>oobe</project>
+        <configuration>Debug</configuration>
+      </member>
+    </batchDefinition>
+    <batchDefinition>
+      <name>Release</name>
+      <member>
+        <project>oobe</project>
+        <configuration>Release</configuration>
+      </member>
+    </batchDefinition>
+    <batchDefinition>
+      <name>Debug</name>
+      <member>
+        <project>oobe</project>
+        <configuration>Debug</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

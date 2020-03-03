@@ -1,0 +1,114 @@
+/*!
+@defgroup debug_console Utilities for the Kinetis SDK
+@ingroup utility
+@brief This section describes the programming interface of the debug console driver.
+
+# Debug Console Initialization {#DbgConsoleInit}
+To initialize the DbgConsole module, call the DbgConsole_Init() function and pass in the user configuration structure. 
+This function automatically enables the module and the clock.
+After the DbgConsole_Init() function is called and returned, stdout and stdin are connected to the selected UART/LPUART.
+
+Pass a user configuration debug_console_device_type_t shown here:
+
+~~~~~{.h}
+/*! Supported debug console hardware device type. */
+typedef enum _debug_console_device_type {
+    kDebugConsoleNone   = 0U,
+    kDebugConsoleLPSCI  = 15U,     /*<! Change the start number value to avoid treating 0
+                                     as a correct device type. Sometimes users forget
+                                     to specify the device type and use the 
+                                     default value '0' as the device type.  */
+    kDebugConsoleUART   = 16U,
+    kDebugConsoleLPUART = 17U
+} debug_console_device_type_t;
+~~~~~
+
+Debug console state is stored in debug_console_state_t structure:
+
+~~~~~{.c}
+/*! State structure storing debug console. */
+typedef struct DebugConsoleState {
+    debug_console_device_type_t type;/*<! Indicator showing whether the debug console is initialized. */
+    uint8_t instance;               /*<! Instance number indicator. */
+    uint32_t baseAddr;
+    debug_console_ops_t ops;        /*<! Operation function pointers for debug UART operations. */
+} debug_console_state_t;
+~~~~~
+
+This example shows how to call the DbgConsole_Init() given the user configuration structure and the instance number.
+
+~~~~~{.c}
+    DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, BOARD_DEBUG_UART_BAUD, kDebugConsoleUART);
+~~~~~
+
+# Debug Console formatted IO
+Debug console has its own printf/scanf/putchar/getchar functions which are defined in the header:
+
+~~~~~{.h}
+int debug_printf(const char  *fmt_s, ...);
+int debug_putchar(int ch);
+int debug_scanf(const char  *fmt_ptr, ...);
+int debug_getchar(void);
+~~~~~
+
+Choose toolchain's printf/scanf or the KSDK version printf/scanf:
+
+~~~~~{.h}
+#if (defined (FSL_RTOS_MQX) && (MQX_COMMON_CONFIG != MQX_LITE_CONFIG))
+#define PRINTF          printf
+#define SCANF           scanf
+#define PUTCHAR         putchar
+#define GETCHAR         getchar
+#else
+/*Configuration for toolchain's printf/scanf or KSDK version printf/scanf */
+#define PRINTF          debug_printf
+//#define PRINTF          printf
+#define SCANF           debug_scanf
+//#define SCANF           scanf
+#define PUTCHAR         debug_putchar
+//#define PUTCHAR         putchar
+#define GETCHAR         debug_getchar
+//#define GETCHAR         getchar
+#endif
+~~~~~
+
+Print out failure messages using KSDK's assert_func:
+
+~~~~~{.c}
+void assert_func(const char *file, int line, const char *func, const char *failedExpr)
+{
+    PRINTF("ASSERT ERROR \" %s \": file \"%s\" Line \"%d\" function name \"%s\" \n", failedExpr, file , line, func);
+
+    for (;;)
+    {}
+
+}
+~~~~~
+
+Function _doprint outputs its parameters according to a formatted string.
+I/O is performed by calling a given function pointer using (*func_ptr)(c,farg).
+
+~~~~~{.c}
+int _doprint(void *farg, PUTCHAR_FUNC func_ptr, int max_count, char *fmt, va_list ap)
+~~~~~
+
+Function scan_prv converts an input line of ASCII characters based on a provided string format.
+
+~~~~~{.c}
+int scan_prv(const char *line_ptr, char *format, va_list args_ptr)
+~~~~~
+
+Function mknumstr converts a radix number to a string and returns its length.
+
+~~~~~{.c}
+static int32_t mknumstr (char *numstr, void *nump, int32_t neg, int32_t radix, bool use_caps);
+~~~~~
+
+Function mkfloatnumstr converts a floating radix number to a string and returns its length.
+
+~~~~~{.c}
+static int32_t mkfloatnumstr (char *numstr, void *nump, int32_t radix, uint32_t precision_width);
+~~~~~
+
+*/
+/*! @} */

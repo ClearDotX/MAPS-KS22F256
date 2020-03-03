@@ -1,0 +1,110 @@
+/*!
+@defgroup mcg Multipurpose Clock Generator (MCG)
+@details The Kinetis SDK provides a HAL driver for the Multipurpose Clock Generator (MCG) block of Kinetis devices.
+@{
+*/
+
+/*!
+@defgroup mcg_hal MCG HAL driver
+@ingroup mcg
+@details The section describes the programming interface of the MCG HAL driver.
+The multipurpose clock generator module provides several clock source choices
+for the MCU. The MCG HAL provides a set of APIs to access these registers, including
+these services:\n
+
+- OSC related APIs;
+- FLL reference clock source, divider and output frequency;
+- PLL reference clock source, divider and output frequency;
+- MCG mode related APIs;
+- MCG auto trim machine function;
+
+# OSC-related APIs {#MCGOSC}
+
+  MCG uses the OSC as an external reference clock source. To use OSC, set RANGE,
+HGO, and EREFS correctly according to the board configuration. The functions
+CLOCK_HAL_SetOsc0Mode()/CLOCK_HAL_SetOsc1Mode() are used for this purpose.
+
+  The OSC frequency is saved in global variables `g_xtal0ClkFreq`, `g_xtal1ClkFreq`
+and `g_xtalRtcClkFreq`, which are used to calculate the MCG output frequency.
+Set these variables according to the board settings.\n
+
+  MCG provides monitor for each OSC. When the OSC clock is lost, the monitor triggers
+an interrupt or a system reset. To enable the OSC monitor, use functions CLOCK_HAL_EnableXXXMonitor(),
+where XXX is the OSC name, such as Osc0, Osc1, RtcOsc.\n
+
+  For multiple OSC instances, use the CLOCK_HAL_SetOscselMode() function to choose
+which OSC to use. The CLOCK_HAL_TestOscFreq() function tests different OSCs
+frequencies according to parameters.
+
+# FLL reference clock source, divider, and output frequency. {#MCGFLL}
+
+  To use MCG FLL, ensure that the FLL reference clock, reference clock divider, and
+FLL DCO are configured correctly. The FLL reference clock divider FRDIV should
+configure the output reference clock in the range of 31.25 kHz to 39.0625 kHz.
+See the reference manual for more details. For ease-of-use, the function
+CLOCK_HAL_GetAvailableFrdiv() is used to get the proper FRDIV value.\n
+
+  MCG FLL uses either the internal clock or the external clock as a reference clock. When
+selecting the external clock, the  CLOCK_HAL_TestFllExternalRefFreq() function 
+calculates the PLL external reference clock frequency according to parameters. It
+is useful to validate the parameters before setting them to registers.\n
+
+  The CLOCK_HAL_GetFllRefClk() function returns the current FLL reference clock
+frequency. The function CLOCK_HAL_TestFllFreq() calculates the FLL output frequency
+based on the input reference clock frequency and the DCO settings. It can be used to validate
+the setting values before setting them to registers. The CLOCK_HAL_GetFllClk() function
+returns the current FLL frequency.
+
+# PLL reference clock source, divider and output frequency {#MCGPLL}
+
+  The PLL uses OSC as an external reference clock. To use MCG PLL, ensure that the
+reference clock, PRDIV, and VDIV are set correctly.\n
+
+  The register bit fields PRDIV and VDIV can be configured to generate the desired
+output frequency. See the appropriate reference manual for more information about setting values.
+For ease-of-use, the MCG HAL driver provides a function CLOCK_HAL_CalculatePllDiv().
+Based on the reference clock frequency and the desired output frequency, this function
+calculates the available PRDIV and VDIV value to ensure that the output frequency is
+as aligned as possible to the desired frequency.\n
+
+  The PLL can be enabled when the MCG is in FLL mode. Use the functions
+CLOCK_HAL_EnablePll0InFllMode() and CLOCK_HAL_EnablePll1InFllMode() to enable
+the PLL in FLL mode.\n
+
+  For some platforms, the PLL loss of lock can trigger system reset. Use the
+function CLOCK_HAL_SetPllLostLockResetCmd() to configure this feature.
+
+# MCG mode related APIs {#MQXAPI}
+
+  MCG HAL driver provides functions for mode check and mode transition.\n
+
+  The CLOCK_HAL_GetMcgMode() function gets the current MCG mode according to the MCG
+internal register.\n
+
+  Mode transition functions are defined as `CLOCK_HAL_SetXXXMode`, where `XXX` is
+the target mode name. The key register bit fields such as PRDIV, VDIV, FRDIV, and
+DMX32 should be passed as parameters to set the MCG to a specific state. If these
+parameters are invalid or can't reach the target mode directly, an error is returned.\n
+
+  If the FLL is the target mode, applications should pass a delay function, which
+ensures that the FLL is stable after changing the reference clock,
+FRDIV, DMX32, and DRS. Check the appropriate datasheet for more information about delay times.
+
+# MCG auto trim machine(ATM) function {#MCGAuto}
+
+  The auto trim machine automatically trims the MCG internal reference clock using an
+external reference clock. See the appropriate reference manual for
+more details.\n
+
+  The function CLOCK_HAL_TrimInternalRefClk() function trims the IRC clock to a
+desired frequency. The bus clock, in the range of 8-16 MHz, should be the only
+reference clock and the IRC should not be the MCGOUTCLK source. Otherwise, the
+ATM does not work and the function returns an error.\n
+
+  The MCG ATM has a flag, which indicates whether the trim fails or not. Use the functions
+CLOCK_HAL_IsAutoTrimMachineFailed() and CLOCK_HAL_ClearAutoTrimMachineFailed() to
+check and clear the flag.\n
+
+*/
+
+/*! @}*/

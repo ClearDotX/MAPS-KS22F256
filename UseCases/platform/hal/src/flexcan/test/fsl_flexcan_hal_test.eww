@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\K60_fsl_flexcan_hal_test.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\K70_fsl_flexcan_hal_test.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

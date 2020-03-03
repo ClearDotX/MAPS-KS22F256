@@ -1,0 +1,10 @@
+output
+settings
+Debug
+*.sfr
+*.dep
+kds
+iar
+uv4
+kdsgcc
+armgcc

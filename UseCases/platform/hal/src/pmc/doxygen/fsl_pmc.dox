@@ -1,0 +1,31 @@
+/*!
+
+@defgroup pmc Power Management Controller (PMC)
+@details The Kinetis SDK provides a HAL driver for the Power Management Controller (PMC) block of Kinetis devices. 
+@{
+*/
+
+/*!
+@defgroup pmc_hal PMC HAL driver
+@ingroup pmc
+@details The Power Management Controller (PMC) contains the internal voltage regulator, power
+on reset (POR), and low voltage detect system.
+
+  The PMC HAL driver provides these APIs:
+  - APIs for low voltage detection
+  - APIs for band gap setting
+  - APIs for I/O latch state
+ 
+  The low voltage detection can be configured by these functions: PMC_HAL_LowVoltDetectConfig()
+and PMC_HAL_LowVoltWarnConfig(). \n
+
+  Use the function PMC_HAL_GetLowVoltDetectFlag()/PMC_HAL_GetLowVoltWarnFlag() to check
+the low voltage detection state. Use the function PMC_HAL_SetLowVoltDetectAck()/PMC_HAL_SetLowVoltWarnAck()
+to clear the flags. \n
+
+  To configure the band gap, use the PMC_HAL_BandgapBufferConfig()function. For I/O latch
+state, use the PMC_HAL_GetAckIsolation()/PMC_HAL_ClearAckIsolation() function.
+
+*/
+
+/*! @} */

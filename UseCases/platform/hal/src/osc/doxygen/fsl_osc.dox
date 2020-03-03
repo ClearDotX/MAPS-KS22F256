@@ -1,0 +1,41 @@
+/*!
+@defgroup osc Oscillator (OSC)
+@details The Kinetis SDK provides a HAL driver for the Oscillator (OSC) block of Kinetis devices.
+@{
+*/
+
+/*!
+@defgroup osc_hal OSC HAL driver
+@ingroup osc
+@details The section describes the programming interface of the OSC HAL driver.
+The OSC module is a crystal oscillator. The module and the external crystal or resonator generate a
+reference clock for the MCU.\n
+
+The OSC HAL driver provides APIs to:
+ - Configure OSCERCLK.
+ - Configure the capacitor load.
+
+# OSCERCLK Configure APIs {#OSCOC}
+
+To enable/disable OSCERCLK, use the functions OSC_HAL_SetExternalRefClkCmd()
+and OSC_HAL_SetExternalRefClkInStopModeCmd(). These functions configure the OSCERCLK
+enabling or disabling in normal mode or stop mode.\n
+
+The function OSC_HAL_SetExternalRefClkDiv() configures the OSCERCLK divider.
+
+# Capacitor Load Configure APIs {#OSCCLC}
+
+To configure capacitor load, use the function OSC_HAL_SetCapacitor and
+pass the capacitor load as parameter. Example:
+
+~~~~~{.c}
+    #include "fsl_osc_hal.h"
+
+    // To enable only 2 pF and 8 pF capacitor load, do this:
+    OSC_HAL_SetCapacitor(OSC, kOscCapacitor2p | kOscCapacitor8p);
+
+~~~~~
+
+*/
+
+/*! @}*/

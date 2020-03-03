@@ -1,0 +1,37 @@
+/*!
+@defgroup llwu_hal Low-Leakage Wakeup Unit (LLWU)
+@details The Kinetis SDK provides a HAL driver for the Low-Leakage Wakeup Unit (LLWU) block of Kinetis devices. 
+The LLWU module allows the user to configure external wakeup pin and internal
+wakeup modules as a wakeup source from low-leakage power modes.
+
+# External Wakeup Pin APIs {#LLWuEWP}
+
+  Different platforms may have different wakeup pin assignments. Check the
+reference manual for details. The external wakeup pin can be configured with
+the function LLWU_HAL_SetExternalInputPinMode().\n
+
+  After wakeup, flags indicate which external pin is the wakeup source.
+Use the function LLWU_HAL_GetExternalPinWakeupFlag() to check the external
+pin wakeup flags. The function LLWU_HAL_ClearExternalPinWakeupFlag() clearss
+the wakeup flags. \n
+
+  For external pins, there is the pin filter. The function LLWU_HAL_SetPinFilterMode()
+configures the pin filter for a specific pin and configures the filter mode.
+
+# Internal Wakeup Module APIs {#LLWuIWM}
+
+  Different platforms may have different wakeup module assignments. Check the
+reference manual for details. The internal wakeup module can be enabled/disabled
+with the function LLWU_HAL_SetInternalModuleCmd().\n
+
+  After wakeup, flags indicate which module is the wakeup source.
+Use the function LLWU_HAL_GetInternalModuleWakeupFlag() to check the internal
+module wakeup flags. There is no API to clear internal wakeup module flags. 
+Clear the wakeup source status directly.
+
+# Reset Pin Configure APIs {#LLWuRPC}
+
+  The RESET pin can be configured as a low-leakage mode exit source. The function
+LLWU_HAL_SetResetPinMode() sets this feature and configures the RESET pin filter.
+
+*/

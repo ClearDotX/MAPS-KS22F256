@@ -1,0 +1,9 @@
+output
+settings
+iar
+uv4
+kds
+Debug
+*.sfr
+*.dep
+

@@ -1,0 +1,65 @@
+/*!
+@defgroup smc System Mode Controller (SMC)
+@details The Kinetis SDK provides both HAL and Peripheral drivers for the System Mode Controller (SMC) block of Kinetis devices.
+@{
+*/
+
+/*!
+@defgroup smc_hal SMC HAL driver
+@ingroup smc
+@details The section describes the programming interface of the SMC HAL driver.
+The System Mode Controller (SMC) sequences the system in and out of all low-power stop and run modes. 
+Specifically, it monitors events to trigger transitions between the power modes while controlling the power,
+clocks, and memories of the system to achieve the power consumption and functionality of that mode.
+It also provides a set of functions to configure the power mode protection, the power mode, and other configuration
+settings.
+
+# Power Mode Configuration APIs {#SMCPMC}
+
+  The function SMC_HAL_SetMode() configures the power mode based on the configuration.
+If it cannot switch to the target mode directly, this function performs an internal check 
+and chooses the right path.\n
+
+  If an interrupt or a reset occurs during a stop entry sequence, the SMC can abort the
+transition early without completely entering the stop mode. The function
+SMC_HAL_IsStopAbort() checks whether the previous stop mode entry was aborted.\n
+
+  To get the current power mode, use the function SMC_HAL_GetStat().
+
+This is an example of the SMC manager APIs.
+~~~~~{.c}
+    
+    #include "fsl_smc_hal.h"
+
+    // power mode configuration structure //
+    smc_power_mode_config_t smcConfig;
+
+    // power mode and option mode //
+    smcConfig.powerModeName = kPowerModeRun;    
+
+    // set the power mode //
+    SMC_HAL_SetMode(&smcConfig);
+
+~~~~~
+
+# Power Mode Protection APIs {#SMCPMP}
+  To configure the allowed power mode, use the function SMC_HAL_SetProtection()
+and pass the allowed power modes. This function should only be called once after
+system reset.\n
+
+This example shows how to use this function:
+~~~~~{.c}
+    
+    #include "fsl_smc_hal.h"
+
+    // Allow LLS mode and VLLS mode.
+    SMC_HAL_SetProtection(SMC, kAllowPowerModeLls | kAllowPowerModeVlls);
+
+~~~~~
+
+  At the same time, the function SMC_HAL_GetProtection() checks whether
+the specified modes are allowed.
+
+*/
+
+/*! @} */

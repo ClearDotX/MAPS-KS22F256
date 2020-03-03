@@ -1,0 +1,18 @@
+/*!
+@defgroup port Port Control and Interrupts (PORT)
+@details The Kinetis SDK provides a HAL driver for the Port Control and Interrupts (PORT) block of Kinetis devices.
+@{
+*/
+
+/*!
+@defgroup port_hal PORT HAL driver
+@ingroup port
+@details The section describes the programming interface of the PORT HAL driver,
+Port control and interrupts hardware driver configuration. 
+Use these functions to set port control and external interrupt functions. 
+Most functions can be configured independently for each pin in the 32-bit port and affect the pin regardless of its pin muxing state. 
+To use these functions, pass to the instance number (HW_PORTA, HW_PORTB, HW_PORTC, and so on.).
+
+*/
+
+/*! @}*/
